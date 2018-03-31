@@ -7,6 +7,7 @@ package pl.l7ssha.javasteam.test;
 // Free for open source use, all changes send back to author
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.csgo.csgoAPI;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Gamemode;
@@ -14,11 +15,22 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Interval;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class CSGOUnitTests {
+    static csgoAPI api;
+
+    @BeforeAll
+    static void getToken() throws IOException {
+        String token = Files.readAllLines(Paths.get("token.txt")).get(0);
+
+        api = new csgoAPI(token);
+    }
+
     @Test
     void csgoStatusTest() throws Exception {
-        csgoAPI api = new csgoAPI("FEE74063B07F8D2076DA550901BD29E6");
-
         ServerStatus stat = api.getGameServerStatus();
 
         Assertions.assertNotNull(stat.getApp().getTimestamp());
@@ -30,8 +42,6 @@ public class CSGOUnitTests {
 
     @Test
     void mapPlaytimeTest() throws Exception {
-        csgoAPI api = new csgoAPI("FEE74063B07F8D2076DA550901BD29E6");
-
         MapPlaytime playtime = api.getMapPlaytime(Gamemode.casual, Interval.day);
 
         Assertions.assertNotNull(playtime.getPlaytimes().get(0).getMapName());
