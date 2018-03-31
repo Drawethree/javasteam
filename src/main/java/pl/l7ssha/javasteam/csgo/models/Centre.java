@@ -10,10 +10,7 @@ public class  Centre {
     private String capacity;
     private String load;
 
-    public Centre(String capacity, String load) {
-        this.capacity = capacity;
-        this.load = load;
-    }
+    public Centre() { }
 
     public String getCapacity() {
         return capacity;

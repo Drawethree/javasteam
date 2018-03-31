@@ -12,6 +12,8 @@ public class RequestInfo {
     private long timestamp;
     private Date time;
 
+    public RequestInfo() { }
+
     public int getVersion() {
         return version;
     }
