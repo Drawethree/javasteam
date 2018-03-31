@@ -9,14 +9,14 @@ package pl.l7ssha.javasteam.test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.csgo.csgoAPI;
-import pl.l7ssha.javasteam.csgo.models.ServerStatus;
+import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 
 public class CsgoStatustest {
     @Test
     void Test2() throws Exception {
         csgoAPI api = new csgoAPI("FEE74063B07F8D2076DA550901BD29E6");
 
-        ServerStatus stat = api.getStatus();
+        ServerStatus stat = api.getGameServerStatus();
 
         Assertions.assertNotNull(stat.getApp().getTimestamp());
         Assertions.assertNotNull(stat.getDatacenters().getChinaTianjin().getLoad());

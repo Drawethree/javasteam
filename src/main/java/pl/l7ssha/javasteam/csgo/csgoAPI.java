@@ -11,9 +11,10 @@ import com.github.kittinunf.fuel.core.FuelError;
 import com.github.kittinunf.fuel.core.Request;
 import com.github.kittinunf.fuel.core.Response;
 import com.github.kittinunf.result.Result;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import kotlin.Triple;
-import pl.l7ssha.javasteam.csgo.models.ServerStatus;
+import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 
 import java.lang.reflect.Type;
 
@@ -27,14 +28,19 @@ public class csgoAPI {
         this.token = token;
     }
 
-    public ServerStatus getStatus() throws Exception {
+    public ServerStatus getGameServerStatus() throws Exception {
         ServerStatus status;
 
-        Triple<Request, Response, Result<String, FuelError>> resp = Fuel.get(String.format(serverStatusUrl, token)).responseString();
+        return (ServerStatus) deserialize(serverStatusUrl, ServerStatus.class);
+    }
+
+
+    private Object deserialize(String url, Type type) throws Exception{
+        Triple<Request, Response, Result<String, FuelError>> resp = Fuel.get(String.format(url, token)).responseString();
 
         if(resp.component3().component2() != null)
             throw new Exception(resp.component3().component2().getException());
 
-        return gson.fromJson(resp.component3().component1(), ServerStatus.class);
+        return gson.fromJson(resp.component3().component1(), type);
     }
 }

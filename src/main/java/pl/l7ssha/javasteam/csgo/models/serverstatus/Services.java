@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.csgo.models;
+package pl.l7ssha.javasteam.csgo.models.serverstatus;
 
 // pl.l7ssha.javasteam.csgo.models
 //
