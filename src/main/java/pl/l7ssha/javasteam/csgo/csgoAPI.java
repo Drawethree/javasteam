@@ -14,7 +14,6 @@ import com.github.kittinunf.result.Result;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import kotlin.Triple;
-import pl.l7ssha.javasteam.csgo.models.MapsPlaytimeDeserializer;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Interval;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;

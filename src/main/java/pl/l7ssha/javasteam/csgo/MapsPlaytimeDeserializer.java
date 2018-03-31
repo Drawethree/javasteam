@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.csgo.models;
+package pl.l7ssha.javasteam.csgo;
 
 // pl.l7ssha.javasteam.csgo.models
 //
