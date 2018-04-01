@@ -35,7 +35,7 @@ public class SteamUserTests {
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
         api = new SteamAPI(token).getSteamUserService();
-        l7ssha = api.getSteamUser(76561198122791844L);
+        l7ssha = new SteamUser(76561198122791844L);
     }
 
     @Test
