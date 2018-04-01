@@ -26,10 +26,7 @@ public class CSGOUnitTests {
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-
         api = new SteamAPI(token).getCsgoService();
-
-        System.out.println("[LOG] SteamUserTests Starting");
     }
 
     @Test

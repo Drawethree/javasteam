@@ -6,64 +6,96 @@ package pl.l7ssha.javasteam.test;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
+import pl.l7ssha.javasteam.steamuser.RichSteamUser;
+import pl.l7ssha.javasteam.steamuser.SteamUser;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
+import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@DisplayName("SteamUserService endpoint tests")
 public class SteamUserTests {
     static SteamUserService api;
-    Long l7sshaId = 76561198122791844L;
+    static ISteamUser l7ssha;
 
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-
         api = new SteamAPI(token).getSteamUserService();
-
-        System.out.println("[LOG] SteamUserTests Starting");
+        l7ssha = api.getSteamUser(76561198122791844L);
     }
 
     @Test
+    @DisplayName("Get friends")
     void friendListTest() {
-        ISteamUser l7ssha = api.getSteamUser(l7sshaId);
         List<FriendListNode> friendOfl7ssha = l7ssha.getFriendList();
 
-        Assertions.assertNotNull(l7ssha);
-        Assertions.assertNotNull(friendOfl7ssha.get(10).getFriendSince());
-        Assertions.assertNotNull(friendOfl7ssha.get(1).getRelationship());
+        assertNotNull(l7ssha);
+        assertNotNull(friendOfl7ssha.get(10).getFriendSince());
+        assertNotNull(friendOfl7ssha.get(1).getRelationship());
     }
 
     @Test
+    @DisplayName("Get friends of friend")
     void friendGetNextFriendTest() {
-        ISteamUser l7ssha = api.getSteamUser(l7sshaId);
         List<FriendListNode> friendOfl7ssha = l7ssha.getFriendList();
-
         ISteamUser someUser = friendOfl7ssha.get(13).getSteamUser();
         List<FriendListNode> someUserFriends = someUser.getFriendList();
 
-        Assertions.assertNotNull(someUser);
-        Assertions.assertNotNull(someUserFriends.get(10).getFriendSince());
-        Assertions.assertNotNull(someUserFriends.get(1).getRelationship());
+        assertNotNull(someUser);
+        assertNotNull(someUserFriends.get(10).getFriendSince());
+        assertNotNull(someUserFriends.get(1).getRelationship());
     }
 
     @Test
+    @DisplayName("Get user bans")
     void userBansTest() {
-        ISteamUser l7ssha = api.getSteamUser(l7sshaId);
         UserBans userBans = l7ssha.getUserBans();
 
-        System.out.println(userBans.DaysSinceLastBanAsDate());
+        assertNotNull(userBans.DaysSinceLastBanAsDate());
+        assertNotNull(userBans.getNumberOfGameBans());
+    }
 
-        Assertions.assertNotNull(userBans.DaysSinceLastBanAsDate());
-        Assertions.assertNotNull(userBans.getNumberOfGameBans());
+    @Test
+    @DisplayName("User summary check")
+    void userSummaryTest() {
+        UserSummary l7sshaSummary = l7ssha.getUserSummary();
+
+        assertNotNull(l7sshaSummary.getPersonaState());
+        assertNotNull(l7sshaSummary.getProfileUrl());
+    }
+
+    @Test
+    @DisplayName("User summary get user check")
+    void userSummaryGetUserTest() {
+        UserSummary l7sshaSummary = l7ssha.getUserSummary();
+        ISteamUser l7sshaAgain = l7sshaSummary.getSteamUser();
+
+        assertTrue(l7sshaAgain instanceof SteamUser);
+        assertNotNull(l7sshaAgain.getUserBans().getNumberOfGameBans());
+    }
+
+    @Test
+    @DisplayName("RichSteamUser casting")
+    void richSteamUserCasting() {
+        UserSummary l7sshaSummary = l7ssha.getUserSummary();
+
+        RichSteamUser richl7ssha = l7sshaSummary.getRichSteamUser();
+
+        assertNotNull(richl7ssha);
+        assertNotNull(richl7ssha.getNick());
     }
 }

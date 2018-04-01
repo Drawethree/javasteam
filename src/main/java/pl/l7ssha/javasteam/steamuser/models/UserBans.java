@@ -6,11 +6,16 @@ package pl.l7ssha.javasteam.steamuser.models;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
+import pl.l7ssha.javasteam.steamuser.ISteamUser;
+import pl.l7ssha.javasteam.steamuser.Userable;
+import pl.l7ssha.javasteam.steamuser.SteamUser;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class UserBans {
+public class UserBans implements Userable {
+    private Long SteamId;
     private String CommunityBanned;
     private Boolean VACBanned;
     private Long NumberOfVACBans;
@@ -47,5 +52,10 @@ public class UserBans {
 
     public String getEconomyBan() {
         return EconomyBan;
+    }
+
+    @Override
+    public ISteamUser getSteamUser() {
+        return new SteamUser(SteamId);
     }
 }

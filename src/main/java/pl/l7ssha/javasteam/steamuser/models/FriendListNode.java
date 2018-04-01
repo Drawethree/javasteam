@@ -7,12 +7,12 @@ package pl.l7ssha.javasteam.steamuser.models;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
-import pl.l7ssha.javasteam.steamuser.IUser;
+import pl.l7ssha.javasteam.steamuser.Userable;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
 
 import java.util.Date;
 
-public class FriendListNode implements IUser {
+public class FriendListNode implements Userable {
     private Long steamId;
     private String relationship;
     private Date friendSince;
@@ -27,8 +27,6 @@ public class FriendListNode implements IUser {
     public ISteamUser getSteamUser() {
         return new SteamUser(steamId);
     }
-
-    public FriendListNode() { }
 
     public Long getSteamId() {
         return steamId;
