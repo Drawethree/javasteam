@@ -11,8 +11,8 @@ import pl.l7ssha.javasteam.storefront.models.RichSteamGame;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.Responser;
 
-public class StoreFront {
-    StoreFront() { }
+public class StoreFrontService {
+    StoreFrontService() { }
 
     public RichSteamGame getFullInfoOfApp(String id) {
         return (RichSteamGame) Responser.getResponse(String.format(Links.shopGetAppUrl, id), RichSteamGame.class);

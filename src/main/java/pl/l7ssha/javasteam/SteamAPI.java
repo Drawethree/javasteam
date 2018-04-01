@@ -21,7 +21,7 @@ public class SteamAPI {
         return new SteamUserService();
     }
 
-    public StoreFront getStoreFront() {
-        return new StoreFront();
+    public StoreFrontService getStoreFront() {
+        return new StoreFrontService();
     }
 }

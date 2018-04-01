@@ -9,7 +9,7 @@ package pl.l7ssha.javasteam.test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
-import pl.l7ssha.javasteam.StoreFront;
+import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.models.BaseSteamGame;
 import pl.l7ssha.javasteam.storefront.models.RichSteamGame;
 
@@ -20,17 +20,17 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class StoreTests {
-    static StoreFront storeFront;
+    static StoreFrontService storeFrontService;
 
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-        storeFront = new SteamAPI(token).getStoreFront();
+        storeFrontService = new SteamAPI(token).getStoreFront();
     }
 
     @Test
     void getRichGameInfo() {
-        RichSteamGame csgo = storeFront.getFullInfoOfApp("730");
+        RichSteamGame csgo = storeFrontService.getFullInfoOfApp("730");
 
         assertNotNull(csgo);
         assertNotNull(csgo.getAppId());
@@ -39,7 +39,7 @@ public class StoreTests {
 
     @Test
     void getBaseGameInfo() {
-        BaseSteamGame csgo = storeFront.getBaseInfoOfApp("730");
+        BaseSteamGame csgo = storeFrontService.getBaseInfoOfApp("730");
 
         assertNotNull(csgo);
         assertNotNull(csgo.getType());
