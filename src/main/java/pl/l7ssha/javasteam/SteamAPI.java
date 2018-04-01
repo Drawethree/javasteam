@@ -6,14 +6,18 @@ package pl.l7ssha.javasteam;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-public class SteamAPI {
-    private final String API_KEY;
+import pl.l7ssha.javasteam.utils.Responser;
 
+public class SteamAPI {
     public SteamAPI(final String key) {
-        API_KEY = key;
+        Responser.setToken(key);
     }
 
     public CsgoService getCsgoService() {
-        return new CsgoService(API_KEY);
+        return new CsgoService();
+    }
+
+    public SteamUserService getSteamUserService() {
+        return new SteamUserService();
     }
 }
