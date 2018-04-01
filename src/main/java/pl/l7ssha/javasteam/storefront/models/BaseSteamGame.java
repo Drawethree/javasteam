@@ -68,10 +68,8 @@ public class BaseSteamGame {
 
     @Override
     public boolean equals(Object o) {
-        if(o instanceof BaseSteamGame) {
-            if(this.getAppId() == ((BaseSteamGame)o).getAppId())
-                return true;
-        }
+        if(o instanceof BaseSteamGame)
+            return this.getAppId() == ((BaseSteamGame)o).getAppId();
 
         return false;
     }

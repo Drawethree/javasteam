@@ -71,4 +71,17 @@ public class RichSteamUser implements ISteamUser, Userable {
     public ISteamUser getSteamUser() {
         return this;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof RichSteamUser)
+            return this.steamId.equals(((RichSteamUser)o).getSteamId());
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%s", this.steamId, this.nick);
+    }
 }
