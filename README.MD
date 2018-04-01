@@ -2,7 +2,7 @@
 
 ~~(Almost)~~ complete Steam API wrapper for JVM
 
-## Endpoint covered
+## Endpoints covered
 
 | Name | Endpoint |
 | ---- | -------- |
@@ -14,3 +14,7 @@
 | ---- | -------- |
 | CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
 | Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
+
+| Name | Endpoint |
+| ---- | -------- |
+| Apps Info | `https://store.steampowered.com/api/appdetails/` |
