@@ -12,17 +12,17 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.utils.Responser;
 
-public class CsgoService {
-    private final String serverStatusUrl = "https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key=";
-    private final String mapPlaytimeUrl = "https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/?format=json&interval=%s&gamemode=%s&mapgroup=operation&key=";
+import static pl.l7ssha.javasteam.utils.Links.mapPlaytimeUrl;
+import static pl.l7ssha.javasteam.utils.Links.serverStatusUrl;
 
+public class CsgoService {
     CsgoService() { }
 
     public ServerStatus getGameServerStatus() throws Exception {
         return (ServerStatus) Responser.getResponse(serverStatusUrl, ServerStatus.class);
     }
 
-    public MapPlaytime getMapPlaytime(Gamemode mode, Interval interval) throws Exception {
+    public MapPlaytime getMapPlaytime(Gamemode mode, Interval interval) {
         return (MapPlaytime) Responser.getResponse(String.format(mapPlaytimeUrl, interval.toString(), mode.toString()), MapPlaytime.class);
     }
 }
