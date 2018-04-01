@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-class ServerStatusDeserializer implements JsonDeserializer<ServerStatus> {
+public class ServerStatusDeserializer implements JsonDeserializer<ServerStatus> {
 
     @Override
     public ServerStatus deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

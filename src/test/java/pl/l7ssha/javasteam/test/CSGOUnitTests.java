@@ -9,7 +9,8 @@ package pl.l7ssha.javasteam.test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pl.l7ssha.javasteam.csgo.csgoAPI;
+import pl.l7ssha.javasteam.CsgoService;
+import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Interval;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
@@ -20,13 +21,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class CSGOUnitTests {
-    static csgoAPI api;
+    static CsgoService api;
 
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
 
-        api = new csgoAPI(token);
+        api = new SteamAPI(token).getCsgoService();
     }
 
     @Test

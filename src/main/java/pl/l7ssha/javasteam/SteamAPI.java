@@ -6,8 +6,6 @@ package pl.l7ssha.javasteam;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-import pl.l7ssha.javasteam.csgo.csgoAPI;
-
 public class SteamAPI {
     private final String API_KEY;
 
@@ -15,9 +13,7 @@ public class SteamAPI {
         API_KEY = key;
     }
 
-    public csgoAPI getCSGO() {
-        return new csgoAPI(API_KEY);
+    public CsgoService getCsgoService() {
+        return new CsgoService(API_KEY);
     }
-
-
 }
