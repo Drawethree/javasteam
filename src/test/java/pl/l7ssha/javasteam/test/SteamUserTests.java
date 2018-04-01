@@ -93,7 +93,7 @@ public class SteamUserTests {
     void richSteamUserCasting() {
         UserSummary l7sshaSummary = l7ssha.getUserSummary();
 
-        RichSteamUser richl7ssha = l7sshaSummary.getRichSteamUser();
+        RichSteamUser richl7ssha = RichSteamUser.of(l7sshaSummary);
 
         assertNotNull(richl7ssha);
         assertNotNull(richl7ssha.getNick());

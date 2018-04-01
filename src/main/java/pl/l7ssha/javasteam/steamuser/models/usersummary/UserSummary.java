@@ -10,7 +10,7 @@ import pl.l7ssha.javasteam.steamuser.*;
 
 import java.util.Date;
 
-public class UserSummary implements Userable, Richable {
+public class UserSummary implements Userable {
     private Long steamid;
     private ProfileVisibilityState profileVisibilityState;
     private PersonaState personaState;
@@ -116,10 +116,5 @@ public class UserSummary implements Userable, Richable {
     @Override
     public ISteamUser getSteamUser() {
        return new SteamUser(steamid);
-    }
-
-    @Override
-    public RichSteamUser getRichSteamUser() {
-        return new RichSteamUser(this);
     }
 }

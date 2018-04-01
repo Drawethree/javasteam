@@ -25,7 +25,11 @@ public class RichSteamUser implements ISteamUser, Userable {
     private String fullName;
     private String avatarUrl;
 
-    public RichSteamUser(UserSummary summary) {
+    public static RichSteamUser of(UserSummary summary) {
+       return new RichSteamUser(summary);
+    }
+
+    private RichSteamUser(UserSummary summary) {
         steamId = summary.getSteamid();
         nick = summary.getNick();
         fullName = summary.getRealname();
