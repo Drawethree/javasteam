@@ -14,17 +14,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
-junitPlatform {
-    filters {
-        engines {
-            include 'junit-jupiter', 'junit-vintage'
-        }
-        tags {
-            exclude 'slow'
-        }
-    }
-}
-
 repositories {
     mavenCentral()
     jcenter()
@@ -33,10 +22,10 @@ repositories {
 dependencies {
     testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+
     compile 'com.github.kevinsawicki:http-request:6.0'
     compile 'com.google.code.gson:gson:2.8.2'
 }
-
 
 task fatjar(type: Jar) {
     baseName = "JavaSteamFat"
