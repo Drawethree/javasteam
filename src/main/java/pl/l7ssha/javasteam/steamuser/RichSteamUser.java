@@ -14,19 +14,38 @@ import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 import java.util.ArrayList;
 import java.util.List;
 
-import static pl.l7ssha.javasteam.utils.Links.*;
+import static pl.l7ssha.javasteam.utils.Links.friendListUrl;
+import static pl.l7ssha.javasteam.utils.Links.userBansurl;
+import static pl.l7ssha.javasteam.utils.Links.userSummaryUrl;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
-public class SteamUser implements ISteamUser, Userable {
+public class RichSteamUser implements ISteamUser, Userable {
+    private Long steamId;
+    private String nick;
+    private String fullName;
+    private String avatarUrl;
 
-    private final Long steamId;
-
-    public SteamUser(Long id) {
-        steamId = id;
+    public RichSteamUser(UserSummary summary) {
+        steamId = summary.getSteamid();
+        nick = summary.getNick();
+        fullName = summary.getRealname();
+        avatarUrl = summary.getAvatar();
     }
 
     public Long getSteamId() {
         return steamId;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
     @Override

@@ -16,8 +16,10 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
+import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
+import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -29,6 +31,7 @@ public class Responser {
             .registerTypeAdapter(MapPlaytime.class, new MapsPlaytimeDeserializer())
             .registerTypeAdapter(new TypeToken<List<FriendListNode>>() { }.getType(), new FriendListDeserializer())
             .registerTypeAdapter(UserBans.class, new UserBansDeserializer())
+            .registerTypeAdapter(UserSummary.class, new UserSumaryDeserializer())
             .create();
 
     private static String token = "";

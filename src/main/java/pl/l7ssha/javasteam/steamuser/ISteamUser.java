@@ -8,10 +8,12 @@ package pl.l7ssha.javasteam.steamuser;
 
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
+import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 
 import java.util.List;
 
 public interface ISteamUser {
     List<FriendListNode> getFriendList();
     UserBans getUserBans();
+    UserSummary getUserSummary();
 }
