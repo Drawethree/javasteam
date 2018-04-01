@@ -18,7 +18,6 @@ import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class SteamUser implements ISteamUser, Userable {
-
     private final Long steamId;
 
     public SteamUser(Long id) {
@@ -47,5 +46,18 @@ public class SteamUser implements ISteamUser, Userable {
     @Override
     public ISteamUser getSteamUser() {
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+       if(o instanceof SteamUser)
+           return this.steamId.equals(((SteamUser)o).getSteamId());
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", this.steamId);
     }
 }
