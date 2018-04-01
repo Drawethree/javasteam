@@ -11,4 +11,5 @@ public class Links {
     public static final String userBansurl = "https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?format=json&steamids=%s&key=";
     public static final String userSummaryUrl = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?format=json&steamids=%s&key=";
 
+    public static final String shopGetAppUrl = "https://store.steampowered.com/api/appdetails/?appids=%s&key=";
 }
