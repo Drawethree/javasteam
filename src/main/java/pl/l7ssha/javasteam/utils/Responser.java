@@ -20,8 +20,8 @@ import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
 import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
-import pl.l7ssha.javasteam.storefront.models.RichSteamGame;
-import pl.l7ssha.javasteam.storefront.models.SteamGameDeserializer;
+import pl.l7ssha.javasteam.storefront.RichSteamGame;
+import pl.l7ssha.javasteam.storefront.SteamGameDeserializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

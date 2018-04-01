@@ -10,8 +10,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.StoreFrontService;
-import pl.l7ssha.javasteam.storefront.models.BaseSteamGame;
-import pl.l7ssha.javasteam.storefront.models.RichSteamGame;
+import pl.l7ssha.javasteam.storefront.BaseSteamGame;
+import pl.l7ssha.javasteam.storefront.RichSteamGame;
 
 import java.io.IOException;
 import java.nio.file.Files;
