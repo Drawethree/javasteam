@@ -26,4 +26,4 @@
 | Apps Info | `https://store.steampowered.com/api/appdetails/` |
 | Featured Apps | `https://store.steampowered.com/api/featured/` |
 | Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
-
+| Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
