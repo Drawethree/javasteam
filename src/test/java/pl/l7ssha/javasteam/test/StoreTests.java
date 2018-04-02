@@ -13,6 +13,7 @@ import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.BaseSteamGame;
 import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.models.featured.StoreFeatured;
+import pl.l7ssha.javasteam.storefront.models.featured.StoreFeaturedCategories;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -56,5 +57,13 @@ public class StoreTests {
 
         assertNotNull(featured.getFeaturedMac().get(0).getHeaderImage());
         assertNotNull(featured.getFeaturedWin().get(2).getCurrency());
+    }
+
+    @Test
+    void getStoreFeaturedCategories() {
+        StoreFeaturedCategories featuredCategories = storeFrontService.getStoreFeaturedCategories();
+
+        assertNotNull(featuredCategories.getThird().getName());
+        assertNotNull(featuredCategories.getFirst().getSpotlightItems().get(0).getName());
     }
 }

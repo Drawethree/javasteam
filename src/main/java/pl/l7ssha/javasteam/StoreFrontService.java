@@ -9,6 +9,7 @@ package pl.l7ssha.javasteam;
 import pl.l7ssha.javasteam.storefront.BaseSteamGame;
 import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.models.featured.StoreFeatured;
+import pl.l7ssha.javasteam.storefront.models.featured.StoreFeaturedCategories;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.Responser;
 
@@ -25,5 +26,9 @@ public class StoreFrontService {
 
     public StoreFeatured getStoreFeatured() {
         return (StoreFeatured) Responser.getResponse(Links.shopFeaturedApps, StoreFeatured.class);
+    }
+
+    public StoreFeaturedCategories getStoreFeaturedCategories() {
+        return (StoreFeaturedCategories) Responser.getResponse(Links.shopFeaturedCategories, StoreFeaturedCategories.class);
     }
 }
