@@ -15,6 +15,7 @@ public class Special extends ShopNode {
 
     public Special() { }
 
+    // Expiration date to fill
     public List<FeaturedItem> getFeaturedItems() {
         return featuredItems;
     }
