@@ -42,6 +42,7 @@ public class StoreTests {
 
         assertNotNull(csgo);
         assertNotNull(csgo.getType());
+        assertNotNull(csgo.getType());
         assertNotNull(csgo.getReleaseDate().getDate());
         assertNotNull(csgo.getPublishers().get(0));
     }
