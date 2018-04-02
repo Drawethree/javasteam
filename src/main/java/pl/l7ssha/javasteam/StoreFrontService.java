@@ -6,8 +6,9 @@ package pl.l7ssha.javasteam;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-import pl.l7ssha.javasteam.storefront.models.BaseSteamGame;
-import pl.l7ssha.javasteam.storefront.models.RichSteamGame;
+import pl.l7ssha.javasteam.storefront.BaseSteamGame;
+import pl.l7ssha.javasteam.storefront.RichSteamGame;
+import pl.l7ssha.javasteam.storefront.models.featured.StoreFeatured;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.Responser;
 
@@ -20,5 +21,9 @@ public class StoreFrontService {
 
     public BaseSteamGame getBaseInfoOfApp(String id) {
         return (BaseSteamGame) Responser.getResponse(String.format(Links.shopGetAppUrl, id), RichSteamGame.class);
+    }
+
+    public StoreFeatured getStoreFeatured() {
+        return (StoreFeatured) Responser.getResponse(Links.shopFeaturedApps, StoreFeatured.class);
     }
 }

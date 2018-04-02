@@ -19,4 +19,5 @@ public class Links {
 
     // STORE
     public static final String shopGetAppUrl = "https://store.steampowered.com/api/appdetails/?appids=%s&key=";
+    public static final String shopFeaturedApps = "http://store.steampowered.com/api/featured/?key=";
 }

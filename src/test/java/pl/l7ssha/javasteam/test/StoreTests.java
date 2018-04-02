@@ -12,6 +12,7 @@ import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.BaseSteamGame;
 import pl.l7ssha.javasteam.storefront.RichSteamGame;
+import pl.l7ssha.javasteam.storefront.models.featured.StoreFeatured;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,5 +45,16 @@ public class StoreTests {
         assertNotNull(csgo);
         assertNotNull(csgo.getType());
         assertNotNull(csgo.getPublishers().get(0));
+    }
+
+    @Test
+    void getStoreFeatured() {
+        StoreFeatured featured = storeFrontService.getStoreFeatured();
+
+        assertNotNull(featured.getFeaturedLinux());
+        assertNotNull(featured.getLargeCapsules());
+
+        assertNotNull(featured.getFeaturedMac().get(0).getHeaderImage());
+        assertNotNull(featured.getFeaturedWin().get(2).getCurrency());
     }
 }
