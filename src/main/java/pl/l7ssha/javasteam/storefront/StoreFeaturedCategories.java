@@ -10,18 +10,23 @@ import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.storefront.models.featured.DailyDeal;
 import pl.l7ssha.javasteam.storefront.models.featured.Special;
 import pl.l7ssha.javasteam.storefront.models.featured.Spotlight;
+import pl.l7ssha.javasteam.utils.annotation.Nullable;
 
 public class StoreFeaturedCategories {
 
+    @Nullable
     @SerializedName("0")
     private Spotlight first;
 
+    @Nullable
     @SerializedName("1")
     private Spotlight second;
 
+    @Nullable
     @SerializedName("2")
     private Spotlight third;
 
+    @Nullable
     @SerializedName("3")
     private DailyDeal dailyDeal;
 
