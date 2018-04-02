@@ -25,4 +25,34 @@ public class PackageGroup {
 
     @SerializedName("subs")
     private List<PackageSubscription> subscriptions;
+
+    public PackageGroup() { }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getSelectionText() {
+        return selectionText;
+    }
+
+    public int getDisplayType() {
+        return displayType;
+    }
+
+    public boolean isRecurringSubscription() {
+        return isRecurringSubscription;
+    }
+
+    public List<PackageSubscription> getSubscriptions() {
+        return subscriptions;
+    }
 }

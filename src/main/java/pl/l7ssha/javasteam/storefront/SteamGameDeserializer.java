@@ -9,25 +9,14 @@ package pl.l7ssha.javasteam.storefront;
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
-import java.util.Map;
+
+import static pl.l7ssha.javasteam.utils.Responser.deserializeObjectWithCancer;
 
 public class SteamGameDeserializer implements JsonDeserializer<RichSteamGame> {
 
     @Override
     public RichSteamGame deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        JsonObject base = json.getAsJsonObject();
-
-        JsonElement firstGame = null;
-
-        for(Map.Entry<String, JsonElement> ent: base.entrySet()) {
-            firstGame = ent.getValue();
-            break;
-        }
-
-        if(firstGame == null)
-            return null;
-
-        JsonElement firstData = firstGame.getAsJsonObject().get("data");
+        JsonElement firstData = deserializeObjectWithCancer(json);
 
         return new Gson().fromJson(firstData, RichSteamGame.class);
     }

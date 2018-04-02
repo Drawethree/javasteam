@@ -9,16 +9,17 @@ package pl.l7ssha.javasteam.storefront.models.steamgame;
 import com.google.gson.annotations.SerializedName;
 
 public class ReleaseDate {
-    @SerializedName("comming_soon")
-    private boolean commingSoon;
+    @SerializedName("coming_soon")
+    private boolean comingSoon;
 
+    @SerializedName("date")
     private String date;
     //private Date date;
 
     public ReleaseDate() { }
 
-    public boolean isCommingSoon() {
-        return commingSoon;
+    public boolean isComingSoon() {
+        return comingSoon;
     }
 
     public String getDate() {

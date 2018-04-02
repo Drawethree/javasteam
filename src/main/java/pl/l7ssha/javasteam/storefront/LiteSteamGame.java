@@ -14,12 +14,8 @@ import pl.l7ssha.javasteam.storefront.models.store.PriceOverview;
 
 import java.util.List;
 
-public class BaseSteamGame {
+public class LiteSteamGame extends SteamGame {
     private GameType type;
-    private String name;
-
-    @SerializedName("steam_appid")
-    private long appId;
 
     private List<String> developers;
     private List<String> publishers;
@@ -32,18 +28,10 @@ public class BaseSteamGame {
     @SerializedName("release_date")
     private ReleaseDate releaseDate;
 
-    public BaseSteamGame() { }
+    public LiteSteamGame() { }
 
     public GameType getType() {
         return type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public long getAppId() {
-        return appId;
     }
 
     public List<String> getDevelopers() {
@@ -68,8 +56,8 @@ public class BaseSteamGame {
 
     @Override
     public boolean equals(Object o) {
-        if(o instanceof BaseSteamGame)
-            return this.getAppId() == ((BaseSteamGame)o).getAppId();
+        if(o instanceof LiteSteamGame)
+            return this.getAppId() == ((LiteSteamGame)o).getAppId();
 
         return false;
     }

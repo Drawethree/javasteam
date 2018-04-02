@@ -14,7 +14,7 @@ import pl.l7ssha.javasteam.storefront.models.store.storevideo.StoreVideo;
 
 import java.util.List;
 
-public class RichSteamGame extends BaseSteamGame {
+public class RichSteamGame extends LiteSteamGame {
     @SerializedName("required_age")
     private int RequiredAge;
 

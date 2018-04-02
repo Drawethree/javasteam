@@ -9,6 +9,8 @@ package pl.l7ssha.javasteam.utils;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.csgo.MapsPlaytimeDeserializer;
 import pl.l7ssha.javasteam.csgo.ServerStatusDeserializer;
@@ -22,10 +24,13 @@ import pl.l7ssha.javasteam.steamuser.models.UserBans;
 import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGameDeserializer;
+import pl.l7ssha.javasteam.storefront.StorePackage;
+import pl.l7ssha.javasteam.storefront.StorePackageDeserializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 public class Responser {
     private static Gson gson = new GsonBuilder()
@@ -35,6 +40,7 @@ public class Responser {
             .registerTypeAdapter(UserBans.class, new UserBansDeserializer())
             .registerTypeAdapter(UserSummary.class, new UserSumaryDeserializer())
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
+            .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
             .create();
 
     private static String token = "";
@@ -51,5 +57,20 @@ public class Responser {
         }
 
         return gson.fromJson(req.body(), type);
+    }
+
+    public static JsonElement deserializeObjectWithCancer(JsonElement json) {
+        JsonObject base = json.getAsJsonObject();
+        JsonElement firstGame = null;
+
+        for(Map.Entry<String, JsonElement> ent: base.entrySet()) {
+            //System.out.println(ent.getKey());
+            firstGame = ent.getValue();
+        }
+
+        if(firstGame == null)
+            return null;
+
+        return firstGame.getAsJsonObject().get("data");
     }
 }
