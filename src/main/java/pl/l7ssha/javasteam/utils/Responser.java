@@ -43,10 +43,6 @@ public class Responser {
         Responser.token = token;
     }
 
-    public static Gson getGson() {
-        return gson;
-    }
-
     public static Object getResponse(String url, Type type) {
         HttpRequest req = HttpRequest.get((url + token));
 
