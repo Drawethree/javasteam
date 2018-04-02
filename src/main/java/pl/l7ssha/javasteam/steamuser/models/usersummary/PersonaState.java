@@ -6,7 +6,13 @@ package pl.l7ssha.javasteam.steamuser.models.usersummary;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 public enum PersonaState {
-    Offline(0), Online(1), Busy(2), Away(3), Snooze(4), LookingForTrade(5), LookingForPlay(6);
+    OFFLINE(0),
+    ONLINE(1),
+    BUSY(2),
+    AWAY(3),
+    SNOOZE(4),
+    LOOKING_FOR_TRADE(5),
+    LOOKING_TO_PLAY(6);
 
     private int value;
 

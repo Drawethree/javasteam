@@ -6,7 +6,11 @@ package pl.l7ssha.javasteam.storefront.models.steamgame;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
+import com.google.gson.annotations.SerializedName;
+
 public enum ControllerSupport {
-    partial,
-    full
+    @SerializedName("partial")
+    PARTIAL,
+    @SerializedName("full")
+    FULL
 }

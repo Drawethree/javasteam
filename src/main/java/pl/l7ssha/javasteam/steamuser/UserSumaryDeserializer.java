@@ -25,7 +25,7 @@ public class UserSumaryDeserializer implements JsonDeserializer<UserSummary> {
         JsonElement base = json.getAsJsonObject().get("response").getAsJsonObject().get("players").getAsJsonArray().get(0);
 
         Long steamId = base.getAsJsonObject().get("steamid").getAsLong();
-        ProfileVisibilityState profileVisibilityState = ProfileVisibilityState.values()[base.getAsJsonObject().get("communityvisibilitystate").getAsInt()];
+        ProfileVisibilityState profileVisibilityState = ProfileVisibilityState.of(base.getAsJsonObject().get("communityvisibilitystate").getAsInt());
         PersonaState personaState = PersonaState.values()[base.getAsJsonObject().get("personastate").getAsInt()];
         boolean profileState = base.getAsJsonObject().get("profilestate").getAsBoolean();
         String nick = base.getAsJsonObject().get("personaname").getAsString();

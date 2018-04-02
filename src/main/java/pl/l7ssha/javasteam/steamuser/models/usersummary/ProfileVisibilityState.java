@@ -6,8 +6,9 @@ package pl.l7ssha.javasteam.steamuser.models.usersummary;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-public enum  ProfileVisibilityState {
-    Private(0), Dunno(1), Null(2), Public(3);
+public enum ProfileVisibilityState {
+    PRIVATE(0),
+    PUBLIC(3);
 
     private int value;
 
@@ -17,5 +18,16 @@ public enum  ProfileVisibilityState {
 
     public int getValue() {
         return value;
+    }
+
+    public static ProfileVisibilityState of(int value) {
+        switch(value) {
+            case 0:
+                return ProfileVisibilityState.PRIVATE;
+            case 3:
+                return ProfileVisibilityState.PUBLIC;
+            default:
+                return ProfileVisibilityState.PRIVATE;
+        }
     }
 }

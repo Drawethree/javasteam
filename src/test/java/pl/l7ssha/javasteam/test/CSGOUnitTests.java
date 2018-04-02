@@ -42,7 +42,7 @@ public class CSGOUnitTests {
 
     @Test
     void mapPlaytimeTest() throws Exception {
-        MapPlaytime playtime = api.getMapPlaytime(Gamemode.casual, Interval.day);
+        MapPlaytime playtime = api.getMapPlaytime(Gamemode.CASUAL, Interval.DAY);
 
         Assertions.assertNotNull(playtime.getPlaytimes().get(0).getMapName());
         Assertions.assertNotNull(playtime.getKeys().get(1));
