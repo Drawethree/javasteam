@@ -19,7 +19,7 @@ import static pl.l7ssha.javasteam.utils.Links.userBansurl;
 import static pl.l7ssha.javasteam.utils.Links.userSummaryUrl;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
-public class RichSteamUser implements ISteamUser, Userable {
+public class RichSteamUser implements ISteamUser {
     private Long steamId;
     private String nick;
     private String fullName;
@@ -65,11 +65,6 @@ public class RichSteamUser implements ISteamUser, Userable {
     @Override
     public UserSummary getUserSummary() {
         return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
-    }
-
-    @Override
-    public ISteamUser getSteamUser() {
-        return this;
     }
 
     @Override

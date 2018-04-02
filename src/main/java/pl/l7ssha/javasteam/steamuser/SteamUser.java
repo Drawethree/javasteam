@@ -17,7 +17,7 @@ import java.util.List;
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
-public class SteamUser implements ISteamUser, Userable {
+public class SteamUser implements ISteamUser {
     private final Long steamId;
 
     public SteamUser(Long id) {
@@ -41,11 +41,6 @@ public class SteamUser implements ISteamUser, Userable {
     @Override
     public UserSummary getUserSummary() {
         return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
-    }
-
-    @Override
-    public ISteamUser getSteamUser() {
-        return this;
     }
 
     @Override
