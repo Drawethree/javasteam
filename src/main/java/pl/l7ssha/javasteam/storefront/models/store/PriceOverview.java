@@ -26,11 +26,11 @@ public class PriceOverview {
         return currency;
     }
 
-    public int getInitialPrice() {
+    public double getInitialPrice() {
         return initialPrice / 100;
     }
 
-    public int getFinalPrice() {
+    public double getFinalPrice() {
         return finalPrice / 100;
     }
 
