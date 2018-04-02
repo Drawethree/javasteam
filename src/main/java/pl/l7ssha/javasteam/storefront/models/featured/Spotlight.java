@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Spotlight extends ShopNode{
+public class Spotlight extends ShopNode {
     @SerializedName("items")
     private List<SpotlightItem> spotlightItems;
 

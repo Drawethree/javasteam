@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.storefront.models.featured;
+package pl.l7ssha.javasteam.storefront;
 
 // pl.l7ssha.javasteam.storefront.models.featured
 //
@@ -7,6 +7,9 @@ package pl.l7ssha.javasteam.storefront.models.featured;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.storefront.models.featured.DailyDeal;
+import pl.l7ssha.javasteam.storefront.models.featured.Special;
+import pl.l7ssha.javasteam.storefront.models.featured.Spotlight;
 
 public class StoreFeaturedCategories {
 
