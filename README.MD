@@ -4,17 +4,26 @@
 
 ## Endpoints covered
 
+### CS:GO
+
 | Name | Endpoint |
 | ---- | -------- |
 | Friend List Endpoint | `https://api.steampowered.com/ISteamUser/getFriendList/v1/` |
 | User Ban Data | `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/` |
 | User Summary | `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/` |
 
+### USER
+
 | Name | Endpoint |
 | ---- | -------- |
 | CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
 | Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
 
+
+### STEAM STORE
 | Name | Endpoint |
 | ---- | -------- |
 | Apps Info | `https://store.steampowered.com/api/appdetails/` |
+| Featured Apps | `https://store.steampowered.com/api/featured/` |
+| Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
+
