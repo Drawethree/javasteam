@@ -6,29 +6,31 @@ package pl.l7ssha.javasteam;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-import pl.l7ssha.javasteam.storefront.BaseSteamGame;
-import pl.l7ssha.javasteam.storefront.RichSteamGame;
-import pl.l7ssha.javasteam.storefront.StoreFeatured;
-import pl.l7ssha.javasteam.storefront.StoreFeaturedCategories;
-import pl.l7ssha.javasteam.utils.Links;
-import pl.l7ssha.javasteam.utils.Responser;
+import pl.l7ssha.javasteam.storefront.*;
+
+import static pl.l7ssha.javasteam.utils.Links.*;
+import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class StoreFrontService {
     StoreFrontService() { }
 
     public RichSteamGame getFullInfoOfApp(String id) {
-        return (RichSteamGame) Responser.getResponse(String.format(Links.shopGetAppUrl, id), RichSteamGame.class);
+        return (RichSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
     }
 
-    public BaseSteamGame getBaseInfoOfApp(String id) {
-        return (BaseSteamGame) Responser.getResponse(String.format(Links.shopGetAppUrl, id), RichSteamGame.class);
+    public LiteSteamGame getBaseInfoOfApp(String id) {
+        return (LiteSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
     }
 
     public StoreFeatured getStoreFeatured() {
-        return (StoreFeatured) Responser.getResponse(Links.shopFeaturedApps, StoreFeatured.class);
+        return (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class);
     }
 
     public StoreFeaturedCategories getStoreFeaturedCategories() {
-        return (StoreFeaturedCategories) Responser.getResponse(Links.shopFeaturedCategories, StoreFeaturedCategories.class);
+        return (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class);
+    }
+
+    public StorePackage getStorePackageInfo(String id) {
+        return (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class);
     }
 }

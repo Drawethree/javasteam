@@ -10,10 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.StoreFrontService;
-import pl.l7ssha.javasteam.storefront.BaseSteamGame;
-import pl.l7ssha.javasteam.storefront.RichSteamGame;
-import pl.l7ssha.javasteam.storefront.StoreFeatured;
-import pl.l7ssha.javasteam.storefront.StoreFeaturedCategories;
+import pl.l7ssha.javasteam.storefront.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,10 +38,11 @@ public class StoreTests {
 
     @Test
     void getBaseGameInfo() {
-        BaseSteamGame csgo = storeFrontService.getBaseInfoOfApp("730");
+        LiteSteamGame csgo = storeFrontService.getBaseInfoOfApp("730");
 
         assertNotNull(csgo);
         assertNotNull(csgo.getType());
+        assertNotNull(csgo.getReleaseDate().getDate());
         assertNotNull(csgo.getPublishers().get(0));
     }
 
@@ -63,7 +61,21 @@ public class StoreTests {
     void getStoreFeaturedCategories() {
         StoreFeaturedCategories featuredCategories = storeFrontService.getStoreFeaturedCategories();
 
-        assertNotNull(featuredCategories.getThird().getName());
+        assertNotNull(featuredCategories.getFirst().getName());
         assertNotNull(featuredCategories.getFirst().getSpotlightItems().get(0).getName());
     }
+
+    @Test
+    void packageTest() {
+        StorePackage randomPackage = storeFrontService.getStorePackageInfo("253662");
+
+        assertNotNull(randomPackage.getReleaseDate().getDate());
+        //System.out.println(randomPackage.getReleaseDate().getDate());
+
+        //assertNotNull(randomPackage.getControllerSupport());
+        // System.out.println(randomPackage.getControllerSupport());
+        assertNotNull(randomPackage.getPrice().getCurrency());
+        assertNotNull(randomPackage.getApps());
+    }
 }
+
