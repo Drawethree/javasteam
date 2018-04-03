@@ -27,3 +27,4 @@
 | Featured Apps | `https://store.steampowered.com/api/featured/` |
 | Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
 | Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
+| VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
