@@ -1,19 +1,9 @@
 package pl.l7ssha.javasteam.steamuser;
 
-import com.google.gson.reflect.TypeToken;
-import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
-import pl.l7ssha.javasteam.steamuser.models.UserBans;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.Responser;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlType;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static pl.l7ssha.javasteam.utils.Links.*;
-import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 // pl.l7ssha.javasteam.steamuser
 //
@@ -21,8 +11,7 @@ import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-public class NamedSteamUser implements ISteamUser {
-    private Long steamId;
+public class NamedSteamUser extends SteamUser {
     private String nick;
 
     public NamedSteamUser(String nick) {
@@ -36,20 +25,5 @@ public class NamedSteamUser implements ISteamUser {
 
     public String getNick() {
         return nick;
-    }
-
-    @Override
-    public List<FriendListNode> getFriendList() {
-        return (ArrayList<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
-    }
-
-    @Override
-    public UserBans getUserBans() {
-        return (UserBans) getResponse(String.format(userBansurl, steamId), UserBans.class);
-    }
-
-    @Override
-    public UserSummary getUserSummary() {
-        return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
     }
 }
