@@ -9,6 +9,7 @@ package pl.l7ssha.javasteam;
 import pl.l7ssha.javasteam.storefront.*;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.models.news.News;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -66,5 +67,13 @@ public class StoreFrontService {
 
     public CompletableFuture<GameList> searchStoreAsync(GameListQuery query) {
         return CompletableFuture.supplyAsync(() -> searchStore(query));
+    }
+
+    public News getNewsForApp(String id, int count) {
+        return (News) getResponse(String.format(newsForApp, id, count), News.class);
+    }
+
+    public CompletableFuture<News> getNewsForAppAsync(String id, int count) {
+        return CompletableFuture.supplyAsync(() -> getNewsForApp(id, count));
     }
 }

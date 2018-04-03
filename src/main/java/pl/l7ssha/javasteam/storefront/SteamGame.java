@@ -7,6 +7,12 @@ package pl.l7ssha.javasteam.storefront;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.storefront.models.news.News;
+
+import java.util.concurrent.CompletableFuture;
+
+import static pl.l7ssha.javasteam.utils.Links.newsForApp;
+import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class SteamGame {
     protected String name;
@@ -22,6 +28,14 @@ public class SteamGame {
 
     public long getAppId() {
         return appId;
+    }
+
+    public News getNews(int count) {
+        return (News) getResponse(String.format(newsForApp, appId, count), News.class);
+    }
+
+    public CompletableFuture<News> getNewsAsync(String id, int count) {
+        return CompletableFuture.supplyAsync(() -> getNews(count));
     }
 
     @Override
