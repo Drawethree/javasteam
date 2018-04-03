@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.friendListUrl;
-import static pl.l7ssha.javasteam.utils.Links.userBansurl;
+import static pl.l7ssha.javasteam.utils.Links.userBansUrl;
 import static pl.l7ssha.javasteam.utils.Links.userSummaryUrl;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
@@ -43,12 +43,12 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public UserBans getUserBans() {
-        return (UserBans) getResponse(String.format(userBansurl, steamId), UserBans.class);
+        return (UserBans) getResponse(String.format(userBansUrl, steamId), UserBans.class);
     }
 
     @Override
     public CompletableFuture<UserBans> getUserBansAsync() {
-        return CompletableFuture.supplyAsync(() -> (UserBans) getResponse(String.format(userBansurl, steamId), UserBans.class));
+        return CompletableFuture.supplyAsync(() -> (UserBans) getResponse(String.format(userBansUrl, steamId), UserBans.class));
     }
 
     @Override
