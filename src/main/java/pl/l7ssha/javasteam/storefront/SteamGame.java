@@ -23,4 +23,17 @@ public class SteamGame {
     public long getAppId() {
         return appId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof SteamGame)
+            return this.getAppId() == ((SteamGame)o).getAppId();
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%s", this.appId, this.name);
+    }
 }

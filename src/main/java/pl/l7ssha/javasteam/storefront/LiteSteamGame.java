@@ -53,17 +53,4 @@ public class LiteSteamGame extends SteamGame {
     public ReleaseDate getReleaseDate() {
         return releaseDate;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if(o instanceof LiteSteamGame)
-            return this.getAppId() == ((LiteSteamGame)o).getAppId();
-
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s,%s", this.appId, this.name);
-    }
 }
