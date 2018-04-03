@@ -38,7 +38,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public CompletableFuture<List<FriendListNode>> getFriendListAsync() {
-        return CompletableFuture.supplyAsync(() -> (ArrayList<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType()));
+        return CompletableFuture.supplyAsync(this::getFriendList);
     }
 
     @Override
@@ -48,7 +48,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public CompletableFuture<UserBans> getUserBansAsync() {
-        return CompletableFuture.supplyAsync(() -> (UserBans) getResponse(String.format(userBansUrl, steamId), UserBans.class));
+        return CompletableFuture.supplyAsync(() -> (getUserBans()));
     }
 
     @Override
@@ -58,7 +58,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public CompletableFuture<UserSummary> getUserSummaryAsync() {
-        return CompletableFuture.supplyAsync(() -> (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class));
+        return CompletableFuture.supplyAsync(this::getUserSummary);
     }
 
     @Override

@@ -21,6 +21,6 @@ public class VanityUrlResolver {
     }
 
     public CompletableFuture<VanityUrl> resolveAsync(String phrase, VanityUrlType type) {
-        return CompletableFuture.supplyAsync(() -> (VanityUrl)Responser.getResponse(String.format(Links.vanityUrl, phrase, type.getValue()), VanityUrl.class));
+        return CompletableFuture.supplyAsync(() -> resolve(phrase, type));
     }
 }

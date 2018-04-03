@@ -25,7 +25,7 @@ public class CsgoService {
     }
 
     public CompletableFuture<ServerStatus> getGameServerStatusAsync() {
-        return CompletableFuture.supplyAsync(() -> (ServerStatus) Responser.getResponse(serverStatusUrl, ServerStatus.class));
+        return CompletableFuture.supplyAsync(() -> getGameServerStatus());
     }
 
     public MapPlaytime getMapPlaytime(Gamemode mode, Interval interval) {
@@ -33,6 +33,6 @@ public class CsgoService {
     }
 
     public CompletableFuture<MapPlaytime> getMapPlaytimeAsync(Gamemode mode, Interval interval) {
-        return CompletableFuture.supplyAsync(() -> (MapPlaytime) Responser.getResponse(String.format(mapPlaytimeUrl, interval.toString(), mode.toString()), MapPlaytime.class));
+        return CompletableFuture.supplyAsync(() -> getMapPlaytime(mode, interval));
     }
 }

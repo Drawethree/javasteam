@@ -23,7 +23,7 @@ public class StoreFrontService {
     }
 
     public CompletableFuture<RichSteamGame> getFullInfoOfAppAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> (RichSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class));
+        return CompletableFuture.supplyAsync(() -> getFullInfoOfApp(id));
     }
 
     public LiteSteamGame getBaseInfoOfApp(String id) {
@@ -31,23 +31,23 @@ public class StoreFrontService {
     }
 
     public CompletableFuture<LiteSteamGame> getBaseInfoOfAppAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> (LiteSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class));
+        return CompletableFuture.supplyAsync(() -> getBaseInfoOfApp(id));
     }
 
     public StoreFeatured getStoreFeatured() {
         return (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class);
     }
 
-    public CompletableFuture<StoreFeatured> getStoreFeaturedAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class));
+    public CompletableFuture<StoreFeatured> getStoreFeaturedAsync() {
+        return CompletableFuture.supplyAsync(this::getStoreFeatured);
     }
 
     public StoreFeaturedCategories getStoreFeaturedCategories() {
         return (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class);
     }
 
-    public CompletableFuture<StoreFeaturedCategories> getStoreFeaturedCategoriesAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class));
+    public CompletableFuture<StoreFeaturedCategories> getStoreFeaturedCategoriesAsync() {
+        return CompletableFuture.supplyAsync(this::getStoreFeaturedCategories);
     }
 
     public StorePackage getStorePackageInfo(String id) {
@@ -55,7 +55,7 @@ public class StoreFrontService {
     }
 
     public CompletableFuture<StorePackage> getStorePackageInfoAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class));
+        return CompletableFuture.supplyAsync(() -> getStorePackageInfo(id));
     }
 
     public GameList searchStore(GameListQuery query) {
@@ -65,10 +65,6 @@ public class StoreFrontService {
     }
 
     public CompletableFuture<GameList> searchStoreAsync(GameListQuery query) {
-        return CompletableFuture.supplyAsync(() -> {
-            GameList tmp = (GameList) getResponse(query.toString(), GameList.class);
-
-            return tmp.setQuery(query);
-        });
+        return CompletableFuture.supplyAsync(() -> searchStore(query));
     }
 }
