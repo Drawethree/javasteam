@@ -24,4 +24,8 @@ public class SteamAPI {
     public StoreFrontService getStoreFront() {
         return new StoreFrontService();
     }
+
+    public VanityUrlResolver getVanityUrlResolver() {
+        return new VanityUrlResolver();
+    }
 }

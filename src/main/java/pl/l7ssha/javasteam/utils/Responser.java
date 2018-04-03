@@ -26,6 +26,9 @@ import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGameDeserializer;
 import pl.l7ssha.javasteam.storefront.StorePackage;
 import pl.l7ssha.javasteam.storefront.StorePackageDeserializer;
+import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
+import pl.l7ssha.javasteam.vanity.VanityUrl;
+import pl.l7ssha.javasteam.vanity.VanityUrlDeserializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -41,6 +44,7 @@ public class Responser {
             .registerTypeAdapter(UserSummary.class, new UserSumaryDeserializer())
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
             .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
+            .registerTypeAdapter(VanityUrl.class, new VanityUrlDeserializer())
             .create();
 
     private static String token = "";
@@ -50,6 +54,9 @@ public class Responser {
     }
 
     public static Object getResponse(String url, Type type) {
+        if(token.equals(""))
+            throw new SteamApiNotInitializedException("Can't get response from server without token. Initialize SteamAPI fist");
+
         HttpRequest req = HttpRequest.get((url + token));
 
         if(req.code() != 200) {
