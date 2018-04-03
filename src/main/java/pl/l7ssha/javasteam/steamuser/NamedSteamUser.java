@@ -30,6 +30,14 @@ public class NamedSteamUser implements ISteamUser {
         this.steamId = ((VanityUrl) Responser.getResponse(String.format(Links.vanityUrl, nick, VanityUrlType.PROFILE.getValue()), VanityUrl.class)).getSteamId();
     }
 
+    public Long getSteamId() {
+        return steamId;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
     @Override
     public List<FriendListNode> getFriendList() {
         return (ArrayList<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
