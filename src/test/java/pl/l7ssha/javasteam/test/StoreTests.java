@@ -13,6 +13,7 @@ import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.*;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.models.news.News;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -108,6 +109,16 @@ public class StoreTests {
 
         assertNotNull(list.getApps());
         assertTrue(list.isHaveMoreResults());
+    }
+
+    @Test
+    void newsTest() {
+        SteamGame tf2 = storeFrontService.getBaseInfoOfApp("440");
+        News tf2News = tf2.getNews(5);
+
+        assertNotNull(tf2News);
+        assertNotNull(tf2News.getNews().get(1).getDate());
+        assertEquals(5, tf2News.getNews().size());
     }
 }
 
