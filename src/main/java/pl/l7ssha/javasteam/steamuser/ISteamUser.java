@@ -11,9 +11,15 @@ import pl.l7ssha.javasteam.steamuser.models.UserBans;
 import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public interface ISteamUser {
     List<FriendListNode> getFriendList();
+    CompletableFuture<List<FriendListNode>> getFriendListAsync();
+
     UserBans getUserBans();
+    CompletableFuture<UserBans> getUserBansAsync();
+
     UserSummary getUserSummary();
+    CompletableFuture<UserSummary> getUserSummaryAsync();
 }

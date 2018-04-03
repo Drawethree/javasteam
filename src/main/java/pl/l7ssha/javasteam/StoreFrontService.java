@@ -8,6 +8,8 @@ package pl.l7ssha.javasteam;
 
 import pl.l7ssha.javasteam.storefront.*;
 
+import java.util.concurrent.CompletableFuture;
+
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
@@ -18,19 +20,40 @@ public class StoreFrontService {
         return (RichSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
     }
 
+    public CompletableFuture<RichSteamGame> getFullInfoOfAppAsync(String id) {
+        return CompletableFuture.supplyAsync(() -> (RichSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class));
+    }
+
     public LiteSteamGame getBaseInfoOfApp(String id) {
         return (LiteSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
+    }
+
+    public CompletableFuture<LiteSteamGame> getBaseInfoOfAppAsync(String id) {
+        return CompletableFuture.supplyAsync(() -> (LiteSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class));
     }
 
     public StoreFeatured getStoreFeatured() {
         return (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class);
     }
 
+    public CompletableFuture<StoreFeatured> getStoreFeaturedAsync(String id) {
+        return CompletableFuture.supplyAsync(() -> (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class));
+    }
+
     public StoreFeaturedCategories getStoreFeaturedCategories() {
         return (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class);
+    }
+
+    public CompletableFuture<StoreFeaturedCategories> getStoreFeaturedCategoriesAsync(String id) {
+        return CompletableFuture.supplyAsync(() -> (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class));
     }
 
     public StorePackage getStorePackageInfo(String id) {
         return (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class);
     }
+
+    public CompletableFuture<StorePackage> getStorePackageInfoAsync(String id) {
+        return CompletableFuture.supplyAsync(() -> (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class));
+    }
+
 }

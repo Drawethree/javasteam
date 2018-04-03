@@ -11,10 +11,16 @@ import pl.l7ssha.javasteam.utils.Responser;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlType;
 
+import java.util.concurrent.CompletableFuture;
+
 public class VanityUrlResolver {
     VanityUrlResolver() { }
 
     public VanityUrl resolve(String phrase, VanityUrlType type) {
         return (VanityUrl)Responser.getResponse(String.format(Links.vanityUrl, phrase, type.getValue()), VanityUrl.class);
+    }
+
+    public CompletableFuture<VanityUrl> resolveAsync(String phrase, VanityUrlType type) {
+        return CompletableFuture.supplyAsync(() -> (VanityUrl)Responser.getResponse(String.format(Links.vanityUrl, phrase, type.getValue()), VanityUrl.class));
     }
 }

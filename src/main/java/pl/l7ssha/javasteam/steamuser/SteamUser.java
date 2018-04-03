@@ -13,16 +13,19 @@ import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class SteamUser implements ISteamUser {
-    private final Long steamId;
+    protected Long steamId;
 
     public SteamUser(Long id) {
         steamId = id;
     }
+
+    SteamUser() { }
 
     public Long getSteamId() {
         return steamId;
@@ -34,13 +37,28 @@ public class SteamUser implements ISteamUser {
     }
 
     @Override
+    public CompletableFuture<List<FriendListNode>> getFriendListAsync() {
+        return CompletableFuture.supplyAsync(() -> (ArrayList<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType()));
+    }
+
+    @Override
     public UserBans getUserBans() {
         return (UserBans) getResponse(String.format(userBansurl, steamId), UserBans.class);
     }
 
     @Override
+    public CompletableFuture<UserBans> getUserBansAsync() {
+        return CompletableFuture.supplyAsync(() -> (UserBans) getResponse(String.format(userBansurl, steamId), UserBans.class));
+    }
+
+    @Override
     public UserSummary getUserSummary() {
         return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
+    }
+
+    @Override
+    public CompletableFuture<UserSummary> getUserSummaryAsync() {
+        return CompletableFuture.supplyAsync(() -> (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class));
     }
 
     @Override
