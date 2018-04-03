@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
+import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
@@ -22,6 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -84,6 +86,10 @@ public class SteamUserTests {
         ISteamUser l7sshaAgain = l7sshaSummary.getSteamUser();
 
         assertTrue(l7sshaAgain instanceof SteamUser);
+        assertFalse(l7ssha instanceof NamedSteamUser);
+
+        assertTrue(l7ssha.equals(l7sshaAgain));
+
         assertNotNull(l7sshaAgain.getUserBans().getNumberOfGameBans());
     }
 }
