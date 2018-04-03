@@ -28,3 +28,4 @@
 | Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
 | Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
 | Searching Store | `https://api.steampowered.com/IStoreService/GetAppList/v1/`
+| News | `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/` |
