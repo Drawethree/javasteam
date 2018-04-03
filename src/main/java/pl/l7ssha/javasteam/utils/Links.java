@@ -10,7 +10,7 @@ public class Links {
 
     // USER
     public static final String friendListUrl = "https://api.steampowered.com/ISteamUser/getFriendList/v1/?steamid=%s&key=";
-    public static final String userBansurl = "https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?format=json&steamids=%s&key=";
+    public static final String userBansUrl = "https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?format=json&steamids=%s&key=";
     public static final String userSummaryUrl = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?format=json&steamids=%s&key=";
 
     // CSGO
@@ -25,4 +25,9 @@ public class Links {
 
     // RESOLVE VANITY URL
     public static final String vanityUrl = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?format=json&vanityurl=%s&url_type=%s&key=";
+
+    // Store
+    public static final String storeSearching =
+            "https://api.steampowered.com/IStoreService/GetAppList/v1/?format=json&if_modified_since=%s&have_description_language=%s&include_games=%s&include_dlc=%s&include_hardware=%s&include_software=%s&include_videos=%s&last_appid=%s&max_results=%s&key=";
+
 }

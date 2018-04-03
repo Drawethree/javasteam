@@ -26,6 +26,8 @@ import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGameDeserializer;
 import pl.l7ssha.javasteam.storefront.StorePackage;
 import pl.l7ssha.javasteam.storefront.StorePackageDeserializer;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameListDeserializer;
 import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlDeserializer;
@@ -45,6 +47,8 @@ public class Responser {
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
             .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
             .registerTypeAdapter(VanityUrl.class, new VanityUrlDeserializer())
+            //.registerTypeAdapter(GameListNode.class, new GameListNodeDeserializer())
+            .registerTypeAdapter(GameList.class, new GameListDeserializer())
             .create();
 
     private static String token = "";

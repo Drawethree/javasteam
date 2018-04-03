@@ -11,12 +11,15 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.*;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.ExecutionException;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StoreTests {
     static StoreFrontService storeFrontService;
@@ -77,6 +80,34 @@ public class StoreTests {
         // System.out.println(randomPackage.getControllerSupport());
         assertNotNull(randomPackage.getPrice().getCurrency());
         assertNotNull(randomPackage.getApps());
+    }
+
+    @Test
+    void gameEqualsTest() {
+        RichSteamGame richGame = storeFrontService.getFullInfoOfApp("730");
+        LiteSteamGame liteGame= storeFrontService.getBaseInfoOfApp("730");
+
+        assertTrue(richGame.equals(liteGame));
+    }
+
+    @Test
+    void searchStoreTest() {
+        GameList list = storeFrontService.searchStore(new GameListQuery().setAppid(730).setMaxResults(5));
+
+        assertNotNull(list.getApps());
+        assertTrue(list.isHaveMoreResults());
+
+        assertNotNull(list.getApps().get(2).getLastModified());
+
+        assertEquals(5, list.getApps().size());
+    }
+
+    @Test
+    void searchStoreTestAsync() throws ExecutionException, InterruptedException {
+        GameList list = storeFrontService.searchStoreAsync(new GameListQuery().setMaxResults(15)).get();
+
+        assertNotNull(list.getApps());
+        assertTrue(list.isHaveMoreResults());
     }
 }
 

@@ -7,6 +7,8 @@ package pl.l7ssha.javasteam;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.storefront.*;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -56,4 +58,17 @@ public class StoreFrontService {
         return CompletableFuture.supplyAsync(() -> (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class));
     }
 
+    public GameList searchStore(GameListQuery query) {
+        GameList tmp = (GameList) getResponse(query.toString(), GameList.class);
+
+        return tmp.setQuery(query);
+    }
+
+    public CompletableFuture<GameList> searchStoreAsync(GameListQuery query) {
+        return CompletableFuture.supplyAsync(() -> {
+            GameList tmp = (GameList) getResponse(query.toString(), GameList.class);
+
+            return tmp.setQuery(query);
+        });
+    }
 }
