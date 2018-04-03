@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
-import pl.l7ssha.javasteam.steamuser.RichSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
@@ -86,16 +85,5 @@ public class SteamUserTests {
 
         assertTrue(l7sshaAgain instanceof SteamUser);
         assertNotNull(l7sshaAgain.getUserBans().getNumberOfGameBans());
-    }
-
-    @Test
-    @DisplayName("RichSteamUser casting")
-    void richSteamUserCasting() {
-        UserSummary l7sshaSummary = l7ssha.getUserSummary();
-
-        RichSteamUser richl7ssha = RichSteamUser.of(l7sshaSummary);
-
-        assertNotNull(richl7ssha);
-        assertNotNull(richl7ssha.getNick());
     }
 }
