@@ -11,12 +11,12 @@ import pl.l7ssha.javasteam.vanity.VanityUrlType;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-public class NamedSteamUser extends SteamUser {
+public class NamedSteamUser extends AbstractSteamUser {
     private String nick;
 
     public NamedSteamUser(String nick) {
-        this.nick = nick;
-        this.steamId = ((VanityUrl) Responser.getResponse(String.format(Links.vanityUrl, nick, VanityUrlType.PROFILE.getValue()), VanityUrl.class)).getSteamId();
+       super(((VanityUrl) Responser.getResponse(String.format(Links.vanityUrl, nick, VanityUrlType.PROFILE.getValue()), VanityUrl.class)).getSteamId());
+       this.nick = nick;
     }
 
     public Long getSteamId() {
