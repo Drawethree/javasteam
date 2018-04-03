@@ -18,7 +18,7 @@
 | ---- | -------- |
 | CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
 | Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
-
+| VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
 
 ### STEAM STORE
 | Name | Endpoint |
@@ -27,4 +27,4 @@
 | Featured Apps | `https://store.steampowered.com/api/featured/` |
 | Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
 | Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
-| VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
+| Searching Store | `https://api.steampowered.com/IStoreService/GetAppList/v1/`
