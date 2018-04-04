@@ -23,6 +23,9 @@ public class Links {
     public static final String shopFeaturedCategoriesUrl = "https://store.steampowered.com/api/featuredcategories/?key=";
     public static final String shopPackageDetailsUrl = "https://store.steampowered.com/api/packagedetails/?packageids=%s&key=";
 
+    // Current players
+    public static final String currentPlayersUrl = "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=%s&format=json&key=";
+
     // RESOLVE VANITY URL
     public static final String vanityUrl = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?format=json&vanityurl=%s&url_type=%s&key=";
 

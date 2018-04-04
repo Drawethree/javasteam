@@ -14,6 +14,7 @@ import pl.l7ssha.javasteam.storefront.*;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
 import pl.l7ssha.javasteam.storefront.models.news.News;
+import pl.l7ssha.javasteam.storefront.models.steamgame.CurrentPlayers;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -49,6 +50,16 @@ public class StoreTests {
         assertNotNull(csgo.getType());
         assertNotNull(csgo.getReleaseDate().getDate());
         assertNotNull(csgo.getPublishers().get(0));
+    }
+
+    @Test
+    void getCurrentPlayers() {
+        LiteSteamGame dota2 = storeFrontService.getBaseInfoOfApp("570");
+
+        CurrentPlayers currentPlayersDota2 = dota2.getCurrentPlayers();
+
+        assertNotNull(currentPlayersDota2);
+        assertTrue(currentPlayersDota2.getCount() > 0);
     }
 
     @Test

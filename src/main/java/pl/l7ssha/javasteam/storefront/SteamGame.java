@@ -8,9 +8,11 @@ package pl.l7ssha.javasteam.storefront;
 
 import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.storefront.models.news.News;
+import pl.l7ssha.javasteam.storefront.models.steamgame.CurrentPlayers;
 
 import java.util.concurrent.CompletableFuture;
 
+import static pl.l7ssha.javasteam.utils.Links.currentPlayersUrl;
 import static pl.l7ssha.javasteam.utils.Links.newsForApp;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
@@ -36,6 +38,14 @@ public class SteamGame {
 
     public CompletableFuture<News> getNewsAsync(String id, int count) {
         return CompletableFuture.supplyAsync(() -> getNews(count));
+    }
+
+    public CurrentPlayers getCurrentPlayers() {
+        return (CurrentPlayers) getResponse(String.format(currentPlayersUrl, appId), CurrentPlayers.class);
+    }
+
+    public CompletableFuture<CurrentPlayers> getCurrentPlayersAsync() {
+        return CompletableFuture.supplyAsync(this::getCurrentPlayers);
     }
 
     @Override
