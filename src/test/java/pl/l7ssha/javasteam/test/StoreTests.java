@@ -37,7 +37,6 @@ public class StoreTests {
         RichSteamGame csgo = storeFrontService.getFullInfoOfApp("730");
 
         assertNotNull(csgo);
-        assertNotNull(csgo.getAppId());
         assertNotNull(csgo.getGenres().get(0).getDescription());
     }
 
@@ -99,7 +98,7 @@ public class StoreTests {
         RichSteamGame richGame = storeFrontService.getFullInfoOfApp("730");
         LiteSteamGame liteGame= storeFrontService.getBaseInfoOfApp("730");
 
-        assertTrue(richGame.equals(liteGame));
+        assertEquals(richGame, liteGame);
     }
 
     @Test
