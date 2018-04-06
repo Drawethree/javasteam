@@ -30,5 +30,11 @@
 | Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
 | Searching Store | `https://api.steampowered.com/IStoreService/GetAppList/v1/`
 | News | `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/` |
+
+### STATS
+
+| Name | Endpoint |
+| ---- | -------- |
 | CurrentPlayers | `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/` |
 | App schema | `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/` |
+| Global achievements| `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/` |
