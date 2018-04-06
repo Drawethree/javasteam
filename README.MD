@@ -21,6 +21,7 @@
 | VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
 
 ### STEAM STORE
+
 | Name | Endpoint |
 | ---- | -------- |
 | Apps Info | `https://store.steampowered.com/api/appdetails/` |
@@ -30,3 +31,4 @@
 | Searching Store | `https://api.steampowered.com/IStoreService/GetAppList/v1/`
 | News | `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/` |
 | CurrentPlayers | `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/` |
+| App schema | `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/` |
