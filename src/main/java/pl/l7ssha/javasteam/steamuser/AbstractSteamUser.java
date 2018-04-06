@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import static pl.l7ssha.javasteam.utils.Links.friendListUrl;
-import static pl.l7ssha.javasteam.utils.Links.userBansUrl;
-import static pl.l7ssha.javasteam.utils.Links.userSummaryUrl;
+import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public abstract class AbstractSteamUser implements ISteamUser {
