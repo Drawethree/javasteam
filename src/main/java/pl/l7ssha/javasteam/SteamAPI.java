@@ -28,4 +28,8 @@ public class SteamAPI {
     public VanityUrlResolver getVanityUrlResolver() {
         return new VanityUrlResolver();
     }
+
+    public SteamStatsService getStatService() {
+        return new SteamStatsService();
+    }
 }

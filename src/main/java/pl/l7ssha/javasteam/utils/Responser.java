@@ -16,6 +16,8 @@ import pl.l7ssha.javasteam.csgo.MapsPlaytimeDeserializer;
 import pl.l7ssha.javasteam.csgo.ServerStatusDeserializer;
 import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
+import pl.l7ssha.javasteam.schema.GameSchema;
+import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
@@ -39,7 +41,6 @@ import pl.l7ssha.javasteam.vanity.VanityUrlDeserializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
 
 public class Responser {
     private static Gson gson = new GsonBuilder()
@@ -51,10 +52,10 @@ public class Responser {
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
             .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
             .registerTypeAdapter(VanityUrl.class, new VanityUrlDeserializer())
-            //.registerTypeAdapter(GameListNode.class, new GameListNodeDeserializer())
             .registerTypeAdapter(GameList.class, new GameListDeserializer())
             .registerTypeAdapter(News.class, new NewsDeserializer())
             .registerTypeAdapter(CurrentPlayers.class, new CurrentPlayersDeserializer())
+            .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
             .create();
 
     private static String token = "";
@@ -69,9 +70,8 @@ public class Responser {
 
         HttpRequest req = HttpRequest.get((url + token));
 
-        if(req.code() != 200) {
+        if(req.code() != 200)
             throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body()));
-        }
 
         return gson.fromJson(req.body(), type);
     }
@@ -80,10 +80,7 @@ public class Responser {
         JsonObject base = json.getAsJsonObject();
         JsonElement firstGame = null;
 
-        for(Map.Entry<String, JsonElement> ent: base.entrySet()) {
-            //System.out.println(ent.getKey());
-            firstGame = ent.getValue();
-        }
+        firstGame = base.entrySet().iterator().next().getValue();
 
         if(firstGame == null)
             return null;
