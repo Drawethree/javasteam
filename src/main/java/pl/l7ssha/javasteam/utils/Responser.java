@@ -18,6 +18,8 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
+import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentagesDeserializer;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
@@ -56,6 +58,7 @@ public class Responser {
             .registerTypeAdapter(News.class, new NewsDeserializer())
             .registerTypeAdapter(CurrentPlayers.class, new CurrentPlayersDeserializer())
             .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
+            .registerTypeAdapter(AchievementsGlobalPercentages.class, new AchievementsGlobalPercentagesDeserializer())
             .create();
 
     private static String token = "";
