@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameSchemaDeserializer implements JsonDeserializer<GameSchema> {
+    Gson gson = new Gson();
+
+    List<SchemaStat> tmpStats = new ArrayList<>();
+    List<SchemaAchievement> tmpAchievements = new ArrayList<>();
 
     @Override
     public GameSchema deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
@@ -24,11 +28,6 @@ public class GameSchemaDeserializer implements JsonDeserializer<GameSchema> {
         JsonObject availableGameStats = baseObject.get("availableGameStats").getAsJsonObject();
         JsonArray stats = availableGameStats.get("stats").getAsJsonArray();
         JsonArray achievements = availableGameStats.get("achievements").getAsJsonArray();
-
-        Gson gson = new Gson();
-
-        List<SchemaStat> tmpStats = new ArrayList<>();
-        List<SchemaAchievement> tmpAchievements = new ArrayList<>();
 
         for(JsonElement elem : stats)
             tmpStats.add(gson.fromJson(elem, SchemaStat.class));
