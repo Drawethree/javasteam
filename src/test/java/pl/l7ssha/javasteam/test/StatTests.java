@@ -30,7 +30,7 @@ public class StatTests {
 
     @Test
     void testGameSchema() {
-        GameSchema csgoSchema = statsService.getSchemaForGame("730", "ENG");
+        GameSchema csgoSchema = statsService.getSchema("730", "ENG");
 
         assertNotNull(csgoSchema.getGameVersion());
         assertNotNull(csgoSchema.getAchievements().get(1).getIconGray());
