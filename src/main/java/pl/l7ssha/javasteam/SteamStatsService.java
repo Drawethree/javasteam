@@ -7,14 +7,14 @@ package pl.l7ssha.javasteam;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.schema.GameSchema;
-import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
 import pl.l7ssha.javasteam.utils.annotation.Blocking;
 
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
-import static pl.l7ssha.javasteam.utils.Responser.completeAchievementGlobal;
+import static pl.l7ssha.javasteam.utils.Utils.completeAchievementGlobal;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class SteamStatsService {

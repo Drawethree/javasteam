@@ -10,7 +10,7 @@ import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-import static pl.l7ssha.javasteam.utils.Responser.deserializeObjectWithCancer;
+import static pl.l7ssha.javasteam.utils.Utils.deserializeObjectWithCancer;
 
 public class StorePackageDeserializer implements JsonDeserializer<StorePackage> {
 

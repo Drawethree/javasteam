@@ -1,9 +1,9 @@
 package pl.l7ssha.javasteam.storefront.models.news;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;
-import java.sql.Timestamp;
 import java.util.Date;
 
 // pl.l7ssha.javasteam.storefront.models.news
@@ -23,7 +23,7 @@ public class NewsItemDeserializer implements JsonDeserializer<NewsItem> {
         String author = obj.get("author").getAsString();
         String contents = obj.get("contents").getAsString();
         String feedlabel = obj.get("feedlabel").getAsString();
-        Date date = new Date(new Timestamp(obj.get("date").getAsLong() * 1000).getTime());
+        Date date = Utils.timestampToDate(obj.get("date").getAsLong());
         String feedname = obj.get("feedname").getAsString();
         int feedType = obj.get("feed_type").getAsInt();
 
