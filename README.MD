@@ -38,3 +38,4 @@
 | CurrentPlayers | `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/` |
 | App schema | `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/` |
 | Global achievements| `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/` |
+| Player Achievements | `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/` |
