@@ -18,8 +18,10 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
+import pl.l7ssha.javasteam.schema.SchemaAchievement;
 import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentages;
 import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentagesDeserializer;
+import pl.l7ssha.javasteam.steamstats.StatAchievement;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
@@ -89,5 +91,21 @@ public class Responser {
             return null;
 
         return firstGame.getAsJsonObject().get("data");
+    }
+
+    public static AchievementsGlobalPercentages completeAchievementGlobal(AchievementsGlobalPercentages perc, GameSchema schema) {
+        List<SchemaAchievement> schemaAchievements = schema.getAchievements();
+
+        for(StatAchievement a: perc.getAchievements()) {
+            String desc = "";
+
+            for(SchemaAchievement schemanode: schemaAchievements)
+                if(a.getName().equals(schemanode.getName()))
+                    desc = schemanode.getDescription();
+
+            a.setDescription(desc);
+        }
+
+        return perc;
     }
 }
