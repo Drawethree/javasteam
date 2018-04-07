@@ -1,10 +1,9 @@
 package pl.l7ssha.javasteam.storefront.models.gamelist;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;
-import java.sql.Timestamp;
-import java.util.Date;
 
 // pl.l7ssha.javasteam.storefront
 //
@@ -18,7 +17,7 @@ public class GameListNodeDeserializer implements JsonDeserializer<GameListNode> 
 
         return new GameListNode(base.get("name").getAsString(),
                 base.get("appid").getAsLong(),
-                new Date(new Timestamp(base.get("last_modified").getAsLong() * 1000).getTime()),
+                Utils.timestampToDate(base.get("last_modified").getAsLong()),
                 base.get("price_change_number").getAsInt());
     }
 }

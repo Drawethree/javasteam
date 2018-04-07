@@ -8,9 +8,9 @@ package pl.l7ssha.javasteam.steamuser;
 
 import com.google.gson.*;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
+import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +27,7 @@ public class FriendListDeserializer implements JsonDeserializer<List<FriendListN
         for(JsonElement i: friends) {
             Long steamid = i.getAsJsonObject().get("steamid").getAsLong();
             String relationship = i.getAsJsonObject().get("relationship").getAsString();
-            Date timestamp = new Date(new Timestamp(i.getAsJsonObject().get("friend_since").getAsLong() * 1000).getTime());
+            Date timestamp = Utils.timestampToDate(i.getAsJsonObject().get("friend_since").getAsLong());
 
             tmp.add(new FriendListNode(steamid, relationship, timestamp));
         }
