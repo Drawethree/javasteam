@@ -11,7 +11,6 @@ public class StatAchievement {
     private String name;
     private double percent;
 
-    @Nullable
     private String description;
 
     public StatAchievement(String name, double percent) {
@@ -32,6 +31,7 @@ public class StatAchievement {
         return percent;
     }
 
+    @Nullable
     public String getDescription() {
         return description;
     }

@@ -14,7 +14,7 @@ import pl.l7ssha.javasteam.storefront.models.news.News;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
-import static pl.l7ssha.javasteam.utils.Responser.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 
 public class StoreFrontService {
     StoreFrontService() { }

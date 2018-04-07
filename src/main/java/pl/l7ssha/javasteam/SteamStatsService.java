@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
 import static pl.l7ssha.javasteam.utils.Utils.completeAchievementGlobal;
-import static pl.l7ssha.javasteam.utils.Responser.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 
 public class SteamStatsService {
     SteamStatsService() { }

@@ -1,7 +1,7 @@
 package pl.l7ssha.javasteam.steamuser;
 
 import pl.l7ssha.javasteam.utils.Links;
-import pl.l7ssha.javasteam.utils.Responser;
+import pl.l7ssha.javasteam.utils.ResponserUtils;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlType;
 
@@ -15,7 +15,7 @@ public class NamedSteamUser extends AbstractSteamUser {
     private String nick;
 
     public NamedSteamUser(String nick) {
-       super(((VanityUrl) Responser.getResponse(String.format(Links.vanityUrl, nick, VanityUrlType.PROFILE.getValue()), VanityUrl.class)).getSteamId());
+       super(((VanityUrl) ResponserUtils.getResponse(String.format(Links.vanityUrl, nick, VanityUrlType.PROFILE.getValue()), VanityUrl.class)).getSteamId());
        this.nick = nick;
     }
 

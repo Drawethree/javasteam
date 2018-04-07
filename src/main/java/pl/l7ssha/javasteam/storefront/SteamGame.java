@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.currentPlayersUrl;
 import static pl.l7ssha.javasteam.utils.Links.newsForApp;
-import static pl.l7ssha.javasteam.utils.Responser.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 
 public class SteamGame {
     protected String name;

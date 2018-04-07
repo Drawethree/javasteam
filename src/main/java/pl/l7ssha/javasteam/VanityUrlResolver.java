@@ -7,7 +7,7 @@ package pl.l7ssha.javasteam;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.utils.Links;
-import pl.l7ssha.javasteam.utils.Responser;
+import pl.l7ssha.javasteam.utils.ResponserUtils;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlType;
 
@@ -17,7 +17,7 @@ public class VanityUrlResolver {
     VanityUrlResolver() { }
 
     public VanityUrl resolve(String phrase, VanityUrlType type) {
-        return (VanityUrl)Responser.getResponse(String.format(Links.vanityUrl, phrase, type.getValue()), VanityUrl.class);
+        return (VanityUrl)ResponserUtils.getResponse(String.format(Links.vanityUrl, phrase, type.getValue()), VanityUrl.class);
     }
 
     public CompletableFuture<VanityUrl> resolveAsync(String phrase, VanityUrlType type) {

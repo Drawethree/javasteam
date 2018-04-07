@@ -20,6 +20,8 @@ import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPerce
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentagesDeserializer;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievementsDeserializer;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStatsDeserializer;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
@@ -44,7 +46,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class Responser {
+public class ResponserUtils {
     private static Gson gson = new GsonBuilder()
             .registerTypeAdapter(ServerStatus.class, new ServerStatusDeserializer())
             .registerTypeAdapter(MapPlaytime.class, new MapsPlaytimeDeserializer())
@@ -60,12 +62,13 @@ public class Responser {
             .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
             .registerTypeAdapter(AchievementsGlobalPercentages.class, new AchievementsGlobalPercentagesDeserializer())
             .registerTypeAdapter(PlayerAchievements.class, new PlayerAchievementsDeserializer())
+            .registerTypeAdapter(PlayerStats.class, new PlayerStatsDeserializer())
             .create();
 
     private static String token = "";
 
     public static void setToken(String token) {
-        Responser.token = token;
+        ResponserUtils.token = token;
     }
 
     public static Object getResponse(String url, Type type) {
