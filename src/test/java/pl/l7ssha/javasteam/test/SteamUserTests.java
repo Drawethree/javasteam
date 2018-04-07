@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
 import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
@@ -99,5 +100,12 @@ public class SteamUserTests {
         assertNotNull(achievements.getAchievements().get(1).getUnlockTime());
         assertNotNull(achievements.getAchievements().get(1).getApiName());
         assertNotNull(achievements.getAchievements().get(1).getDescription());
+    }
+
+    @Test
+    void playerStatsTest() {
+        PlayerStats stats = l7ssha.getUserStats("730");
+
+        assertNotNull(stats.getPlayerStats().get(1).getDescription());
     }
 }
