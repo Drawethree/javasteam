@@ -6,6 +6,8 @@ package pl.l7ssha.javasteam.steamuser;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievement;
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
 import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
@@ -22,4 +24,7 @@ public interface ISteamUser {
 
     UserSummary getUserSummary();
     CompletableFuture<UserSummary> getUserSummaryAsync();
+
+    PlayerAchievements getUserAchievements(String appId);
+    CompletableFuture<PlayerAchievements> getUserAchievementsAsync(String appId);
 }

@@ -36,5 +36,7 @@ public class Links {
 
     public static final String appSchemaUrl = "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?appid=%s&l=%s&key=";
 
+    public static final String playerAchievementsUrl = "https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?steamid=%s&appid=%s&l=ENG&key=";
+
     public static final String globalAchievementsUrl = "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=%s&format=json&key=";
 }
