@@ -10,8 +10,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.SchemaAchievement;
+import pl.l7ssha.javasteam.schema.SchemaStat;
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
 import pl.l7ssha.javasteam.steamstats.globalachievements.StatAchievement;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStat;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -48,5 +51,21 @@ public class Utils {
         }
 
         return perc;
+    }
+
+    public static PlayerStats completePlayerStats(PlayerStats stats, GameSchema schema) {
+        List<SchemaStat> schemaAchievements = schema.getStats();
+
+        for(PlayerStat s: stats.getPlayerStats()) {
+            String desc = "";
+
+            for(SchemaStat schemanode: schemaAchievements)
+                if(s.getName().equals(schemanode.getName()))
+                    desc = schemanode.getDisplayName();
+
+            s.setDescription(desc);
+        }
+
+        return stats;
     }
 }
