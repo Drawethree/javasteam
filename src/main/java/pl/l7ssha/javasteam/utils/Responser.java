@@ -9,8 +9,6 @@ package pl.l7ssha.javasteam.utils;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.csgo.MapsPlaytimeDeserializer;
 import pl.l7ssha.javasteam.csgo.ServerStatusDeserializer;
@@ -18,10 +16,10 @@ import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
-import pl.l7ssha.javasteam.schema.SchemaAchievement;
-import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentages;
-import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentagesDeserializer;
-import pl.l7ssha.javasteam.steamstats.StatAchievement;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentagesDeserializer;
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievementsDeserializer;
 import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
 import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
@@ -61,6 +59,7 @@ public class Responser {
             .registerTypeAdapter(CurrentPlayers.class, new CurrentPlayersDeserializer())
             .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
             .registerTypeAdapter(AchievementsGlobalPercentages.class, new AchievementsGlobalPercentagesDeserializer())
+            .registerTypeAdapter(PlayerAchievements.class, new PlayerAchievementsDeserializer())
             .create();
 
     private static String token = "";
@@ -79,33 +78,5 @@ public class Responser {
             throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body()));
 
         return gson.fromJson(req.body(), type);
-    }
-
-    public static JsonElement deserializeObjectWithCancer(JsonElement json) {
-        JsonObject base = json.getAsJsonObject();
-        JsonElement firstGame = null;
-
-        firstGame = base.entrySet().iterator().next().getValue();
-
-        if(firstGame == null)
-            return null;
-
-        return firstGame.getAsJsonObject().get("data");
-    }
-
-    public static AchievementsGlobalPercentages completeAchievementGlobal(AchievementsGlobalPercentages perc, GameSchema schema) {
-        List<SchemaAchievement> schemaAchievements = schema.getAchievements();
-
-        for(StatAchievement a: perc.getAchievements()) {
-            String desc = "";
-
-            for(SchemaAchievement schemanode: schemaAchievements)
-                if(a.getName().equals(schemanode.getName()))
-                    desc = schemanode.getDescription();
-
-            a.setDescription(desc);
-        }
-
-        return perc;
     }
 }
