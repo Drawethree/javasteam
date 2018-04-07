@@ -7,7 +7,9 @@ package pl.l7ssha.javasteam.steamuser;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.reflect.TypeToken;
+import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
 import pl.l7ssha.javasteam.steamuser.models.UserBans;
 import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
@@ -17,7 +19,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
-import static pl.l7ssha.javasteam.utils.Responser.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
+import static pl.l7ssha.javasteam.utils.Utils.completePlayerStats;
 
 public abstract class AbstractSteamUser implements ISteamUser {
     protected Long steamId;
@@ -28,6 +31,19 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     protected AbstractSteamUser(Long steamId) {
         this.steamId = steamId;
+    }
+
+    @Override
+    public PlayerStats getUserStats(String appId) {
+        GameSchema schema = (GameSchema) getResponse(String.format(appSchemaUrl, appId, "ENG"), GameSchema.class);
+        PlayerStats playerStats = (PlayerStats) getResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
+
+        return completePlayerStats(playerStats, schema);
+    }
+
+    @Override
+    public CompletableFuture<PlayerStats> getUserStatsAsync(String appId) {
+        return CompletableFuture.supplyAsync(() -> getUserStats(appId));
     }
 
     @Override
