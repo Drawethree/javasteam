@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamStatsService;
 import pl.l7ssha.javasteam.schema.GameSchema;
-import pl.l7ssha.javasteam.steamstats.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
 
 import java.io.IOException;
 import java.nio.file.Files;

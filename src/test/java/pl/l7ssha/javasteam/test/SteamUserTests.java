@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
 import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
@@ -23,9 +24,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("SteamUserService endpoint tests")
 public class SteamUserTests {
@@ -88,8 +87,17 @@ public class SteamUserTests {
         assertTrue(l7sshaAgain instanceof SteamUser);
         assertFalse(l7ssha instanceof NamedSteamUser);
 
-        assertTrue(l7ssha.equals(l7sshaAgain));
+        assertEquals(l7ssha, l7sshaAgain);
 
         assertNotNull(l7sshaAgain.getUserBans().getNumberOfGameBans());
+    }
+
+    @Test
+    void playerAcheivementsTest() {
+        PlayerAchievements achievements = l7ssha.getUserAchievements("730");
+
+        assertNotNull(achievements.getAchievements().get(1).getUnlockTime());
+        assertNotNull(achievements.getAchievements().get(1).getApiName());
+        assertNotNull(achievements.getAchievements().get(1).getDescription());
     }
 }
