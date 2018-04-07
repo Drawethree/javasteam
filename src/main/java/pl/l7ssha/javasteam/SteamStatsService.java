@@ -14,17 +14,18 @@ import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
+import static pl.l7ssha.javasteam.utils.Responser.completeAchievementGlobal;
 import static pl.l7ssha.javasteam.utils.Responser.getResponse;
 
 public class SteamStatsService {
     SteamStatsService() { }
 
-    public GameSchema getSchemaForGame(String id, String lang) {
+    public GameSchema getSchema(String id, String lang) {
         return (GameSchema) getResponse(String.format(appSchemaUrl, id, lang), GameSchema.class);
     }
 
     public CompletableFuture<GameSchema> getSchemaAsync(String id, String lang) {
-        return CompletableFuture.supplyAsync(() -> getSchemaForGame(id, lang));
+        return CompletableFuture.supplyAsync(() -> getSchema(id, lang));
     }
 
     //LONG METHOD NAMES HELL // PROBABLY TO CHANGE
@@ -34,7 +35,7 @@ public class SteamStatsService {
 
         AchievementsGlobalPercentages percentages = (AchievementsGlobalPercentages) getResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
 
-        return percentages.complete(schema);
+        return completeAchievementGlobal(percentages, schema);
     }
 
     public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesWithDescriptionAsync(String id) {
