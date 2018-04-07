@@ -30,6 +30,7 @@ public class Links {
     public static final String appSchemaUrl = "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?appid=%s&l=%s&key=";
     public static final String globalAchievementsUrl = "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=%s&format=json&key=";
     public static final String currentPlayersUrl = "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=%s&format=json&key=";
+    public static final String playerStatsUrl = "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2/?format=json&steamid=%s&appid=%s&key=";
 
     // RESOLVE VANITY URL
     public static final String vanityUrl = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?format=json&vanityurl=%s&url_type=%s&key=";
