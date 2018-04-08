@@ -10,6 +10,8 @@ import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
+import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
+import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
     }
 
     @Override
-    public PlayerStats getUserStats(String appId) {
+    public PlayerStats getStats(String appId) {
         GameSchema schema = (GameSchema) getResponse(String.format(appSchemaUrl, appId, "ENG"), GameSchema.class);
         PlayerStats playerStats = (PlayerStats) getResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
 
@@ -40,18 +42,18 @@ public abstract class AbstractSteamUser implements ISteamUser {
     }
 
     @Override
-    public CompletableFuture<PlayerStats> getUserStatsAsync(String appId) {
-        return CompletableFuture.supplyAsync(() -> getUserStats(appId));
+    public CompletableFuture<PlayerStats> getStatsAsync(String appId) {
+        return CompletableFuture.supplyAsync(() -> getStats(appId));
     }
 
     @Override
-    public PlayerAchievements getUserAchievements(String appId) {
+    public PlayerAchievements getAchievements(String appId) {
         return (PlayerAchievements) getResponse(String.format(playerAchievementsUrl, steamId, appId), PlayerAchievements.class);
     }
 
     @Override
-    public CompletableFuture<PlayerAchievements> getUserAchievementsAsync(String appId) {
-       return CompletableFuture.supplyAsync(() -> getUserAchievements(appId));
+    public CompletableFuture<PlayerAchievements> getAchievementsAsync(String appId) {
+       return CompletableFuture.supplyAsync(() -> getAchievements(appId));
     }
 
     @Override
@@ -65,23 +67,43 @@ public abstract class AbstractSteamUser implements ISteamUser {
     }
 
     @Override
-    public UserBans getUserBans() {
+    public UserBans getBans() {
         return (UserBans) getResponse(String.format(userBansUrl, steamId), UserBans.class);
     }
 
     @Override
-    public CompletableFuture<UserBans> getUserBansAsync() {
-        return CompletableFuture.supplyAsync(() -> (getUserBans()));
+    public CompletableFuture<UserBans> getBansAsync() {
+        return CompletableFuture.supplyAsync(() -> (getBans()));
     }
 
     @Override
-    public UserSummary getUserSummary() {
+    public UserSummary getSummary() {
         return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
     }
 
     @Override
-    public CompletableFuture<UserSummary> getUserSummaryAsync() {
-        return CompletableFuture.supplyAsync(this::getUserSummary);
+    public CompletableFuture<UserSummary> getSummaryAsync() {
+        return CompletableFuture.supplyAsync(this::getSummary);
+    }
+
+    @Override
+    public RecentGames getRecentGames() {
+        return (RecentGames) getResponse(String.format(userRecentGamesUrl, steamId), RecentGames.class);
+    }
+
+    @Override
+    public CompletableFuture<RecentGames> getRecentGamesAsync() {
+        return CompletableFuture.supplyAsync(this::getRecentGames);
+    }
+
+    @Override
+    public UserGames getOwnedGames() {
+        return (UserGames) getResponse(String.format(userGamesUrl, steamId), UserGames.class);
+    }
+
+    @Override
+    public CompletableFuture<UserGames> getOwnedGamesAsync() {
+        return CompletableFuture.supplyAsync(this::getOwnedGames);
     }
 
     @Override

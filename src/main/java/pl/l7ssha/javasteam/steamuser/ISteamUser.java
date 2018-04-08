@@ -8,6 +8,8 @@ package pl.l7ssha.javasteam.steamuser;
 
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
+import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
+import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
 import java.util.List;
@@ -17,15 +19,21 @@ public interface ISteamUser {
     List<FriendListNode> getFriendList();
     CompletableFuture<List<FriendListNode>> getFriendListAsync();
 
-    UserBans getUserBans();
-    CompletableFuture<UserBans> getUserBansAsync();
+    UserBans getBans();
+    CompletableFuture<UserBans> getBansAsync();
 
-    UserSummary getUserSummary();
-    CompletableFuture<UserSummary> getUserSummaryAsync();
+    UserSummary getSummary();
+    CompletableFuture<UserSummary> getSummaryAsync();
 
-    PlayerAchievements getUserAchievements(String appId);
-    CompletableFuture<PlayerAchievements> getUserAchievementsAsync(String appId);
+    PlayerAchievements getAchievements(String appId);
+    CompletableFuture<PlayerAchievements> getAchievementsAsync(String appId);
 
-    PlayerStats getUserStats(String appId);
-    CompletableFuture<PlayerStats> getUserStatsAsync(String appId);
+    PlayerStats getStats(String appId);
+    CompletableFuture<PlayerStats> getStatsAsync(String appId);
+
+    RecentGames getRecentGames();
+    CompletableFuture<RecentGames> getRecentGamesAsync();
+
+    UserGames getOwnedGames();
+    CompletableFuture<UserGames> getOwnedGamesAsync();
 }
