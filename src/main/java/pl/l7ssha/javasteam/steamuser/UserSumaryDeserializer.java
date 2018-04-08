@@ -38,6 +38,15 @@ public class UserSumaryDeserializer implements JsonDeserializer<UserSummary> {
         int personaStateFlags = base.get("personastateflags").getAsInt();
         String countryCode = base.get("loccountrycode").getAsString();
 
-        return new UserSummary(steamId, profileVisibilityState, personaState, profileState, nick, lastLogOff, commentPerm, profileUrl, avatar, avatarmedium, avatarfull, realname, clanId, timecreated, personaStateFlags, countryCode);
+        String gamextra = null;
+        Long gameid = null;
+
+        try {
+            gamextra = base.get("gameextrainfo").getAsString();
+            gameid = base.get("gameid").getAsLong();
+        }
+        catch (Exception e) { }
+
+        return new UserSummary(steamId, profileVisibilityState, personaState, profileState, nick, lastLogOff, commentPerm, profileUrl, avatar, avatarmedium, avatarfull, realname, clanId, timecreated, personaStateFlags, countryCode, gamextra, gameid);
     }
 }

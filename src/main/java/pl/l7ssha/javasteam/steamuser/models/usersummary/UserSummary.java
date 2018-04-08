@@ -7,6 +7,7 @@ package pl.l7ssha.javasteam.steamuser.models.usersummary;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.steamuser.*;
+import pl.l7ssha.javasteam.utils.annotation.Nullable;
 
 import java.util.Date;
 
@@ -28,7 +29,13 @@ public class UserSummary implements Userable {
     private int personaStateFlags;
     private String countryCode;
 
-    public UserSummary(Long steamid, ProfileVisibilityState profileVisibilityState, PersonaState personaState, boolean profileState, String nick, Date lastLogOff, boolean commentPermission, String profileUrl, String avatar, String avatarMedium, String avatarFull, String realname, Long primaryClanId, Date timeCreated, int personaStateFlags, String countryCode) {
+    @Nullable
+    private String gameExtraInfo;
+
+    @Nullable
+    private Long gameId;
+
+    public UserSummary(Long steamid, ProfileVisibilityState profileVisibilityState, PersonaState personaState, boolean profileState, String nick, Date lastLogOff, boolean commentPermission, String profileUrl, String avatar, String avatarMedium, String avatarFull, String realname, Long primaryClanId, Date timeCreated, int personaStateFlags, String countryCode, String gameExtraInfo, Long gameId) {
         this.steamid = steamid;
         this.profileVisibilityState = profileVisibilityState;
         this.personaState = personaState;
@@ -45,6 +52,8 @@ public class UserSummary implements Userable {
         this.timeCreated = timeCreated;
         this.personaStateFlags = personaStateFlags;
         this.countryCode = countryCode;
+        this.gameExtraInfo = gameExtraInfo;
+        this.gameId = gameId;
     }
 
     public UserSummary() { }
