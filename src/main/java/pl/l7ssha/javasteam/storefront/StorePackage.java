@@ -7,9 +7,9 @@ package pl.l7ssha.javasteam.storefront;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
-import pl.l7ssha.javasteam.storefront.models.steamgame.ReleaseDate;
-import pl.l7ssha.javasteam.storefront.models.store.Platforms;
-import pl.l7ssha.javasteam.storefront.models.store.PriceOverview;
+import pl.l7ssha.javasteam.storefront.steamgame.ReleaseDate;
+import pl.l7ssha.javasteam.storefront.store.Platforms;
+import pl.l7ssha.javasteam.storefront.store.PriceOverview;
 
 import java.util.List;
 

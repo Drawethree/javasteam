@@ -11,10 +11,10 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.*;
-import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
-import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
-import pl.l7ssha.javasteam.storefront.models.news.News;
-import pl.l7ssha.javasteam.storefront.models.steamgame.CurrentPlayers;
+import pl.l7ssha.javasteam.storefront.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.news.News;
+import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
 
 import java.io.IOException;
 import java.nio.file.Files;

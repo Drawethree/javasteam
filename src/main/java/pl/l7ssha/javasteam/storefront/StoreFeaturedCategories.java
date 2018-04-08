@@ -7,9 +7,9 @@ package pl.l7ssha.javasteam.storefront;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
-import pl.l7ssha.javasteam.storefront.models.featured.DailyDeal;
-import pl.l7ssha.javasteam.storefront.models.featured.Special;
-import pl.l7ssha.javasteam.storefront.models.featured.Spotlight;
+import pl.l7ssha.javasteam.storefront.featured.DailyDeal;
+import pl.l7ssha.javasteam.storefront.featured.Special;
+import pl.l7ssha.javasteam.storefront.featured.Spotlight;
 import pl.l7ssha.javasteam.utils.annotation.Nullable;
 
 public class StoreFeaturedCategories {

@@ -6,10 +6,10 @@ package pl.l7ssha.javasteam;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Gamemode;
-import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Interval;
-import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
-import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
+import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.utils.ResponserUtils;
 
 import java.util.concurrent.CompletableFuture;

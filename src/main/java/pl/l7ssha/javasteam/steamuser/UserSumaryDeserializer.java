@@ -7,9 +7,9 @@ package pl.l7ssha.javasteam.steamuser;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.*;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.PersonaState;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.ProfileVisibilityState;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
+import pl.l7ssha.javasteam.steamuser.usersummary.PersonaState;
+import pl.l7ssha.javasteam.steamuser.usersummary.ProfileVisibilityState;
+import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;

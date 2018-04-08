@@ -10,9 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
-import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
-import pl.l7ssha.javasteam.steamuser.models.UserBans;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
+import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
 import java.util.ArrayList;
 import java.util.List;

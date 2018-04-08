@@ -7,9 +7,9 @@ package pl.l7ssha.javasteam;
 // Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.storefront.*;
-import pl.l7ssha.javasteam.storefront.models.gamelist.GameList;
-import pl.l7ssha.javasteam.storefront.models.gamelist.GameListQuery;
-import pl.l7ssha.javasteam.storefront.models.news.News;
+import pl.l7ssha.javasteam.storefront.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.news.News;
 
 import java.util.concurrent.CompletableFuture;
 

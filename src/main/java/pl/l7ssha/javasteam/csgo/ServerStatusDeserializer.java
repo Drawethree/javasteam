@@ -1,7 +1,7 @@
 package pl.l7ssha.javasteam.csgo;
 
 import com.google.gson.*;
-import pl.l7ssha.javasteam.csgo.models.serverstatus.ServerStatus;
+import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 
 import java.lang.reflect.Type;
 

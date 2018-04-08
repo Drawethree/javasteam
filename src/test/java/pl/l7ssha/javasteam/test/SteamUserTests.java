@@ -16,9 +16,9 @@ import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
 import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
-import pl.l7ssha.javasteam.steamuser.models.FriendListNode;
-import pl.l7ssha.javasteam.steamuser.models.UserBans;
-import pl.l7ssha.javasteam.steamuser.models.usersummary.UserSummary;
+import pl.l7ssha.javasteam.steamuser.FriendListNode;
+import pl.l7ssha.javasteam.steamuser.UserBans;
+import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -7,8 +7,8 @@ package pl.l7ssha.javasteam.csgo;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.*;
-import pl.l7ssha.javasteam.csgo.models.mapsplaytime.Map;
-import pl.l7ssha.javasteam.csgo.models.mapsplaytime.MapPlaytime;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.Map;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

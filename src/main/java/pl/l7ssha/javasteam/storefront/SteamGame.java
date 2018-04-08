@@ -7,8 +7,8 @@ package pl.l7ssha.javasteam.storefront;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
-import pl.l7ssha.javasteam.storefront.models.news.News;
-import pl.l7ssha.javasteam.storefront.models.steamgame.CurrentPlayers;
+import pl.l7ssha.javasteam.storefront.news.News;
+import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
 
 import java.util.concurrent.CompletableFuture;
 
