@@ -32,6 +32,6 @@ public class VanityUrlResolverTests {
     void vanityResolvTest() {
         ISteamUser user = usrApi.getSteamUser("l7ssha");
 
-        assertNotNull(user.getUserBans().getDaysSinceLastBan());
+        assertNotNull(user.getBans().getDaysSinceLastBan());
     }
 }
