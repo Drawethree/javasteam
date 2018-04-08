@@ -22,11 +22,9 @@ import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievementsDeserializer;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStatsDeserializer;
-import pl.l7ssha.javasteam.steamuser.FriendListDeserializer;
-import pl.l7ssha.javasteam.steamuser.UserBansDeserializer;
-import pl.l7ssha.javasteam.steamuser.UserSumaryDeserializer;
-import pl.l7ssha.javasteam.steamuser.FriendListNode;
-import pl.l7ssha.javasteam.steamuser.UserBans;
+import pl.l7ssha.javasteam.steamuser.*;
+import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
+import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 import pl.l7ssha.javasteam.storefront.RichSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGameDeserializer;
@@ -37,7 +35,6 @@ import pl.l7ssha.javasteam.storefront.gamelist.GameListDeserializer;
 import pl.l7ssha.javasteam.storefront.news.News;
 import pl.l7ssha.javasteam.storefront.news.NewsDeserializer;
 import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
-import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayersDeserializer;
 import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 import pl.l7ssha.javasteam.vanity.VanityUrlDeserializer;
@@ -58,11 +55,13 @@ public class ResponserUtils {
             .registerTypeAdapter(VanityUrl.class, new VanityUrlDeserializer())
             .registerTypeAdapter(GameList.class, new GameListDeserializer())
             .registerTypeAdapter(News.class, new NewsDeserializer())
-            .registerTypeAdapter(CurrentPlayers.class, new CurrentPlayersDeserializer())
+            .registerTypeAdapter(CurrentPlayers.class, new SimpleDeserializer<CurrentPlayers>(CurrentPlayers.class))
             .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
             .registerTypeAdapter(AchievementsGlobalPercentages.class, new AchievementsGlobalPercentagesDeserializer())
             .registerTypeAdapter(PlayerAchievements.class, new PlayerAchievementsDeserializer())
             .registerTypeAdapter(PlayerStats.class, new PlayerStatsDeserializer())
+            .registerTypeAdapter(RecentGames.class, new SimpleDeserializer<RecentGames>(RecentGames.class))
+            .registerTypeAdapter(UserGames.class, new SimpleDeserializer<UserGames>(UserGames.class))
             .create();
 
     private static String token = "";
