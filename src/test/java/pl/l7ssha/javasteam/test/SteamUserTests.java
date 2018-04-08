@@ -13,11 +13,9 @@ import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
-import pl.l7ssha.javasteam.steamuser.ISteamUser;
-import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
-import pl.l7ssha.javasteam.steamuser.SteamUser;
-import pl.l7ssha.javasteam.steamuser.FriendListNode;
-import pl.l7ssha.javasteam.steamuser.UserBans;
+import pl.l7ssha.javasteam.steamuser.*;
+import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
+import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
 import java.io.IOException;
@@ -64,7 +62,7 @@ public class SteamUserTests {
     @Test
     @DisplayName("Get user bans")
     void userBansTest() {
-        UserBans userBans = l7ssha.getUserBans();
+        UserBans userBans = l7ssha.getBans();
 
         assertNotNull(userBans.DaysSinceLastBanAsDate());
         assertNotNull(userBans.getNumberOfGameBans());
@@ -73,7 +71,7 @@ public class SteamUserTests {
     @Test
     @DisplayName("User summary check")
     void userSummaryTest() {
-        UserSummary l7sshaSummary = l7ssha.getUserSummary();
+        UserSummary l7sshaSummary = l7ssha.getSummary();
 
         assertNotNull(l7sshaSummary.getPersonaState());
         assertNotNull(l7sshaSummary.getProfileUrl());
@@ -82,7 +80,7 @@ public class SteamUserTests {
     @Test
     @DisplayName("User summary get user check")
     void userSummaryGetUserTest() {
-        UserSummary l7sshaSummary = l7ssha.getUserSummary();
+        UserSummary l7sshaSummary = l7ssha.getSummary();
         ISteamUser l7sshaAgain = l7sshaSummary.getSteamUser();
 
         assertTrue(l7sshaAgain instanceof SteamUser);
@@ -90,12 +88,12 @@ public class SteamUserTests {
 
         assertEquals(l7ssha, l7sshaAgain);
 
-        assertNotNull(l7sshaAgain.getUserBans().getNumberOfGameBans());
+        assertNotNull(l7sshaAgain.getBans().getNumberOfGameBans());
     }
 
     @Test
     void playerAcheivementsTest() {
-        PlayerAchievements achievements = l7ssha.getUserAchievements("730");
+        PlayerAchievements achievements = l7ssha.getAchievements("730");
 
         assertNotNull(achievements.getAchievements().get(1).getUnlockTime());
         assertNotNull(achievements.getAchievements().get(1).getApiName());
@@ -104,8 +102,24 @@ public class SteamUserTests {
 
     @Test
     void playerStatsTest() {
-        PlayerStats stats = l7ssha.getUserStats("730");
+        PlayerStats stats = l7ssha.getStats("730");
 
         assertNotNull(stats.getPlayerStats().get(1).getDescription());
+    }
+
+    @Test
+    void recentGamesTest() {
+        RecentGames games = l7ssha.getRecentGames();
+
+        assertTrue(games.getTotalRecentGames() > 0);
+        assertNotNull(games.getGames().get(1).getIconUrl());
+    }
+
+    @Test
+    void ownedGames() {
+        UserGames games = l7ssha.getOwnedGames();
+
+        assertNotNull(games.getGames().get(10).getIconUrl());
+        assertTrue(games.getGameCount() > 0);
     }
 }
