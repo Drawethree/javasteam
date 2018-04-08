@@ -39,3 +39,5 @@
 | App schema | `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/` |
 | Global achievements| `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/` |
 | Player Achievements | `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/` |
+| Recent Games | `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/` |
+| Owned Games | `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/` |
