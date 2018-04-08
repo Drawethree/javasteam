@@ -7,12 +7,10 @@ package pl.l7ssha.javasteam.storefront;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
-import pl.l7ssha.javasteam.storefront.models.steamgame.*;
 import pl.l7ssha.javasteam.storefront.steamgame.ControllerSupport;
 import pl.l7ssha.javasteam.storefront.steamgame.Requirments;
 import pl.l7ssha.javasteam.storefront.steamgame.SupportInfo;
 import pl.l7ssha.javasteam.storefront.steamgame.achievements.Achievements;
-import pl.l7ssha.javasteam.storefront.models.store.*;
 import pl.l7ssha.javasteam.storefront.store.*;
 import pl.l7ssha.javasteam.storefront.store.storevideo.StoreVideo;
 
