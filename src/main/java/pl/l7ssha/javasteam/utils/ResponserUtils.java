@@ -16,6 +16,8 @@ import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
+import pl.l7ssha.javasteam.steamstats.badges.Badges;
+import pl.l7ssha.javasteam.steamstats.badges.BadgesDeserializer;
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentagesDeserializer;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
@@ -61,6 +63,7 @@ public class ResponserUtils {
             .registerTypeAdapter(PlayerStats.class, new PlayerStatsDeserializer())
             .registerTypeAdapter(RecentGames.class, new SimpleDeserializer<>(RecentGames.class))
             .registerTypeAdapter(UserGames.class, new SimpleDeserializer<>(UserGames.class))
+            .registerTypeAdapter(Badges.class, new BadgesDeserializer())
             .create();
 
     private static String token = "";

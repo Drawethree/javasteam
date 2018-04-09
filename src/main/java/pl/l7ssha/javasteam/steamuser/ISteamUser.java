@@ -6,6 +6,7 @@ package pl.l7ssha.javasteam.steamuser;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
+import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
@@ -36,4 +37,7 @@ public interface ISteamUser {
 
     UserGames getOwnedGames();
     CompletableFuture<UserGames> getOwnedGamesAsync();
+
+    Badges getBadges();
+    CompletableFuture<Badges> getBadgesAsync();
 }

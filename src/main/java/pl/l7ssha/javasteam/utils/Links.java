@@ -15,6 +15,7 @@ public class Links {
     public static final String playerAchievementsUrl = "https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?steamid=%s&appid=%s&l=ENG&key=";
     public static final String userRecentGamesUrl = "https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/?format=json&steamid=%s&key=";
     public static final String userGamesUrl = "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?format=json&steamid=%s&include_appinfo=1&include_played_free_games=1&key=";
+    public static final String userGetBadgesurl = "https://api.steampowered.com/IPlayerService/GetBadges/v1/?steamid=%s&key=";
 
     // CSGO
     public static final String serverStatusUrl = "https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/?key=";

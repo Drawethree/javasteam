@@ -8,13 +8,13 @@ package pl.l7ssha.javasteam.steamuser;
 
 import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.schema.GameSchema;
+import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
 import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -57,6 +57,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
        return CompletableFuture.supplyAsync(() -> getAchievements(appId));
     }
 
+    // TO REWORK PROBABLY
     @Override
     public List<FriendListNode> getFriendList() {
         return (List<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
@@ -105,6 +106,16 @@ public abstract class AbstractSteamUser implements ISteamUser {
     @Override
     public CompletableFuture<UserGames> getOwnedGamesAsync() {
         return CompletableFuture.supplyAsync(this::getOwnedGames);
+    }
+
+    @Override
+    public Badges getBadges() {
+        return getGenericResponse(String.format(userGetBadgesurl, steamId), Badges.class);
+    }
+
+    @Override
+    public CompletableFuture<Badges> getBadgesAsync() {
+        return CompletableFuture.supplyAsync(this::getBadges);
     }
 
     @Override
