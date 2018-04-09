@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.currentPlayersUrl;
 import static pl.l7ssha.javasteam.utils.Links.newsForApp;
-import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class SteamGame {
     protected String name;
@@ -33,7 +33,7 @@ public class SteamGame {
     }
 
     public News getNews(int count) {
-        return (News) getResponse(String.format(newsForApp, appId, count), News.class);
+        return getGenericResponse(String.format(newsForApp, appId, count), News.class);
     }
 
     public CompletableFuture<News> getNewsAsync(String id, int count) {
@@ -41,7 +41,7 @@ public class SteamGame {
     }
 
     public CurrentPlayers getCurrentPlayers() {
-        return (CurrentPlayers) getResponse(String.format(currentPlayersUrl, appId), CurrentPlayers.class);
+        return getGenericResponse(String.format(currentPlayersUrl, appId), CurrentPlayers.class);
     }
 
     public CompletableFuture<CurrentPlayers> getCurrentPlayersAsync() {

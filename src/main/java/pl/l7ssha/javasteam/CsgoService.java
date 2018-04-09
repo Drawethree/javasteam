@@ -10,7 +10,7 @@ import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
-import pl.l7ssha.javasteam.utils.ResponserUtils;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,15 +21,15 @@ public class CsgoService {
     CsgoService() { }
 
     public ServerStatus getGameServerStatus() {
-        return (ServerStatus) ResponserUtils.getResponse(serverStatusUrl, ServerStatus.class);
+        return getGenericResponse(serverStatusUrl, ServerStatus.class);
     }
 
     public CompletableFuture<ServerStatus> getGameServerStatusAsync() {
-        return CompletableFuture.supplyAsync(() -> getGameServerStatus());
+        return CompletableFuture.supplyAsync(this::getGameServerStatus);
     }
 
     public MapPlaytime getMapPlaytime(Gamemode mode, Interval interval) {
-        return (MapPlaytime) ResponserUtils.getResponse(String.format(mapPlaytimeUrl, interval.toString(), mode.toString()), MapPlaytime.class);
+        return getGenericResponse(String.format(mapPlaytimeUrl, interval.toString(), mode.toString()), MapPlaytime.class);
     }
 
     public CompletableFuture<MapPlaytime> getMapPlaytimeAsync(Gamemode mode, Interval interval) {

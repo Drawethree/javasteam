@@ -16,12 +16,13 @@ import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
 import static pl.l7ssha.javasteam.utils.Utils.completeAchievementGlobal;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class SteamStatsService {
     SteamStatsService() { }
 
     public GameSchema getSchema(String id, String lang) {
-        return (GameSchema) getResponse(String.format(appSchemaUrl, id, lang), GameSchema.class);
+        return getGenericResponse(String.format(appSchemaUrl, id, lang), GameSchema.class);
     }
 
     public CompletableFuture<GameSchema> getSchemaAsync(String id, String lang) {
@@ -31,9 +32,9 @@ public class SteamStatsService {
     //LONG METHOD NAMES HELL // PROBABLY TO CHANGE
     @Blocking
     public AchievementsGlobalPercentages getGlobalAchievementsPercentagesWithDescription(String id) {
-        GameSchema schema = (GameSchema) getResponse(String.format(appSchemaUrl, id, "ENG"), GameSchema.class);
+        GameSchema schema = getGenericResponse(String.format(appSchemaUrl, id, "ENG"), GameSchema.class);
 
-        AchievementsGlobalPercentages percentages = (AchievementsGlobalPercentages) getResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
+        AchievementsGlobalPercentages percentages = getGenericResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
 
         return completeAchievementGlobal(percentages, schema);
     }
@@ -43,7 +44,7 @@ public class SteamStatsService {
     }
 
     public AchievementsGlobalPercentages getGlobalAchievementsPercentages(String id) {
-        return (AchievementsGlobalPercentages) getResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
+        return getGenericResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
     }
 
     public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesAsync(String id) {

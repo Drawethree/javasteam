@@ -14,13 +14,13 @@ import pl.l7ssha.javasteam.storefront.news.News;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
-import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class StoreFrontService {
     StoreFrontService() { }
 
     public RichSteamGame getFullInfoOfApp(String id) {
-        return (RichSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
+        return getGenericResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
     }
 
     public CompletableFuture<RichSteamGame> getFullInfoOfAppAsync(String id) {
@@ -28,7 +28,7 @@ public class StoreFrontService {
     }
 
     public LiteSteamGame getBaseInfoOfApp(String id) {
-        return (LiteSteamGame) getResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
+        return getGenericResponse(String.format(shopGetAppUrl, id), RichSteamGame.class);
     }
 
     public CompletableFuture<LiteSteamGame> getBaseInfoOfAppAsync(String id) {
@@ -36,7 +36,7 @@ public class StoreFrontService {
     }
 
     public StoreFeatured getStoreFeatured() {
-        return (StoreFeatured) getResponse(shopFeaturedAppsUrl, StoreFeatured.class);
+        return getGenericResponse(shopFeaturedAppsUrl, StoreFeatured.class);
     }
 
     public CompletableFuture<StoreFeatured> getStoreFeaturedAsync() {
@@ -44,7 +44,7 @@ public class StoreFrontService {
     }
 
     public StoreFeaturedCategories getStoreFeaturedCategories() {
-        return (StoreFeaturedCategories) getResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class);
+        return getGenericResponse(shopFeaturedCategoriesUrl, StoreFeaturedCategories.class);
     }
 
     public CompletableFuture<StoreFeaturedCategories> getStoreFeaturedCategoriesAsync() {
@@ -52,7 +52,7 @@ public class StoreFrontService {
     }
 
     public StorePackage getStorePackageInfo(String id) {
-        return (StorePackage) getResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class);
+        return getGenericResponse(String.format(shopPackageDetailsUrl, id), StorePackage.class);
     }
 
     public CompletableFuture<StorePackage> getStorePackageInfoAsync(String id) {
@@ -60,7 +60,7 @@ public class StoreFrontService {
     }
 
     public GameList searchStore(GameListQuery query) {
-        GameList tmp = (GameList) getResponse(query.toString(), GameList.class);
+        GameList tmp = getGenericResponse(query.toString(), GameList.class);
 
         return tmp.setQuery(query);
     }
@@ -70,7 +70,7 @@ public class StoreFrontService {
     }
 
     public News getNewsForApp(String id, int count) {
-        return (News) getResponse(String.format(newsForApp, id, count), News.class);
+        return getGenericResponse(String.format(newsForApp, id, count), News.class);
     }
 
     public CompletableFuture<News> getNewsForAppAsync(String id, int count) {

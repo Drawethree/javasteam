@@ -37,7 +37,6 @@ import pl.l7ssha.javasteam.storefront.news.NewsDeserializer;
 import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
 import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
-import pl.l7ssha.javasteam.vanity.VanityUrlDeserializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -52,7 +51,7 @@ public class ResponserUtils {
             .registerTypeAdapter(UserSummary.class, new UserSumaryDeserializer())
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
             .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
-            .registerTypeAdapter(VanityUrl.class, new VanityUrlDeserializer())
+            .registerTypeAdapter(VanityUrl.class, new SimpleDeserializer<VanityUrl>(VanityUrl.class))
             .registerTypeAdapter(GameList.class, new GameListDeserializer())
             .registerTypeAdapter(News.class, new NewsDeserializer())
             .registerTypeAdapter(CurrentPlayers.class, new SimpleDeserializer<CurrentPlayers>(CurrentPlayers.class))
@@ -70,7 +69,7 @@ public class ResponserUtils {
         ResponserUtils.token = token;
     }
 
-    public static Object getResponse(String url, Type type) {
+    private static String getResponseString(String url) {
         if(token.equals(""))
             throw new SteamApiNotInitializedException("Can't get response from server without token. Initialize SteamAPI fist");
 
@@ -79,6 +78,14 @@ public class ResponserUtils {
         if(req.code() != 200)
             throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body()));
 
-        return gson.fromJson(req.body(), type);
+        return req.body();
+    }
+
+    public static Object getResponse(String url, Type type) {
+        return gson.fromJson(getResponseString(url), type);
+    }
+
+    public static <T> T getGenericResponse(String url, Class<T> type) {
+        return gson.fromJson(getResponseString(url), type);
     }
 }

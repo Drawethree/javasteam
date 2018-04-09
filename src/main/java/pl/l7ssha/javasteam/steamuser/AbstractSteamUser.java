@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 import static pl.l7ssha.javasteam.utils.Utils.completePlayerStats;
 
@@ -35,8 +36,8 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public PlayerStats getStats(String appId) {
-        GameSchema schema = (GameSchema) getResponse(String.format(appSchemaUrl, appId, "ENG"), GameSchema.class);
-        PlayerStats playerStats = (PlayerStats) getResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
+        GameSchema schema = getGenericResponse(String.format(appSchemaUrl, appId, "ENG"), GameSchema.class);
+        PlayerStats playerStats = getGenericResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
 
         return completePlayerStats(playerStats, schema);
     }
@@ -48,7 +49,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public PlayerAchievements getAchievements(String appId) {
-        return (PlayerAchievements) getResponse(String.format(playerAchievementsUrl, steamId, appId), PlayerAchievements.class);
+        return getGenericResponse(String.format(playerAchievementsUrl, steamId, appId), PlayerAchievements.class);
     }
 
     @Override
@@ -58,7 +59,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public List<FriendListNode> getFriendList() {
-        return (ArrayList<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
+        return (List<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
     }
 
     @Override
@@ -68,7 +69,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public UserBans getBans() {
-        return (UserBans) getResponse(String.format(userBansUrl, steamId), UserBans.class);
+        return getGenericResponse(String.format(userBansUrl, steamId), UserBans.class);
     }
 
     @Override
@@ -78,7 +79,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public UserSummary getSummary() {
-        return (UserSummary) getResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
+        return getGenericResponse(String.format(userSummaryUrl, steamId), UserSummary.class);
     }
 
     @Override
@@ -88,7 +89,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public RecentGames getRecentGames() {
-        return (RecentGames) getResponse(String.format(userRecentGamesUrl, steamId), RecentGames.class);
+        return getGenericResponse(String.format(userRecentGamesUrl, steamId), RecentGames.class);
     }
 
     @Override
@@ -98,7 +99,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public UserGames getOwnedGames() {
-        return (UserGames) getResponse(String.format(userGamesUrl, steamId), UserGames.class);
+        return getGenericResponse(String.format(userGamesUrl, steamId), UserGames.class);
     }
 
     @Override
