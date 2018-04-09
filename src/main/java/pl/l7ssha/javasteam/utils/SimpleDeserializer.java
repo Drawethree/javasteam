@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 public class SimpleDeserializer<T> implements JsonDeserializer<T> {
     Type type;
 
-    public SimpleDeserializer(Type type) {
+    public SimpleDeserializer(Class<T> type) {
         this.type = type;
     }
 

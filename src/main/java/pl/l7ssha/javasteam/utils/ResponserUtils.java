@@ -51,16 +51,16 @@ public class ResponserUtils {
             .registerTypeAdapter(UserSummary.class, new UserSumaryDeserializer())
             .registerTypeAdapter(RichSteamGame.class, new SteamGameDeserializer())
             .registerTypeAdapter(StorePackage.class, new StorePackageDeserializer())
-            .registerTypeAdapter(VanityUrl.class, new SimpleDeserializer<VanityUrl>(VanityUrl.class))
+            .registerTypeAdapter(VanityUrl.class, new SimpleDeserializer<>(VanityUrl.class))
             .registerTypeAdapter(GameList.class, new GameListDeserializer())
             .registerTypeAdapter(News.class, new NewsDeserializer())
-            .registerTypeAdapter(CurrentPlayers.class, new SimpleDeserializer<CurrentPlayers>(CurrentPlayers.class))
+            .registerTypeAdapter(CurrentPlayers.class, new SimpleDeserializer<>(CurrentPlayers.class))
             .registerTypeAdapter(GameSchema.class, new GameSchemaDeserializer())
             .registerTypeAdapter(AchievementsGlobalPercentages.class, new AchievementsGlobalPercentagesDeserializer())
             .registerTypeAdapter(PlayerAchievements.class, new PlayerAchievementsDeserializer())
             .registerTypeAdapter(PlayerStats.class, new PlayerStatsDeserializer())
-            .registerTypeAdapter(RecentGames.class, new SimpleDeserializer<RecentGames>(RecentGames.class))
-            .registerTypeAdapter(UserGames.class, new SimpleDeserializer<UserGames>(UserGames.class))
+            .registerTypeAdapter(RecentGames.class, new SimpleDeserializer<>(RecentGames.class))
+            .registerTypeAdapter(UserGames.class, new SimpleDeserializer<>(UserGames.class))
             .create();
 
     private static String token = "";
