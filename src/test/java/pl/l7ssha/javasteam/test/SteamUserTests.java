@@ -11,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
+import pl.l7ssha.javasteam.steamstats.badges.Badges;
+import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.*;
@@ -121,5 +123,22 @@ public class SteamUserTests {
 
         assertNotNull(games.getGames().get(10).getIconUrl());
         assertTrue(games.getGameCount() > 0);
+    }
+
+
+    @Test
+    void getBadgesTest() {
+        Badges badges = l7ssha.getBadges();
+
+        assertTrue(badges.getBadges().size() > 0);
+        assertTrue(badges.getPlayerXpCurrent() > 0);
+
+        assertNotNull(badges.getBadges().get(1).getCompletionTime());
+        assertTrue(badges.getBadges().get(3).getLevel() > 0);
+
+        assertTrue(badges.getBadges().get(6) instanceof GameBadge);
+
+        GameBadge special = (GameBadge) badges.getBadges().get(6);
+        assertEquals(0, special.getBorderColor());
     }
 }
