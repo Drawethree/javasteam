@@ -24,9 +24,11 @@ public class FriendListDeserializer implements JsonDeserializer<List<FriendListN
         ArrayList<FriendListNode> tmp = new ArrayList<>();
 
         for(JsonElement i: friends) {
-            Long steamid = i.getAsJsonObject().get("steamid").getAsLong();
-            String relationship = i.getAsJsonObject().get("relationship").getAsString();
-            Date timestamp = Utils.timestampToDate(i.getAsJsonObject().get("friend_since").getAsLong());
+            JsonObject ii = i.getAsJsonObject();
+
+            Long steamid = ii.get("steamid").getAsLong();
+            String relationship = ii.get("relationship").getAsString();
+            Date timestamp = Utils.timestampToDate(ii.get("friend_since").getAsLong());
 
             tmp.add(new FriendListNode(steamid, relationship, timestamp));
         }
