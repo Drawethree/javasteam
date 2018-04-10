@@ -28,6 +28,7 @@ public class Links {
     public static final String shopPackageDetailsUrl = "https://store.steampowered.com/api/packagedetails/?packageids=%s&key=";
     public static final String storeSearching = "https://api.steampowered.com/IStoreService/GetAppList/v1/?format=json&if_modified_since=%s&have_description_language=%s&include_games=%s&include_dlc=%s&include_hardware=%s&include_software=%s&include_videos=%s&last_appid=%s&max_results=%s&key=";
     public static final String newsForApp = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?format=json&appid=%s&count=%s&key=";
+    public static final String shopGameUpToDateUrl = "https://api.steampowered.com/ISteamApps/UpToDateCheck/v1/?format=json&appid=%s&version=%s&key=";
 
     // Stats
     public static final String appSchemaUrl = "https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?appid=%s&l=%s&key=";

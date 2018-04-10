@@ -34,6 +34,8 @@ import pl.l7ssha.javasteam.storefront.StorePackage;
 import pl.l7ssha.javasteam.storefront.StorePackageDeserializer;
 import pl.l7ssha.javasteam.storefront.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.gamelist.GameListDeserializer;
+import pl.l7ssha.javasteam.storefront.gameuptodate.IGameVersion;
+import pl.l7ssha.javasteam.storefront.gameuptodate.IGameVersionDeserializer;
 import pl.l7ssha.javasteam.storefront.news.News;
 import pl.l7ssha.javasteam.storefront.news.NewsDeserializer;
 import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
@@ -64,6 +66,7 @@ public class ResponserUtils {
             .registerTypeAdapter(RecentGames.class, new SimpleDeserializer<>(RecentGames.class))
             .registerTypeAdapter(UserGames.class, new SimpleDeserializer<>(UserGames.class))
             .registerTypeAdapter(Badges.class, new BadgesDeserializer())
+            .registerTypeAdapter(IGameVersion.class, new IGameVersionDeserializer())
             .create();
 
     private static String token = "";
