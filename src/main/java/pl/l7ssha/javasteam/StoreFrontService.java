@@ -9,6 +9,7 @@ package pl.l7ssha.javasteam;
 import pl.l7ssha.javasteam.storefront.*;
 import pl.l7ssha.javasteam.storefront.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.gameuptodate.IGameVersion;
 import pl.l7ssha.javasteam.storefront.news.News;
 
 import java.util.concurrent.CompletableFuture;
@@ -75,5 +76,13 @@ public class StoreFrontService {
 
     public CompletableFuture<News> getNewsForAppAsync(String id, int count) {
         return CompletableFuture.supplyAsync(() -> getNewsForApp(id, count));
+    }
+
+    public IGameVersion checkGameVersion(String id, String version) {
+        return getGenericResponse(String.format(shopGameUpToDateUrl, id, version), IGameVersion.class);
+    }
+
+    public CompletableFuture<IGameVersion> checkGameVersionAsync(String id, String version) {
+        return CompletableFuture.supplyAsync(() -> checkGameVersion(id, version));
     }
 }
