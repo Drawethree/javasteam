@@ -20,16 +20,6 @@ POM:
                     <url>https://dl.bintray.com/l7ssha/javasteam</url>
                 </repository>
             </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <id>bintray-l7ssha-javasteam</id>
-                    <name>bintray-plugins</name>
-                    <url>https://dl.bintray.com/l7ssha/javasteam</url>
-                </pluginRepository>
-            </pluginRepositories>
             <id>bintray</id>
         </profile>
     </profiles>
