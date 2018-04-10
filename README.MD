@@ -1,6 +1,6 @@
 # javaSteam
 
-~~(Almost)~~ complete Steam API wrapper for JVM
+~~(Almost)~~ javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 
 ## Download
 
