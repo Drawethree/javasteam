@@ -41,3 +41,4 @@
 | Player Achievements | `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/` |
 | Recent Games | `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/` |
 | Owned Games | `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/` |
+| User Badges | `https://api.steampowered.com/IPlayerService/GetBadges/v1/` |
