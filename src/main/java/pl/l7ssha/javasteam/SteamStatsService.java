@@ -58,7 +58,7 @@ public class SteamStatsService {
     /**
      * Asynchronously returns global achievements percentages with descriptions in English.
      * @param id App (game) ID
-     * @return CompletableFuture<AchievementsGlobalPercentages>
+     * @return CompletableFuture
      */
     public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesWithDescriptionAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getGlobalAchievementsPercentagesWithDescription(id));
@@ -76,7 +76,7 @@ public class SteamStatsService {
     /**
      * Asynchronously returns bare-bones global achievements percentages
      * @param id App (game) ID
-     * @return CompletableFuture<AchievementsGlobalPercentages>
+     * @return CompletableFuture
      */
     public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getGlobalAchievementsPercentages(id));

@@ -32,7 +32,7 @@ public class StoreFrontService {
     /**
      * Asynchronously returns full set of data about app.
      * @param id Id of app
-     * @return CompletableFuture<RichSteamGame>
+     * @return CompletableFuture
      */
     public CompletableFuture<RichSteamGame> getFullInfoOfAppAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getFullInfoOfApp(id));
@@ -50,7 +50,7 @@ public class StoreFrontService {
     /**
      * Asynchronously returns basic info about game
      * @param id Id of app
-     * @return CompletableFuture<LiteSteamGame>
+     * @return CompletableFuture
      */
     public CompletableFuture<LiteSteamGame> getBaseInfoOfAppAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getBaseInfoOfApp(id));
@@ -66,7 +66,7 @@ public class StoreFrontService {
 
     /**
      * Asynchronously fetches current featured games in steam store.
-     * @return CompletableFuture<StoreFeatured>
+     * @return CompletableFuture
      */
     public CompletableFuture<StoreFeatured> getStoreFeaturedAsync() {
         return CompletableFuture.supplyAsync(this::getStoreFeatured);
@@ -100,7 +100,7 @@ public class StoreFrontService {
     /**
      * Asynchronously gets info about bundle(package)
      * @param id Bundle ID
-     * @return CompletableFuture<StorePackage>
+     * @return CompletableFuture
      */
     public CompletableFuture<StorePackage> getStorePackageInfoAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getStorePackageInfo(id));

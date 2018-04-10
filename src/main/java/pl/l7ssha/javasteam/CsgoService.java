@@ -30,7 +30,7 @@ public class CsgoService {
 
     /**
      * Asynchronously fetches CSGO serves status
-     * @return CompletableFuture<ServerStatus>
+     * @return CompletableFuture
      */
     public CompletableFuture<ServerStatus> getGameServerStatusAsync() {
         return CompletableFuture.supplyAsync(this::getGameServerStatus);
@@ -50,7 +50,7 @@ public class CsgoService {
      * Gets operation-based (to fix) data about maps.
      * @param mode Mode to play
      * @param interval From how much time get data
-     * @return CompletableFuture<MapPlaytime>
+     * @return CompletableFuture
      */
     public CompletableFuture<MapPlaytime> getMapPlaytimeAsync(Gamemode mode, Interval interval) {
         return CompletableFuture.supplyAsync(() -> getMapPlaytime(mode, interval));
