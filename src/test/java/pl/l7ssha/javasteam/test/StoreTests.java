@@ -13,6 +13,7 @@ import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.storefront.*;
 import pl.l7ssha.javasteam.storefront.gamelist.GameList;
 import pl.l7ssha.javasteam.storefront.gamelist.GameListQuery;
+import pl.l7ssha.javasteam.storefront.gameuptodate.IGameVersion;
 import pl.l7ssha.javasteam.storefront.news.News;
 import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
 
@@ -129,6 +130,14 @@ public class StoreTests {
         assertNotNull(tf2News);
         assertNotNull(tf2News.getNews().get(1).getDate());
         assertEquals(5, tf2News.getNews().size());
+    }
+
+    @Test
+    void checkGameVersionTest() {
+        IGameVersion dotaVer = storeFrontService.checkGameVersion("570", "7.10");
+
+        assertTrue(dotaVer.isUpToDate());
+        assertNull(dotaVer.getMessage());
     }
 }
 
