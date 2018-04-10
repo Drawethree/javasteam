@@ -1,7 +1,5 @@
 package pl.l7ssha.javasteam.steamstats.badges;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
 
 // pl.l7ssha.javasteam.steamstats.badges
@@ -12,13 +10,8 @@ import java.util.Date;
 
 // Implement ability to cast to SteamGame
 public class GameBadge extends Badge {
-    @SerializedName("appid")
     private long appId;
-
-    @SerializedName("communityitemid")
     private long communityItemId;
-
-    @SerializedName("border_color")
     private int borderColor;
 
     public GameBadge(int badgeId, int level, Date completionTime, int xp, int scarcity, long appId, long communityItemId, int borderColor) {

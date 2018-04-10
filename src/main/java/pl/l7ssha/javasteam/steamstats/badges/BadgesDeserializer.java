@@ -13,6 +13,7 @@ import java.util.List;
 // Date created: 09 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
+
 public class BadgesDeserializer implements JsonDeserializer<Badges> {
     List<Badge> tmpBadges = new ArrayList<>();
 
@@ -51,7 +52,6 @@ public class BadgesDeserializer implements JsonDeserializer<Badges> {
 
         return new GameBadge(badgeId, level, time, xp, scaracity, appid, communityitemid, borderColor);
     }
-
 
     private Badge createBadge(JsonObject obj) {
         int badgeId = obj.get("badgeid").getAsInt();
