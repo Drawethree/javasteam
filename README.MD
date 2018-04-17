@@ -1,4 +1,4 @@
-# javaSteam [ ![Download](https://api.bintray.com/packages/l7ssha/javasteam/javasteam/images/download.svg) ](https://bintray.com/l7ssha/javasteam/javasteam/_latestVersion)
+# javaSteam
 
 ~~(Almost)~~ javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 
