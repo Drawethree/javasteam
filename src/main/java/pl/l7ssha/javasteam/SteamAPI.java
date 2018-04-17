@@ -13,6 +13,10 @@ public class SteamAPI {
         ResponserUtils.setToken(key);
     }
 
+    public static initialize(final String key) {
+        ResponserUtils.setToken(key);
+    }
+
     /**
      * Provides access to CSGO-specific endpoints. No marketplace included.
      * @return CsgoService

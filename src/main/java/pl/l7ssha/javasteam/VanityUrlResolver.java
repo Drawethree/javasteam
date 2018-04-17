@@ -15,8 +15,6 @@ import java.util.concurrent.CompletableFuture;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class VanityUrlResolver {
-    VanityUrlResolver() { }
-
     /**
      * Resolves literal nick of user or group name to steam 32-bit integer id.
      * @param phrase Phrase to convert

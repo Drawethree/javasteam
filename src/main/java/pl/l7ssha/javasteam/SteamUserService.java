@@ -11,8 +11,6 @@ import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
 
 public class SteamUserService {
-    SteamUserService() { }
-
     /**
      * Returns user with specified steamid.
      * @param steamid ID of user in 32-bit interger format

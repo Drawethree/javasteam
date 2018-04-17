@@ -18,8 +18,6 @@ import static pl.l7ssha.javasteam.utils.Links.serverStatusUrl;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class CsgoService {
-    CsgoService() { }
-
     /**
      * Fetches CSGO serves status
      * @return ServerStatus
