@@ -79,10 +79,12 @@ public class ResponserUtils {
         if(token.equals(""))
             throw new SteamApiNotInitializedException("Can't get response from server without token. Initialize SteamAPI fist");
 
+        //System.out.println((url + token));
+
         HttpRequest req = HttpRequest.get((url + token));
 
         if(req.code() != 200)
-            throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body()));
+            throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body() + "at endpoint: " + (url+token)));
 
         return req.body();
     }
