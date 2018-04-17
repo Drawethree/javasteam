@@ -13,8 +13,9 @@ public class SteamAPI {
         ResponserUtils.setToken(key);
     }
 
-    public static initialize(final String key) {
+    public static boolean initialize(final String key) {
         ResponserUtils.setToken(key);
+        return true;
     }
 
     /**
