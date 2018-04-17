@@ -4,48 +4,7 @@
 
 ## Download
 
-#### Package isn't published to jCenter() yet!
-
-POM:
-```xml
-<profiles>
-        <profile>
-            <repositories>
-                <repository>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <id>bintray-l7ssha-javasteam</id>
-                    <name>bintray</name>
-                    <url>https://dl.bintray.com/l7ssha/javasteam</url>
-                </repository>
-            </repositories>
-            <id>bintray</id>
-        </profile>
-    </profiles>
-```
-
-```xml
-<dependency>
-  <groupId>pl.l7ssha</groupId>
-  <artifactId>javasteam</artifactId>
-  <version>1.0-PRE</version>
-  <type>pom</type>
-</dependency>
-```
-
-GRADLE:
-```grooovy
-repositories {
-    maven {
-        url  "https://dl.bintray.com/l7ssha/javasteam"
-    }
-}
-```
-
-```groovy
-compile 'pl.l7ssha:javasteam:1.0-PRE'
-```
+TODO();
 
 ## Documentation
 
