@@ -19,20 +19,25 @@ public class MarketplaceService implements ISteamService {
     /**
      * Returns object with item prices
      * @param gameId Id of game
-     * @param itemId Name of store item. Un-encoded - bare name
+     * @param itemId Name of store item - encoded or bare
+     * @param encode Set to true if you have bare name of item
      * @return MarketplaceItemPrice
      */
-    public MarketplaceItemPrice getItemPrices(long gameId, String itemId) {
-        return getGenericResponse(String.format(Links.storePricesUrl, gameId, encodeString(itemId)), MarketplaceItemPrice.class);
+    public MarketplaceItemPrice getItemPrices(long gameId, String itemId, boolean encode) {
+        if(encode)
+            itemId = encodeString(itemId);
+
+        return getGenericResponse(String.format(Links.storePricesUrl, gameId, itemId), MarketplaceItemPrice.class);
     }
 
     /**
      * Asynchronously returns object with item prices
      * @param gameId Id of game
-     * @param itemId Name of store item. Un-encoded - bare name
+     * @param itemId Name of store item - encoded or bare
+     * @param encode Set to true if you have bare name of item
      * @return MarketplaceItemPrice
      */
-    public CompletableFuture<MarketplaceItemPrice> getItemPricesAsync(long gameId, String itemId) {
-        return CompletableFuture.supplyAsync(() -> getItemPrices(gameId, itemId));
+    public CompletableFuture<MarketplaceItemPrice> getItemPricesAsync(long gameId, String itemId, boolean encode) {
+        return CompletableFuture.supplyAsync(() -> getItemPrices(gameId, itemId, encode));
     }
 }
