@@ -44,9 +44,14 @@ import pl.l7ssha.javasteam.storefront.steamgame.CurrentPlayers;
 import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -114,5 +119,27 @@ public class ResponserUtils {
 
     public static <T> T getGenericResponse(String url, Class<T> type) {
         return gson.fromJson(getResponseString(url), type);
+    }
+
+    public static <T> T getXMLResponse(String url, Class<T> type) {
+        JAXBContext jaxbContext;
+        try {
+           jaxbContext = JAXBContext.newInstance(type);
+        } catch(JAXBException e) {
+            throw new RuntimeException(e);
+        }
+
+        Unmarshaller unmarshaller = null;
+        try {
+            unmarshaller = jaxbContext.createUnmarshaller();
+        } catch(JAXBException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            return (T) unmarshaller.unmarshal(new URL(url));
+        } catch(JAXBException | MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
