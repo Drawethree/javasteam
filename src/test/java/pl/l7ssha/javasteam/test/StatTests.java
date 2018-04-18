@@ -12,7 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 // pl.l7ssha.javasteam.test
 //
@@ -25,7 +24,7 @@ public class StatTests {
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-        statsService = new SteamAPI(token).getStatService();
+        statsService = new SteamAPI(token).getService(SteamStatsService.class);
     }
 
     @Test

@@ -30,7 +30,7 @@ public class StoreTests {
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-        storeFrontService = new SteamAPI(token).getStoreFront();
+        storeFrontService = new SteamAPI(token).getService(StoreFrontService.class);
     }
 
     @Test

@@ -29,8 +29,8 @@ public class Benchmarks {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
         SteamAPI api = new SteamAPI(token);
 
-        storeFrontService = api.getStoreFront();
-        steamUserService = api.getSteamUserService();
+        storeFrontService = api.getService(StoreFrontService.class);
+        steamUserService = api.getService(SteamUserService.class);
 
         System.out.println("[BENCHMARK] Started");
     }

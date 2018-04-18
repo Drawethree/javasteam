@@ -14,7 +14,6 @@ import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
-import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.*;
 import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
 import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
@@ -35,7 +34,7 @@ public class SteamUserTests {
     @BeforeAll
     static void getToken() throws IOException {
         String token = Files.readAllLines(Paths.get("token.txt")).get(0);
-        api = new SteamAPI(token).getSteamUserService();
+        api = new SteamAPI(token).getService(SteamUserService.class);
         l7ssha = new SteamUser(76561198122791844L);
     }
 
