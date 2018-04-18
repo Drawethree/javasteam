@@ -9,6 +9,11 @@ package pl.l7ssha.javasteam;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
 import pl.l7ssha.javasteam.steamuser.NamedSteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
+import pl.l7ssha.javasteam.steamuser.groups.GroupInfo;
+import pl.l7ssha.javasteam.utils.Links;
+import pl.l7ssha.javasteam.utils.ResponserUtils;
+
+import java.util.concurrent.CompletableFuture;
 
 public class SteamUserService implements ISteamService{
     /**
@@ -27,5 +32,23 @@ public class SteamUserService implements ISteamService{
      */
     public ISteamUser getSteamUser(String nick) {
         return new NamedSteamUser(nick);
+    }
+
+    /**
+     * Returns info of specified group
+     * @param groupId Id of group
+     * @return GroupInfo
+     */
+    public GroupInfo getGroupInfo(Long groupId) {
+        return ResponserUtils.getXMLResponse(String.format(Links.groupInfoXMLUrl, groupId), GroupInfo.class);
+    }
+
+    /**
+     * Asynchronously returns info of specified group
+     * @param groupId Id of group
+     * @return GroupInfo
+     */
+    public CompletableFuture<GroupInfo> getGroupsInfoAsync(Long groupId) {
+        return CompletableFuture.supplyAsync(() -> getGroupInfo(groupId));
     }
 }
