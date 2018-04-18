@@ -15,6 +15,7 @@ import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamuser.*;
+import pl.l7ssha.javasteam.steamuser.groups.GroupInfo;
 import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
 import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
@@ -142,5 +143,14 @@ public class SteamUserTests {
 
         GameBadge special = (GameBadge) badges.getBadges().get(6);
         assertEquals(0, special.getBorderColor());
+    }
+
+    @Test
+    void XMLgroupsTest() {
+        GroupInfo info = api.getGroupInfo(103582791429521412L);
+
+        assertNotNull(info.getDetails());
+        assertNotNull(info.getDetails().getAvatarIcon());
+        //assertNotNull(info.getMembersIds().get(40));
     }
 }
