@@ -14,6 +14,8 @@ import pl.l7ssha.javasteam.csgo.MapsPlaytimeDeserializer;
 import pl.l7ssha.javasteam.csgo.ServerStatusDeserializer;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
+import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
+import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPriceDeserializer;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.schema.GameSchemaDeserializer;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
@@ -43,7 +45,9 @@ import pl.l7ssha.javasteam.utils.exceptions.SteamApiNotInitializedException;
 import pl.l7ssha.javasteam.vanity.VanityUrl;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
 import java.util.List;
 
 public class ResponserUtils {
@@ -67,6 +71,7 @@ public class ResponserUtils {
             .registerTypeAdapter(UserGames.class, new SimpleDeserializer<>(UserGames.class))
             .registerTypeAdapter(Badges.class, new BadgesDeserializer())
             .registerTypeAdapter(IGameVersion.class, new IGameVersionDeserializer())
+            .registerTypeAdapter(MarketplaceItemPrice.class, new MarketplaceItemPriceDeserializer())
             .create();
 
     private static String token = "";
@@ -79,14 +84,28 @@ public class ResponserUtils {
         if(token.equals(""))
             throw new SteamApiNotInitializedException("Can't get response from server without token. Initialize SteamAPI fist");
 
-        //System.out.println((url + token));
-
-        HttpRequest req = HttpRequest.get((url + token));
+        HttpRequest req = HttpRequest.get(getRequestUrl(url));
 
         if(req.code() != 200)
             throw new HttpRequest.HttpRequestException(new IOException("Server returned with code " + req.code() + ", with message: "+ req.body() + "at endpoint: " + (url+token)));
 
         return req.body();
+    }
+
+    private static String getRequestUrl(String url) {
+        if(url.endsWith("key="))
+           return (url + token);
+
+        return url;
+    }
+
+    public static String encodeString(String str) {
+        try {
+            return URLEncoder.encode(str, "UTF-8");
+        }
+        catch(UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Object getResponse(String url, Type type) {

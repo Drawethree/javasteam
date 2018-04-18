@@ -23,9 +23,9 @@ public class Links {
 
     // STORE
     public static final String shopGetAppUrl = "https://store.steampowered.com/api/appdetails/?appids=%s&key=";
-    public static final String shopFeaturedAppsUrl = "https://store.steampowered.com/api/featured/?key=";
-    public static final String shopFeaturedCategoriesUrl = "https://store.steampowered.com/api/featuredcategories/?key=";
-    public static final String shopPackageDetailsUrl = "https://store.steampowered.com/api/packagedetails/?packageids=%s&key=";
+    public static final String shopFeaturedAppsUrl = "https://store.steampowered.com/api/featured/";
+    public static final String shopFeaturedCategoriesUrl = "https://store.steampowered.com/api/featuredcategories/";
+    public static final String shopPackageDetailsUrl = "https://store.steampowered.com/api/packagedetails/?packageids=%s";
     public static final String storeSearching = "https://api.steampowered.com/IStoreService/GetAppList/v1/?format=json&if_modified_since=%s&have_description_language=%s&include_games=%s&include_dlc=%s&include_hardware=%s&include_software=%s&include_videos=%s&last_appid=%s&max_results=%s&key=";
     public static final String newsForApp = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?format=json&appid=%s&count=%s&key=";
     public static final String shopGameUpToDateUrl = "https://api.steampowered.com/ISteamApps/UpToDateCheck/v1/?format=json&appid=%s&version=%s&key=";
@@ -38,4 +38,7 @@ public class Links {
 
     // RESOLVE VANITY URL
     public static final String vanityUrl = "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?format=json&vanityurl=%s&url_type=%s&key=";
+
+    //MARKETPLACE
+    public static final String storePricesUrl = "https://steamcommunity.com/market/priceoverview/?currency=1&appid=%s&market_hash_name=%s";
 }
