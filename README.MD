@@ -18,17 +18,18 @@ TODO();
 
 | Name | Endpoint |
 | ---- | -------- |
-| Friend List Endpoint | `https://api.steampowered.com/ISteamUser/getFriendList/v1/` |
-| User Ban Data | `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/` |
-| User Summary | `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/` |
+| CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
+| Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
 
 ### USER
 
 | Name | Endpoint |
 | ---- | -------- |
-| CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
-| Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
+| Friend List Endpoint | `https://api.steampowered.com/ISteamUser/getFriendList/v1/` |
+| User Ban Data | `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/` |
+| User Summary | `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/` |
 | VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
+| Group Info | `https://steamcommunity.com/gid/{ID}/memberslistxml/`
 
 ### STEAM STORE
 
