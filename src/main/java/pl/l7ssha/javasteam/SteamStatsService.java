@@ -17,7 +17,7 @@ import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 import static pl.l7ssha.javasteam.utils.Utils.completeAchievementGlobal;
 
-public class SteamStatsService {
+public class SteamStatsService implements ISteamService{
     /**
      * Returns schema for specified game and lang. Schema provide description for achievements and stats.
      * @param id Id of app

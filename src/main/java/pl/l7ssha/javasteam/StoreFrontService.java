@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
-public class StoreFrontService {
+public class StoreFrontService implements ISteamService{
     /**
      * Returns full set of data about app.
      * @param id Id of app

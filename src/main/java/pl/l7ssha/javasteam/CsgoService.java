@@ -17,7 +17,7 @@ import static pl.l7ssha.javasteam.utils.Links.mapPlaytimeUrl;
 import static pl.l7ssha.javasteam.utils.Links.serverStatusUrl;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
-public class CsgoService {
+public class CsgoService implements ISteamService {
     /**
      * Fetches CSGO serves status
      * @return ServerStatus
