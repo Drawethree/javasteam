@@ -28,7 +28,7 @@ public class MarketplaceTests {
 
     @Test
     void getDotaItem() {
-        MarketplaceItemPrice item = marketplaceService.getItemPrices(570L, "Exalted Feast of Abscession Bundle");
+        MarketplaceItemPrice item = marketplaceService.getItemPrices(570L, "Exalted Feast of Abscession Bundle", true);
 
         assertTrue(item.getLowestPrice() > 0);
         assertTrue(item.getMedianPrice() > 0);
