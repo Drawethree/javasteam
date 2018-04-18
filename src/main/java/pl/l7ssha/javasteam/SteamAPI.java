@@ -13,49 +13,27 @@ public class SteamAPI {
         ResponserUtils.setToken(key);
     }
 
+    /**
+     * Initialize a SteamAPI with key. This can be achieved also by constructor
+     * @param key Steam API key
+     * @return Returns true if api initialized properly
+     */
     public static boolean initialize(final String key) {
         ResponserUtils.setToken(key);
         return true;
     }
 
     /**
-     * Provides access to CSGO-specific endpoints. No marketplace included.
-     * @return CsgoService
+     * Returns service instance
+     * @param service ISteamService class
+     * @param <T> ISteamService class
+     * @return ISteamService
      */
-    public CsgoService getCsgoService() {
-        return new CsgoService();
-    }
-
-    /**
-     * Provides access to user-related endpoints of steam API.
-     * @return SteamService
-     */
-    public SteamUserService getSteamUserService() {
-        return new SteamUserService();
-    }
-
-    /**
-     * Provides access to endpoints which relates to steam store
-     * @return StoreFrontService
-     */
-    public StoreFrontService getStoreFront() {
-        return new StoreFrontService();
-    }
-
-
-    /**
-     * Provides ability to resolve steamID based on nick or name
-     * @return VanityUrlResolver
-     */
-    public VanityUrlResolver getVanityUrlResolver() {
-        return new VanityUrlResolver();
-    }
-
-    /**
-     * Provides ability to acces steam stats services.
-     * @return SteamStatsService
-     */
-    public SteamStatsService getStatService() {
-        return new SteamStatsService();
+    public <T extends ISteamService> T getService(Class<T> service) {
+        try {
+            return service.newInstance();
+        } catch(InstantiationException | IllegalAccessException e) {
+           throw new RuntimeException(e);
+        }
     }
 }
