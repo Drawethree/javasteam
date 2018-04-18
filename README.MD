@@ -53,3 +53,9 @@ TODO();
 | Recent Games | `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/` |
 | Owned Games | `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/` |
 | User Badges | `https://api.steampowered.com/IPlayerService/GetBadges/v1/` |
+
+### MARKETPLACE
+
+| Name | Endpoint |
+| ---- | -------- |
+| Item Price | `https://steamcommunity.com/market/priceoverview/` |
