@@ -43,4 +43,5 @@ public class Links {
 
     //MARKETPLACE
     public static final String storePricesUrl = "https://steamcommunity.com/market/priceoverview/?currency=1&appid=%s&market_hash_name=%s";
+    public static final String searchMarketplaceUrl = "https://steamcommunity.com/market/search/render/?query=%s&start=%s&norender=1&count=%s";
 }
