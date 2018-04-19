@@ -5,12 +5,13 @@ import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.MarketplaceService;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
+import pl.l7ssha.javasteam.marketplace.marketplacequery.MarketplaceListings;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 // pl.l7ssha.javasteam.test
 //
@@ -33,5 +34,22 @@ public class MarketplaceTests {
         assertTrue(item.getLowestPrice() > 0);
         assertTrue(item.getMedianPrice() > 0);
         assertTrue(item.getVolume() > 0);
+    }
+
+    @Test
+    void searchInMarketplace() {
+        MarketplaceListings search = marketplaceService.searchInMarketplace("csgo", 5);
+
+        assertEquals(5, search.getPageSize());
+        assertEquals(search.getStart(), 0);
+        assertNotNull(search.getSearchResults().get(3).getName());
+        assertNotNull(search.getSearchResults().get(2).getItemDetails().getIconUrl());
+
+        MarketplaceListings next = search.getNext();
+
+        assertEquals(5, next.getPageSize());
+        assertEquals(6, next.getStart());
+        assertNotNull(next.getSearchResults().get(1).getName());
+        assertNotNull(next.getSearchResults().get(1).getItemDetails().getIconUrl());
     }
 }
