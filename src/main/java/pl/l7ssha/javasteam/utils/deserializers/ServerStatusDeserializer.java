@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.csgo;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;

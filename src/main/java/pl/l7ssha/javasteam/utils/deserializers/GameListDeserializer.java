@@ -1,6 +1,8 @@
-package pl.l7ssha.javasteam.storefront.gamelist;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.storefront.gamelist.GameList;
+import pl.l7ssha.javasteam.storefront.gamelist.GameListNode;
 
 import java.lang.reflect.Type;
 

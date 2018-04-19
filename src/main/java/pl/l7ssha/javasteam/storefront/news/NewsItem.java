@@ -20,7 +20,7 @@ public class NewsItem {
     private int feedType;
     private Date date;
 
-    NewsItem(long gid, String title, String url, boolean isExternalUrl, String author, String contents, String feedLabel, String feedname, int feedType, Date date) {
+    public NewsItem(long gid, String title, String url, boolean isExternalUrl, String author, String contents, String feedLabel, String feedname, int feedType, Date date) {
         this.gid = gid;
         this.title = title;
         this.url = url;

@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.marketplace.itemprice;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 // pl.l7ssha.javasteam.marketplace.itemprice
 //
@@ -7,6 +7,7 @@ package pl.l7ssha.javasteam.marketplace.itemprice;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
 
 import java.lang.reflect.Type;
 

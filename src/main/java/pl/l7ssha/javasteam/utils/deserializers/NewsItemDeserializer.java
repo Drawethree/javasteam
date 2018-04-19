@@ -1,6 +1,7 @@
-package pl.l7ssha.javasteam.storefront.news;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.storefront.news.NewsItem;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;

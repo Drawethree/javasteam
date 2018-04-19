@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.csgo;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 // pl.l7ssha.javasteam.csgo.models
 //

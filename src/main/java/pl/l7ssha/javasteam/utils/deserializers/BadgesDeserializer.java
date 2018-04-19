@@ -1,6 +1,10 @@
-package pl.l7ssha.javasteam.steamstats.badges;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.steamstats.badges.Badge;
+import pl.l7ssha.javasteam.steamstats.badges.Badges;
+import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
+import pl.l7ssha.javasteam.steamstats.badges.LiteBadge;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;

@@ -1,6 +1,7 @@
-package pl.l7ssha.javasteam.steamstats.userachievements;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievement;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;

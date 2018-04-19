@@ -1,6 +1,8 @@
-package pl.l7ssha.javasteam.steamstats.globalachievements;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.globalachievements.StatAchievement;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

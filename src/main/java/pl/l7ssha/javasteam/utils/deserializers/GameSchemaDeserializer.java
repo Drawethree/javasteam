@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.schema;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 // pl.l7ssha.javasteam.schema
 //
@@ -7,6 +7,9 @@ package pl.l7ssha.javasteam.schema;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.schema.GameSchema;
+import pl.l7ssha.javasteam.schema.SchemaAchievement;
+import pl.l7ssha.javasteam.schema.SchemaStat;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

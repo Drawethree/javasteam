@@ -1,4 +1,4 @@
-package pl.l7ssha.javasteam.steamuser;
+package pl.l7ssha.javasteam.utils.deserializers;
 
 // pl.l7ssha.javasteam.steamuser
 //
@@ -7,6 +7,7 @@ package pl.l7ssha.javasteam.steamuser;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.steamuser.FriendListNode;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;
