@@ -24,6 +24,11 @@ public class SteamGame {
 
     public SteamGame() { }
 
+    public SteamGame(String name, long appId) {
+        this.name = name;
+        this.appId = appId;
+    }
+
     public String getName() {
         return name;
     }
