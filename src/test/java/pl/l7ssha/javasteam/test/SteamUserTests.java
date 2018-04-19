@@ -14,6 +14,7 @@ import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.*;
 import pl.l7ssha.javasteam.steamuser.groups.GroupInfo;
 import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
@@ -102,15 +103,13 @@ public class SteamUserTests {
         assertNotNull(achievements.getAchievements().get(1).getDescription());
     }
 
-    // Throws INTERNAL ERROR
-    /*
     @Test
     void playerStatsTest() {
         PlayerStats stats = l7ssha.getStats("730");
 
         assertNotNull(stats.getPlayerStats().get(1).getDescription());
     }
-    */
+
 
     @Test
     void recentGamesTest() {
@@ -127,7 +126,6 @@ public class SteamUserTests {
         assertNotNull(games.getGames().get(10).getIconUrl());
         assertTrue(games.getGameCount() > 0);
     }
-
 
     @Test
     void getBadgesTest() {
@@ -151,6 +149,6 @@ public class SteamUserTests {
 
         assertNotNull(info.getDetails());
         assertNotNull(info.getDetails().getAvatarIcon());
-        //assertNotNull(info.getMembersIds().get(40));
+        assertNotNull(info.getMembersIds().get(40));
     }
 }
