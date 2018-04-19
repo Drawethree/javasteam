@@ -60,3 +60,4 @@ TODO();
 | Name | Endpoint |
 | ---- | -------- |
 | Item Price | `https://steamcommunity.com/market/priceoverview/` |
+| Searching | `https://steamcommunity.com/market/search/render/` |
