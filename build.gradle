@@ -1,6 +1,3 @@
-group 'pl.l7ssha'
-version '1.2-PRE'
-
 buildscript {
     repositories {
         mavenCentral()
@@ -11,54 +8,60 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'org.junit.platform.gradle.plugin'
 
-repositories {
-    mavenCentral()
-    jcenter()
-}
+subprojects {
+    group 'pl.l7ssha'
+    version '1.2-PRE'
 
-dependencies {
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'org.junit.platform.gradle.plugin'
 
-    compile 'com.github.kevinsawicki:http-request:6.0'
-    compile 'com.google.code.gson:gson:2.8.2'
-}
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 
-task fatjar(type: Jar) {
-    baseName = "JavaSteamFat"
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
+    dependencies {
+        testCompile("org.junit.jupiter:junit-jupiter-api:5.1.0")
+        testRuntime("org.junit.jupiter:junit-jupiter-engine:5.1.0")
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
+        compile 'com.github.kevinsawicki:http-request:6.0'
+        compile 'com.google.code.gson:gson:2.8.2'
+    }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
+    task fatjar(type: Jar) {
+        baseName = "JavaSteamFat"
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+        with jar
+    }
 
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-    archives jar
-    archives fatjar
-}
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+        archives jar
+        archives fatjar
+    }
+
+    install {
+        repositories.mavenInstaller {
+            pom.project {
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
                 }
             }
         }
