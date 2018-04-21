@@ -1,4 +1,4 @@
-# javaSteam
+# javaSteam [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
 
 javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 It provides also marketplace tool for fetching and querying data from steam marketplace.
@@ -22,9 +22,9 @@ But library is working and usable!
 [Javadoc API [TODO]](https://l7ssha.pl/javasteam/) <br />
 [Javadoc Reflector [TODO]](https://l7ssha.pl/reflector/)
 
-## Download [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
+## Download
 
-* [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/)
+* [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/) [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
 * [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.3.1-PRE)
 * [Github Releases](https://github.com/l7ssha/javasteam/releases)
 
@@ -79,7 +79,7 @@ libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.3.1-PRE"
 
 ## Roadmap
 
-[TODO]()
+### [TODO]()
 
 ## Endpoints
 
