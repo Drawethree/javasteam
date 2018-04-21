@@ -1,0 +1,76 @@
+package pl.l7ssha.javasteam.reflector;
+
+// pl.l7ssha.javasteam.reflector
+//
+// Date created: 21 Apr 2018
+// Author: Szymon 'l7ssha' Uglis
+// Free for open source use, all changes send back to author
+
+import pl.l7ssha.javasteam.storefront.StoreFeatured;
+import pl.l7ssha.javasteam.storefront.featured.FeaturedItem;
+
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
+    StoreFeatured storeFeatured;
+
+    public StoreFeaturedReflector(StoreFeatured storeFeatured) {
+        this.storeFeatured = storeFeatured;
+    }
+
+    @Override
+    public StoreFeatured get() {
+        return storeFeatured;
+    }
+
+    public FeaturedItem findOneInCapsules(Predicate<FeaturedItem> query) {
+        return storeFeatured.getLargeCapsules().stream().filter(query).findAny().get();
+    }
+
+    public List<FeaturedItem> findInCapsules(Predicate<FeaturedItem> query) {
+        return storeFeatured.getLargeCapsules().stream().filter(query).collect(Collectors.toList());
+    }
+
+    public FeaturedItem findOneInWin(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedWin().stream().filter(query).findAny().get();
+    }
+
+    public List<FeaturedItem> findInWin(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedWin().stream().filter(query).collect(Collectors.toList());
+    }
+
+    public FeaturedItem findOneInLinux(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedLinux().stream().filter(query).findAny().get();
+    }
+
+    public List<FeaturedItem> findInLinux(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedLinux().stream().filter(query).collect(Collectors.toList());
+    }
+
+    public FeaturedItem findOneInMac(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedMac().stream().filter(query).findAny().get();
+    }
+
+    public List<FeaturedItem> findInMac(Predicate<FeaturedItem> query) {
+        return storeFeatured.getFeaturedMac().stream().filter(query).collect(Collectors.toList());
+    }
+
+    public Stream<FeaturedItem> getCapsulesStream() {
+        return storeFeatured.getLargeCapsules().stream();
+    }
+
+    public Stream<FeaturedItem> getWinStream() {
+        return storeFeatured.getFeaturedWin().stream();
+    }
+
+    public Stream<FeaturedItem> getLinuxStream() {
+        return storeFeatured.getFeaturedLinux().stream();
+    }
+
+    public Stream<FeaturedItem> getMacStream() {
+        return storeFeatured.getFeaturedMac().stream();
+    }
+}
