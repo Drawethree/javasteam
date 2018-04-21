@@ -3,27 +3,45 @@
 javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 It provides also marketplace tool for fetching and querying data from steam marketplace.
 
+#### Architecure
+
+Library for now has 2 elements: [API](https://github.com/l7ssha/javasteam/tree/master/api) and [reflector](https://github.com/l7ssha/javasteam/tree/master/reflector):
+ * `API` is main module which contains SteamAPI wrapper
+ * `reflector` is additional extension for library that wraps data classes and simplifies library consuming
+
+#### Pre-Release
+
+Library for now is in pre-release stage. Why? All implementations are not finished yet. There is lack of unit tests (some test you can find, howover few of them)
+
+But library is working and usable!
+
 ## Download [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
 
-[Github Releases](https://github.com/l7ssha/javasteam/releases)
+* [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/)
+* [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.3.1-PRE)
+* [Github Releases](https://github.com/l7ssha/javasteam/releases)
 
 #### Gradle
 
 ```groovy
-repositories { 
-    maven { 
-        url 'https://jitpack.io' 
+repositories {
+    maven {
+        url 'https://jitpack.io'
     }
 }
 
 dependencies {
-    compile 'com.github.l7ssha:javasteam:v1.2-PRE'
+    // Main API library
+    compile 'com.github.l7ssha.javasteam:api:1.3.1-PRE'
+
+    // Optional
+    compile 'com.github.l7ssha.javasteam:reflector:1.3.1-PRE'
 }
 ```
 
 #### Maven
 
-```xml 
+```xml
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -32,9 +50,15 @@ dependencies {
 </repositories>
 
 <dependency>
-    <groupId>com.github.l7ssha</groupId>
-    <artifactId>javasteam</artifactId>
-    <version>v1.2-PRE</version>
+    <groupId>com.github.l7ssha.javasteam</groupId>
+    <artifactId>api</artifactId>
+    <version>1.3.1-PRE</version>
+</dependency>
+
+<dependency>
+    <groupId>com.github.l7ssha.javasteam</groupId>
+    <artifactId>reflector</artifactId>
+    <version>1.3.1-PRE</version>
 </dependency>
 ```
 
@@ -42,7 +66,8 @@ dependencies {
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.l7ssha" % "javasteam" % "v1.2-PRE"
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.3.1-PRE"
+libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.3.1-PRE"
 ```
 
 ## Roadmap
@@ -55,52 +80,6 @@ libraryDependencies += "com.github.l7ssha" % "javasteam" % "v1.2-PRE"
 
 [Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
 
-## Endpoints covered
+## Endpoints
 
-### CS:GO
-
-| Name | Endpoint |
-| ---- | -------- |
-| CS:GO Server status | `https://api.steampowered.com/ICSGOServers_730/GetGameServersStatus/v1/`
-| Map playtime | `https://api.steampowered.com/ICSGOServers_730/GetGameMapsPlaytime/v1/`
-
-### USER
-
-| Name | Endpoint |
-| ---- | -------- |
-| Friend List Endpoint | `https://api.steampowered.com/ISteamUser/getFriendList/v1/` |
-| User Ban Data | `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/` |
-| User Summary | `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/` |
-| VanityUrl Resolver | `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/` |
-| Group Info | `https://steamcommunity.com/gid/{ID}/memberslistxml/`
-
-### STEAM STORE
-
-| Name | Endpoint |
-| ---- | -------- |
-| Apps Info | `https://store.steampowered.com/api/appdetails/` |
-| Featured Apps | `https://store.steampowered.com/api/featured/` |
-| Featured apps (featuredcategories ) | `https://store.steampowered.com/api/featuredcategories/` |
-| Packages & Bundles | `https://store.steampowered.com/api/packagedetails/` |
-| Searching Store | `https://api.steampowered.com/IStoreService/GetAppList/v1/`
-| News | `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/` |
-| Game Version | `https://api.steampowered.com/ISteamApps/UpToDateCheck/v1/` |
-
-### STATS
-
-| Name | Endpoint |
-| ---- | -------- |
-| CurrentPlayers | `https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/` |
-| App schema | `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/` |
-| Global achievements| `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/` |
-| Player Achievements | `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/` |
-| Recent Games | `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1/` |
-| Owned Games | `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/` |
-| User Badges | `https://api.steampowered.com/IPlayerService/GetBadges/v1/` |
-
-### MARKETPLACE
-
-| Name | Endpoint |
-| ---- | -------- |
-| Item Price | `https://steamcommunity.com/market/priceoverview/` |
-| Searching | `https://steamcommunity.com/market/search/render/` |
+[Documented here](https://github.com/l7ssha/javasteam/wiki/Endpoints)
