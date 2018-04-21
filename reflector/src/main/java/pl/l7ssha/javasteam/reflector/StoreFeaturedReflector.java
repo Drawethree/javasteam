@@ -9,11 +9,15 @@ package pl.l7ssha.javasteam.reflector;
 import pl.l7ssha.javasteam.storefront.StoreFeatured;
 import pl.l7ssha.javasteam.storefront.featured.FeaturedItem;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Allows to easy query and consume StoreFeatured items. Wraps StoreFeatured and extends it's functionality.
+ */
 public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
     StoreFeatured storeFeatured;
 
@@ -72,5 +76,19 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
 
     public Stream<FeaturedItem> getMacStream() {
         return storeFeatured.getFeaturedMac().stream();
+    }
+
+
+    /**
+     * Returns combined list of all featured
+     * @return List<FeaturedItem>
+     */
+    public List<FeaturedItem> getCombined() {
+        List<FeaturedItem> me =  new ArrayList<>(storeFeatured.getFeaturedLinux());
+        me.addAll(storeFeatured.getFeaturedMac());
+        me.addAll(storeFeatured.getLargeCapsules());
+        me.addAll(storeFeatured.getFeaturedWin());
+
+        return me;
     }
 }
