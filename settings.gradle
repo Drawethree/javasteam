@@ -1,2 +1,2 @@
-rootProject.name = 'javasteam'
-
+include 'api'
+include 'reflector'

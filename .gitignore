@@ -4,4 +4,4 @@ build/
 out/
 
 *.iml
-token.txt
+**/token.txt
