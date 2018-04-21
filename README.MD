@@ -15,6 +15,13 @@ Library for now is in pre-release stage. Why? All implementations are not finish
 
 But library is working and usable!
 
+## Documentation
+
+#### [Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
+
+[Javadoc API [TODO]](https://l7ssha.pl/javasteam/) <br />
+[Javadoc Reflector [TODO]](https://l7ssha.pl/reflector/)
+
 ## Download [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
 
 * [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/)
@@ -73,12 +80,6 @@ libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.3.1-PRE"
 ## Roadmap
 
 [TODO]()
-
-## Documentation
-
-[Javadoc [TODO]](https://l7ssha.pl/javasteam/)
-
-[Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
 
 ## Endpoints
 
