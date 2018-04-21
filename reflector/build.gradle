@@ -1,1 +1,3 @@
-version '0.1-PRE'
+dependencies {
+    compile project(":api")
+}
