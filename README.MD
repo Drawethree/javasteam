@@ -28,7 +28,7 @@ But library is working and usable!
 * [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.3.1-PRE)
 * [Github Releases](https://github.com/l7ssha/javasteam/releases)
 
-#### Gradle
+### Gradle
 
 ```groovy
 repositories {
@@ -46,7 +46,7 @@ dependencies {
 }
 ```
 
-#### Maven
+### Maven
 
 ```xml
 <repositories>
@@ -69,7 +69,7 @@ dependencies {
 </dependency>
 ```
 
-#### sbt
+### sbt
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
@@ -83,4 +83,4 @@ libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.3.1-PRE"
 
 ## Endpoints
 
-[Documented here](https://github.com/l7ssha/javasteam/wiki/Endpoints)
+### [Documented here](https://github.com/l7ssha/javasteam/wiki/Endpoints)
