@@ -1,3 +1,5 @@
+jar.baseName = 'javasteam-reflector'
+
 dependencies {
     compile project(":api")
 }
