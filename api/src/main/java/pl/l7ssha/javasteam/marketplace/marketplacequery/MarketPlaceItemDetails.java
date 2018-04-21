@@ -7,12 +7,18 @@ package pl.l7ssha.javasteam.marketplace.marketplacequery;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.marketplace.Priceable;
+import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
+import pl.l7ssha.javasteam.utils.Links;
 
 import java.awt.*;
+import java.util.concurrent.CompletableFuture;
 
-public class MarketPlaceItemDetails {
+import static pl.l7ssha.javasteam.utils.ResponserUtils.encodeString;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
+
+public class MarketPlaceItemDetails implements Priceable  {
     private String imgUrlBase = "https://steamcommunity-a.akamaihd.net/economy/image/class/730/%s/150fx125f";
-
 
     @SerializedName("appid")
     private long appId;
@@ -93,5 +99,15 @@ public class MarketPlaceItemDetails {
 
     public String getMarketHashName() {
         return marketHashName;
+    }
+
+    @Override
+    public MarketplaceItemPrice getPrice() {
+        return getGenericResponse(String.format(Links.storePricesUrl, appId, encodeString(marketHashName)), MarketplaceItemPrice.class);
+    }
+
+    @Override
+    public CompletableFuture<MarketplaceItemPrice> getPriceAsync() {
+        return CompletableFuture.supplyAsync(this::getPrice);
     }
 }
