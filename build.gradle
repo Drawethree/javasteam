@@ -1,5 +1,5 @@
 group 'pl.l7ssha'
-version '1.2-PRE'
+version '1.2.1-PRE'
 
 buildscript {
     repositories {
@@ -49,18 +49,4 @@ artifacts {
     archives javadocJar
     archives jar
     archives fatjar
-}
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-        }
-    }
 }

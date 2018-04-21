@@ -1,16 +1,59 @@
 # javaSteam
 
-~~(Almost)~~ javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
+javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
+It provides also marketplace tool for fetching and querying data from steam marketplace.
 
-## Download
+## Download [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
 
-TODO();
+[Github Releases](https://github.com/l7ssha/javasteam/releases)
+
+#### Gradle
+
+```groovy
+repositories { 
+    maven { 
+        url 'https://jitpack.io' 
+    }
+}
+
+dependencies {
+    compile 'com.github.l7ssha:javasteam:v1.2-PRE'
+}
+```
+
+#### Maven
+
+```xml 
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.l7ssha</groupId>
+    <artifactId>javasteam</artifactId>
+    <version>v1.2-PRE</version>
+</dependency>
+```
+
+#### sbt
+```scala
+resolvers += "jitpack" at "https://jitpack.io"
+
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "v1.2-PRE"
+```
+
+## Roadmap
+
+[TODO]()
 
 ## Documentation
 
-[Javadoc (Not ready)]()
+[Javadoc [TODO]](https://l7ssha.pl/javasteam/)
 
-[Wiki (Work in progress)](https://github.com/l7ssha/javasteam/wiki)
+[Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
 
 ## Endpoints covered
 
