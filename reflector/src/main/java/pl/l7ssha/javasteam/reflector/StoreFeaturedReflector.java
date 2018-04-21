@@ -81,7 +81,7 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
 
     /**
      * Returns combined list of all featured
-     * @return List<FeaturedItem>
+     * @return List
      */
     public List<FeaturedItem> getCombined() {
         List<FeaturedItem> me =  new ArrayList<>(storeFeatured.getFeaturedLinux());

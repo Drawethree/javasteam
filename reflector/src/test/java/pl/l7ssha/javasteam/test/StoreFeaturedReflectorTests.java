@@ -38,9 +38,6 @@ public class StoreFeaturedReflectorTests {
     void findsTest() {
         List<FeaturedItem> items = reflector.findInWin(s -> s.getName().contains("g"));
 
-        for(FeaturedItem i: items)
-            System.out.println(i.getName() + " " + i.getLargeImage());
-
         assertNotNull(items);
         assertTrue(items.size() > 0);
     }
