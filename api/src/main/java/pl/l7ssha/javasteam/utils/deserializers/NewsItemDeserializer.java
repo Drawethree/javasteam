@@ -11,7 +11,7 @@ import java.util.Date;
 //
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class NewsItemDeserializer implements JsonDeserializer<NewsItem> {
     @Override
     public NewsItem deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

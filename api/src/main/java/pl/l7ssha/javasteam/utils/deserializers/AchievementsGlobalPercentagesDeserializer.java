@@ -12,7 +12,7 @@ import java.util.List;
 //
 // Date created: 06 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class AchievementsGlobalPercentagesDeserializer implements JsonDeserializer<AchievementsGlobalPercentages> {
     Gson gson = new Gson();
     List<StatAchievement> tmp = new ArrayList<>();

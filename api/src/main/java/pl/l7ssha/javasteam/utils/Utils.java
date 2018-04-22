@@ -4,7 +4,6 @@ package pl.l7ssha.javasteam.utils;
 //
 // Date created: 07 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

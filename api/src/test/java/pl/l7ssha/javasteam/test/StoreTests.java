@@ -4,7 +4,6 @@ package pl.l7ssha.javasteam.test;
 //
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

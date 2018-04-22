@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 //
 // Date created: 08 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class SimpleDeserializer<T> implements JsonDeserializer<T> {
     Type type;
 

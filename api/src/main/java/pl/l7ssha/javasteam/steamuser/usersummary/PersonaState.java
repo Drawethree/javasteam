@@ -4,7 +4,7 @@ package pl.l7ssha.javasteam.steamuser.usersummary;
 //
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public enum PersonaState {
     OFFLINE(0),
     ONLINE(1),

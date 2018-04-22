@@ -7,7 +7,7 @@ import pl.l7ssha.javasteam.utils.annotation.Nullable;
 //
 // Date created: 10 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class GameVersionNew implements IGameVersion {
 
     @SerializedName("up_to_date")

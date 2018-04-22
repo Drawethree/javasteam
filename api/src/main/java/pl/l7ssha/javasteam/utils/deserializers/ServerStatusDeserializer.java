@@ -9,7 +9,6 @@ import java.lang.reflect.Type;
 //
 // Date created: 31 Mar 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
 
 public class ServerStatusDeserializer implements JsonDeserializer<ServerStatus> {
 

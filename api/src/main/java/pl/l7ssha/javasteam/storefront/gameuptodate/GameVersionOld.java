@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 //
 // Date created: 10 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class GameVersionOld implements IGameVersion {
 
     @SerializedName("up_to_date")

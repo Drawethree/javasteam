@@ -4,7 +4,6 @@ package pl.l7ssha.javasteam;
 //
 // Date created: 31 Mar 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
 
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;

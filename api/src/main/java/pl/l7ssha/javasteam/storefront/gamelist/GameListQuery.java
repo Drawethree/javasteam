@@ -6,7 +6,7 @@ import pl.l7ssha.javasteam.utils.Links;
 //
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
-// Free for open source use, all changes send back to author
+
 public class GameListQuery {
     private long if_modified_since = 0;
     private String have_description = "";
