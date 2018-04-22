@@ -8,6 +8,7 @@ package pl.l7ssha.javasteam.marketplace.marketplacequery;
 
 import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.NamedSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGame;
 
 public class MarketplaceSearchResult implements Gameable {
@@ -33,7 +34,7 @@ public class MarketplaceSearchResult implements Gameable {
     private String appName;
 
     @SerializedName("asset_description")
-    private MarketPlaceItemDetails ItemDetails;
+    private MarketPlaceItemDetails itemDetails;
 
     @SerializedName("sale_price_text")
     private String salePriceText;
@@ -42,7 +43,7 @@ public class MarketplaceSearchResult implements Gameable {
 
     @Override
     public SteamGame toSteamGame() {
-       return new SteamGame(appName, ItemDetails.getAppId());
+       return new NamedSteamGame(itemDetails.getAppId(), appName);
     }
 
     public String getName() {
@@ -74,7 +75,7 @@ public class MarketplaceSearchResult implements Gameable {
     }
 
     public MarketPlaceItemDetails getItemDetails() {
-        return ItemDetails;
+        return itemDetails;
     }
 
     public String getSalePriceText() {

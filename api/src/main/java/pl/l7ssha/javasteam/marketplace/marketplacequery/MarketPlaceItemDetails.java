@@ -9,6 +9,9 @@ package pl.l7ssha.javasteam.marketplace.marketplacequery;
 import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.marketplace.Priceable;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
+import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.NamedSteamGame;
+import pl.l7ssha.javasteam.storefront.SteamGame;
 import pl.l7ssha.javasteam.utils.Links;
 
 import java.awt.*;
@@ -17,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.encodeString;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
-public class MarketPlaceItemDetails implements Priceable  {
+public class MarketPlaceItemDetails implements Priceable, Gameable {
     private String imgUrlBase = "https://steamcommunity-a.akamaihd.net/economy/image/class/730/%s/150fx125f";
 
     @SerializedName("appid")
@@ -109,5 +112,10 @@ public class MarketPlaceItemDetails implements Priceable  {
     @Override
     public CompletableFuture<MarketplaceItemPrice> getPriceAsync() {
         return CompletableFuture.supplyAsync(this::getPrice);
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+        return new SteamGame(appId);
     }
 }

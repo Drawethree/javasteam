@@ -7,9 +7,10 @@ package pl.l7ssha.javasteam.steamuser.playerservice;
 // Free for open source use, all changes send back to author
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.storefront.Gameable;
 import pl.l7ssha.javasteam.storefront.SteamGame;
 
-public class UserGame extends SteamGame {
+public class UserGame implements Gameable {
     @SerializedName("appid")
     protected long appId;
 
@@ -27,11 +28,6 @@ public class UserGame extends SteamGame {
 
     public UserGame() { }
 
-    @Override
-    public long getAppId() {
-        return appId;
-    }
-
     public int getPlaytimeIn2Weeks() {
         return playtimeIn2Weeks;
     }
@@ -46,5 +42,10 @@ public class UserGame extends SteamGame {
 
     public String getLogoUrl() {
         return String.format("http://media.steampowered.com/steamcommunity/public/images/apps/%s/%s.jpg", appId, logoUrl);
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+       return new SteamGame(appId);
     }
 }

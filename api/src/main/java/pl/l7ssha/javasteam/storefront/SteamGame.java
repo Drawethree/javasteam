@@ -2,7 +2,7 @@ package pl.l7ssha.javasteam.storefront;
 
 // pl.l7ssha.javasteam.storefront
 //
-// Date created: 02 Apr 2018
+// Date created: 22 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
@@ -17,20 +17,13 @@ import static pl.l7ssha.javasteam.utils.Links.newsForApp;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class SteamGame {
-    protected String name;
-
     @SerializedName("steam_appid")
     protected long appId;
 
-    public SteamGame() { }
+    protected SteamGame() { }
 
-    public SteamGame(String name, long appId) {
-        this.name = name;
+    public SteamGame(long appId) {
         this.appId = appId;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public long getAppId() {
@@ -63,6 +56,6 @@ public class SteamGame {
 
     @Override
     public String toString() {
-        return String.format("%s,%s", this.appId, this.name);
+        return String.format("%s", this.appId);
     }
 }

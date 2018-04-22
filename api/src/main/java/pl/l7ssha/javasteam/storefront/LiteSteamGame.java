@@ -14,7 +14,7 @@ import pl.l7ssha.javasteam.storefront.store.PriceOverview;
 
 import java.util.List;
 
-public class LiteSteamGame extends SteamGame {
+public class LiteSteamGame extends NamedSteamGame {
     private GameType type;
 
     private List<String> developers;

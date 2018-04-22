@@ -1,6 +1,6 @@
 package pl.l7ssha.javasteam.storefront.gamelist;
 
-import pl.l7ssha.javasteam.storefront.SteamGame;
+import pl.l7ssha.javasteam.storefront.NamedSteamGame;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
-public class GameListNode extends SteamGame {
+public class GameListNode extends NamedSteamGame {
     private Date lastModified;
     private int priceChangeNumber;
 

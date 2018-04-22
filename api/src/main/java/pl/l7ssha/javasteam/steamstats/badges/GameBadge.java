@@ -8,7 +8,7 @@ import java.util.Date;
 // Author: Szymon 'l7ssha' Uglis
 // Free for open source use, all changes send back to author
 
-// Implement ability to cast to SteamGame
+// Implement ability to cast to NamedSteamGame
 public class GameBadge extends Badge {
     private long appId;
     private long communityItemId;

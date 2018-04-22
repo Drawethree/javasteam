@@ -22,7 +22,7 @@ public class StorePackage {
     @SerializedName("small_logo")
     private String logoSmall;
 
-    List<SteamGame> apps;
+    List<NamedSteamGame> apps;
     private PriceOverview price;
     private Platforms platforms;
     //private ControllerSupport controllerSupport;
@@ -44,7 +44,7 @@ public class StorePackage {
         return logoSmall;
     }
 
-    public List<SteamGame> getApps() {
+    public List<NamedSteamGame> getApps() {
         return apps;
     }
 

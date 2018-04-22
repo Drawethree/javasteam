@@ -6,7 +6,7 @@ import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.StoreFrontService;
 import pl.l7ssha.javasteam.steamuser.ISteamUser;
-import pl.l7ssha.javasteam.storefront.SteamGame;
+import pl.l7ssha.javasteam.storefront.NamedSteamGame;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,7 +41,7 @@ public class Benchmarks {
 
         Instant starts = Instant.now();
 
-        SteamGame game = storeFrontService.getFullInfoOfApp("730");
+        NamedSteamGame game = storeFrontService.getFullInfoOfApp("730");
 
         Instant ends = Instant.now();
 

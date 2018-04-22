@@ -124,7 +124,7 @@ public class StoreTests {
 
     @Test
     void newsTest() {
-        SteamGame tf2 = storeFrontService.getBaseInfoOfApp("440");
+        NamedSteamGame tf2 = storeFrontService.getBaseInfoOfApp("440");
         News tf2News = tf2.getNews(5);
 
         assertNotNull(tf2News);
