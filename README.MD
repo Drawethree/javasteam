@@ -15,6 +15,26 @@ Library for now is in pre-release stage. Why? All implementations are not finish
 
 But library is working and usable!
 
+## Quick peek
+
+```java
+class Main {
+    public static void Main(String[] args) {
+
+        // Initialize SteamAPI. There is more ways to do this!
+        SteamAPI.initialize("Your api key");
+
+        // Expolore api
+        // Returns MarketplaceService which privides access to steam marketplace, obviously
+        MarketplaceService marketplace = new SteamMarketplace();
+
+        // Fetch data
+        // It basically searches marketplace for query.
+        MarketplaceListings query = marketplace.searchInMarketplace("ancient", 100);
+    }
+}
+```
+
 ## Documentation
 
 #### [Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
