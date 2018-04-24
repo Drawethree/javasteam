@@ -9,11 +9,9 @@ import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.marketplace.Priceable;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
 import pl.l7ssha.javasteam.storefront.Gameable;
-import pl.l7ssha.javasteam.storefront.NamedSteamGame;
 import pl.l7ssha.javasteam.storefront.SteamGame;
 import pl.l7ssha.javasteam.utils.Links;
 
-import java.awt.*;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.ResponserUtils.encodeString;
@@ -84,11 +82,6 @@ public class MarketPlaceItemDetails implements Priceable, Gameable {
 
     public String getNameColor() {
         return nameColor;
-    }
-
-    public Color getNameColorAsColor() {
-        String[] strCol = nameColor.split("(..)");
-        return new Color(Integer.parseInt(strCol[0], 16), Integer.parseInt(strCol[1], 16), Integer.parseInt(strCol[1], 16));
     }
 
     public String getType() {
