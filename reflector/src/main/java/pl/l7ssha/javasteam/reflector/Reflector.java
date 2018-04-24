@@ -9,6 +9,14 @@ package pl.l7ssha.javasteam.reflector;
  * Reflector base interface.
  * @param <E> Class to reflect
  */
-public interface Reflector<E> {
-   E get();
+public abstract class Reflector<E> {
+    E data;
+
+    public Reflector(E data) {
+        this.data = data;
+    }
+
+    public E get() {
+       return data;
+    }
 }
