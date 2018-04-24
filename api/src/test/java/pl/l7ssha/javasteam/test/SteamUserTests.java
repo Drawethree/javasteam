@@ -23,7 +23,6 @@ import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,23 +41,23 @@ public class SteamUserTests {
     @Test
     @DisplayName("Get friends")
     void friendListTest() {
-        List<FriendListNode> friendOfl7ssha = l7ssha.getFriendList();
+        FriendList friendOfl7ssha = l7ssha.getFriendList();
 
         assertNotNull(l7ssha);
-        assertNotNull(friendOfl7ssha.get(10).getFriendSince());
-        assertNotNull(friendOfl7ssha.get(1).getRelationship());
+        assertNotNull(friendOfl7ssha.getFriends().get(10).getFriendSince());
+        assertNotNull(friendOfl7ssha.getFriends().get(1).getRelationship());
     }
 
     @Test
     @DisplayName("Get friends of friend")
     void friendGetNextFriendTest() {
-        List<FriendListNode> friendOfl7ssha = l7ssha.getFriendList();
-        ISteamUser someUser = friendOfl7ssha.get(13).getSteamUser();
-        List<FriendListNode> someUserFriends = someUser.getFriendList();
+        FriendList friendOfl7ssha = l7ssha.getFriendList();
+        ISteamUser someUser = friendOfl7ssha.getFriends().get(13).getSteamUser();
+        FriendList  someUserFriends = someUser.getFriendList();
 
         assertNotNull(someUser);
-        assertNotNull(someUserFriends.get(10).getFriendSince());
-        assertNotNull(someUserFriends.get(1).getRelationship());
+        assertNotNull(someUserFriends.getFriends().get(10).getFriendSince());
+        assertNotNull(someUserFriends.getFriends().get(1).getRelationship());
     }
 
     @Test

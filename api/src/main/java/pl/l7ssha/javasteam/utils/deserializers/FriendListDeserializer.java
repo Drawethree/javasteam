@@ -6,18 +6,18 @@ package pl.l7ssha.javasteam.utils.deserializers;
 // Author: Szymon 'l7ssha' Uglis
 
 import com.google.gson.*;
+import pl.l7ssha.javasteam.steamuser.FriendList;
 import pl.l7ssha.javasteam.steamuser.FriendListNode;
 import pl.l7ssha.javasteam.utils.Utils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class FriendListDeserializer implements JsonDeserializer<List<FriendListNode>> {
+public class FriendListDeserializer implements JsonDeserializer<FriendList> {
 
     @Override
-    public List<FriendListNode> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public FriendList deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonElement base = json.getAsJsonObject().get("friendslist");
         JsonArray friends = base.getAsJsonObject().get("friends").getAsJsonArray();
 
@@ -33,6 +33,6 @@ public class FriendListDeserializer implements JsonDeserializer<List<FriendListN
             tmp.add(new FriendListNode(steamid, relationship, timestamp));
         }
 
-        return tmp;
+        return new FriendList(tmp);
     }
 }

@@ -5,7 +5,6 @@ package pl.l7ssha.javasteam.steamuser;
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import com.google.gson.reflect.TypeToken;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
@@ -14,12 +13,10 @@ import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
 import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
-import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 import static pl.l7ssha.javasteam.utils.Utils.completePlayerStats;
 
 public abstract class AbstractSteamUser implements ISteamUser {
@@ -58,12 +55,12 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     // TO REWORK PROBABLY
     @Override
-    public List<FriendListNode> getFriendList() {
-        return (List<FriendListNode>) getResponse(String.format(friendListUrl, steamId), new TypeToken<List<FriendListNode>>() { }.getType());
+    public FriendList getFriendList() {
+        return getGenericResponse(String.format(friendListUrl, steamId), FriendList.class);
     }
 
     @Override
-    public CompletableFuture<List<FriendListNode>> getFriendListAsync() {
+    public CompletableFuture<FriendList> getFriendListAsync() {
         return CompletableFuture.supplyAsync(this::getFriendList);
     }
 

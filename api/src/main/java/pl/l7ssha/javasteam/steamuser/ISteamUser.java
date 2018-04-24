@@ -12,12 +12,11 @@ import pl.l7ssha.javasteam.steamuser.playerservice.RecentGames;
 import pl.l7ssha.javasteam.steamuser.playerservice.UserGames;
 import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public interface ISteamUser {
-    List<FriendListNode> getFriendList();
-    CompletableFuture<List<FriendListNode>> getFriendListAsync();
+    FriendList getFriendList();
+    CompletableFuture<FriendList> getFriendListAsync();
 
     UserBans getBans();
     CompletableFuture<UserBans> getBansAsync();
