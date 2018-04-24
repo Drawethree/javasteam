@@ -35,7 +35,7 @@ public class StoreFeaturedReflectorTests {
 
     @Test
     void findsTest() {
-        List<FeaturedItem> items = reflector.findInWin(s -> s.getName().contains("g"));
+        List<FeaturedItem> items = reflector.filterWin(s -> s.getName().contains("g"));
 
         assertNotNull(items);
         assertTrue(items.size() > 0);

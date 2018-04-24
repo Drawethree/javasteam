@@ -33,7 +33,7 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
         return storeFeatured.getLargeCapsules().stream().filter(query).findAny().get();
     }
 
-    public List<FeaturedItem> findInCapsules(Predicate<FeaturedItem> query) {
+    public List<FeaturedItem> filterCapsules(Predicate<FeaturedItem> query) {
         return storeFeatured.getLargeCapsules().stream().filter(query).collect(Collectors.toList());
     }
 
@@ -41,7 +41,7 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
         return storeFeatured.getFeaturedWin().stream().filter(query).findAny().get();
     }
 
-    public List<FeaturedItem> findInWin(Predicate<FeaturedItem> query) {
+    public List<FeaturedItem> filterWin(Predicate<FeaturedItem> query) {
         return storeFeatured.getFeaturedWin().stream().filter(query).collect(Collectors.toList());
     }
 
@@ -49,7 +49,7 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
         return storeFeatured.getFeaturedLinux().stream().filter(query).findAny().get();
     }
 
-    public List<FeaturedItem> findInLinux(Predicate<FeaturedItem> query) {
+    public List<FeaturedItem> filterLinux(Predicate<FeaturedItem> query) {
         return storeFeatured.getFeaturedLinux().stream().filter(query).collect(Collectors.toList());
     }
 
@@ -57,7 +57,7 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
         return storeFeatured.getFeaturedMac().stream().filter(query).findAny().get();
     }
 
-    public List<FeaturedItem> findInMac(Predicate<FeaturedItem> query) {
+    public List<FeaturedItem> filterMac(Predicate<FeaturedItem> query) {
         return storeFeatured.getFeaturedMac().stream().filter(query).collect(Collectors.toList());
     }
 
@@ -76,7 +76,6 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
     public Stream<FeaturedItem> getMacStream() {
         return storeFeatured.getFeaturedMac().stream();
     }
-
 
     /**
      * Returns combined list of all featured
