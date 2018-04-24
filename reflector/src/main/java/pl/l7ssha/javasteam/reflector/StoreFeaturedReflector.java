@@ -17,64 +17,57 @@ import java.util.stream.Stream;
 /**
  * Allows to easy query and consume StoreFeatured items. Wraps StoreFeatured and extends it's functionality.
  */
-public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
-    StoreFeatured storeFeatured;
-
+public class StoreFeaturedReflector extends Reflector<StoreFeatured> {
     public StoreFeaturedReflector(StoreFeatured storeFeatured) {
-        this.storeFeatured = storeFeatured;
-    }
-
-    @Override
-    public StoreFeatured get() {
-        return storeFeatured;
+        super(storeFeatured);
     }
 
     public FeaturedItem findOneInCapsules(Predicate<FeaturedItem> query) {
-        return storeFeatured.getLargeCapsules().stream().filter(query).findAny().get();
+        return data.getLargeCapsules().stream().filter(query).findAny().get();
     }
 
     public List<FeaturedItem> filterCapsules(Predicate<FeaturedItem> query) {
-        return storeFeatured.getLargeCapsules().stream().filter(query).collect(Collectors.toList());
+        return data.getLargeCapsules().stream().filter(query).collect(Collectors.toList());
     }
 
     public FeaturedItem findOneInWin(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedWin().stream().filter(query).findAny().get();
+        return data.getFeaturedWin().stream().filter(query).findAny().get();
     }
 
     public List<FeaturedItem> filterWin(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedWin().stream().filter(query).collect(Collectors.toList());
+        return data.getFeaturedWin().stream().filter(query).collect(Collectors.toList());
     }
 
     public FeaturedItem findOneInLinux(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedLinux().stream().filter(query).findAny().get();
+        return data.getFeaturedLinux().stream().filter(query).findAny().get();
     }
 
     public List<FeaturedItem> filterLinux(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedLinux().stream().filter(query).collect(Collectors.toList());
+        return data.getFeaturedLinux().stream().filter(query).collect(Collectors.toList());
     }
 
     public FeaturedItem findOneInMac(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedMac().stream().filter(query).findAny().get();
+        return data.getFeaturedMac().stream().filter(query).findAny().get();
     }
 
     public List<FeaturedItem> filterMac(Predicate<FeaturedItem> query) {
-        return storeFeatured.getFeaturedMac().stream().filter(query).collect(Collectors.toList());
+        return data.getFeaturedMac().stream().filter(query).collect(Collectors.toList());
     }
 
     public Stream<FeaturedItem> getCapsulesStream() {
-        return storeFeatured.getLargeCapsules().stream();
+        return data.getLargeCapsules().stream();
     }
 
     public Stream<FeaturedItem> getWinStream() {
-        return storeFeatured.getFeaturedWin().stream();
+        return data.getFeaturedWin().stream();
     }
 
     public Stream<FeaturedItem> getLinuxStream() {
-        return storeFeatured.getFeaturedLinux().stream();
+        return data.getFeaturedLinux().stream();
     }
 
     public Stream<FeaturedItem> getMacStream() {
-        return storeFeatured.getFeaturedMac().stream();
+        return data.getFeaturedMac().stream();
     }
 
     /**
@@ -82,10 +75,10 @@ public class StoreFeaturedReflector implements Reflector<StoreFeatured> {
      * @return List
      */
     public List<FeaturedItem> getCombined() {
-        List<FeaturedItem> me =  new ArrayList<>(storeFeatured.getFeaturedLinux());
-        me.addAll(storeFeatured.getFeaturedMac());
-        me.addAll(storeFeatured.getLargeCapsules());
-        me.addAll(storeFeatured.getFeaturedWin());
+        List<FeaturedItem> me =  new ArrayList<>(data.getFeaturedLinux());
+        me.addAll(data.getFeaturedMac());
+        me.addAll(data.getLargeCapsules());
+        me.addAll(data.getFeaturedWin());
 
         return me;
     }
