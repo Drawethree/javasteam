@@ -7,7 +7,7 @@ package pl.l7ssha.javasteam.storefront;
 
 import com.google.gson.annotations.SerializedName;
 import pl.l7ssha.javasteam.storefront.steamgame.ControllerSupport;
-import pl.l7ssha.javasteam.storefront.steamgame.Requirments;
+import pl.l7ssha.javasteam.storefront.steamgame.Requirements;
 import pl.l7ssha.javasteam.storefront.steamgame.SupportInfo;
 import pl.l7ssha.javasteam.storefront.steamgame.achievements.Achievements;
 import pl.l7ssha.javasteam.storefront.store.*;
@@ -43,13 +43,13 @@ public class RichSteamGame extends LiteSteamGame {
     private String website;
 
     @SerializedName("pc_requirements")
-    private Requirments pcRequirments;
+    private Requirements pcRequirements;
 
     @SerializedName("mac_requirements")
-    private Requirments macRequirments;
+    private Requirements macRequirements;
 
     @SerializedName("linux_requirements")
-    private Requirments linuxRequirments;
+    private Requirements linuxRequirements;
 
     private List<Integer> packages;
 
@@ -108,16 +108,16 @@ public class RichSteamGame extends LiteSteamGame {
         return website;
     }
 
-    public Requirments getPcRequirments() {
-        return pcRequirments;
+    public Requirements getPcRequirements() {
+        return pcRequirements;
     }
 
-    public Requirments getMacRequirments() {
-        return macRequirments;
+    public Requirements getMacRequirements() {
+        return macRequirements;
     }
 
-    public Requirments getLinuxRequirments() {
-        return linuxRequirments;
+    public Requirements getLinuxRequirements() {
+        return linuxRequirements;
     }
 
     public List<Integer> getPackages() {
