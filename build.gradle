@@ -11,7 +11,7 @@ buildscript {
 }
 
 allprojects {
-    version = '1.4.0-PRE'
+    version = '1.4.1-PRE'
 }
 
 subprojects {
