@@ -64,19 +64,48 @@ public class MarketplaceService implements ISteamService {
         return CompletableFuture.supplyAsync(() -> searchInMarketplace(query, pageSize));
     }
 
+    /**
+     * Gets InGameItems for CS:GO
+     * @return InGameItems
+     */
     public InGameItems getCSGOItemsInGameItems() {
         return getCustomResponse(730L, InGameItems.class, new InGameItemsDeserializer());
     }
 
+    /**
+     * Asynchronously gets InGameItems for CS:GO
+     * @return InGameItems
+     */
     public CompletableFuture<InGameItems> getCSGOItemsInGameItemsAsync() {
         return CompletableFuture.supplyAsync(this::getCSGOItemsInGameItems);
     }
 
+    /**
+     * Gets InGameItems for Team Fortress 2
+     * @return InGameItems
+     */
     public InGameItems getTf2InGameItems() {
         return getCustomResponse(440L, InGameItems.class, new IngameItemTf2Deserializer());
     }
 
+    /**
+     * Asynchronously gets InGameItems for Team Fortress 2
+     * @return InGameItems
+     */
     public CompletableFuture<InGameItems> getTf2ItemsInGameItemsAsync() {
         return CompletableFuture.supplyAsync(this::getTf2InGameItems);
+    }
+
+    /**
+     * Gets InGameItems for any game. Use this only when response is generic (like dota or csgo).
+     * @param gameId Game to get items
+     * @return InGameItems
+     */
+    public InGameItems getInGameItems(long gameId) {
+        return getCustomResponse(gameId, InGameItems.class, new InGameItemsDeserializer());
+    }
+
+    public CompletableFuture<InGameItems> getInGameItemsAsync(long gameId) {
+        return CompletableFuture.supplyAsync(() -> getInGameItems(gameId));
     }
 }
