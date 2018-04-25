@@ -8,6 +8,7 @@ package pl.l7ssha.javasteam.utils;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
@@ -127,5 +128,10 @@ public class ResponserUtils {
         } catch(JAXBException | MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static <T> T getCustomResponse(Long gameId, Class<T> type, JsonDeserializer<T> deserializer) {
+        Gson gson = new GsonBuilder().registerTypeAdapter(type, deserializer).create();
+        return gson.fromJson(getResponseString(String.format(Links.gameItemsUrl, gameId)), type);
     }
 }

@@ -5,15 +5,17 @@ package pl.l7ssha.javasteam;
 // Date created: 18 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
+import pl.l7ssha.javasteam.marketplace.ingame.InGameItems;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
 import pl.l7ssha.javasteam.marketplace.marketplacequery.MarketplaceListings;
+import pl.l7ssha.javasteam.utils.InGameItemsDeserializer;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.ResponserUtils;
+import pl.l7ssha.javasteam.utils.deserializers.IngameItemTf2Deserializer;
 
 import java.util.concurrent.CompletableFuture;
 
-import static pl.l7ssha.javasteam.utils.ResponserUtils.encodeString;
-import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
+import static pl.l7ssha.javasteam.utils.ResponserUtils.*;
 
 public class MarketplaceService implements ISteamService {
 
@@ -60,5 +62,21 @@ public class MarketplaceService implements ISteamService {
      */
     public CompletableFuture<MarketplaceListings> searchInMarketAsync(String query, int pageSize) {
         return CompletableFuture.supplyAsync(() -> searchInMarketplace(query, pageSize));
+    }
+
+    public InGameItems getCSGOItemsInGameItems() {
+        return getCustomResponse(730L, InGameItems.class, new InGameItemsDeserializer());
+    }
+
+    public CompletableFuture<InGameItems> getCSGOItemsInGameItemsAsync() {
+        return CompletableFuture.supplyAsync(this::getCSGOItemsInGameItems);
+    }
+
+    public InGameItems getTf2InGameItems() {
+        return getCustomResponse(440L, InGameItems.class, new IngameItemTf2Deserializer());
+    }
+
+    public CompletableFuture<InGameItems> getTf2ItemsInGameItemsAsync() {
+        return CompletableFuture.supplyAsync(this::getTf2InGameItems);
     }
 }
