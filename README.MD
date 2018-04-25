@@ -66,6 +66,25 @@ dependencies {
 }
 ```
 
+
+### Gradle
+
+```groovy
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    // Main API library
+    compile 'com.github.l7ssha.javasteam:api:1.4.1-PRE'
+
+    // Optional
+    compile 'com.github.l7ssha.javasteam:reflector:1.4.1-PRE'
+}
+```
+
 ### Maven
 
 ```xml
@@ -79,13 +98,13 @@ dependencies {
 <dependency>
     <groupId>com.github.l7ssha.javasteam</groupId>
     <artifactId>api</artifactId>
-    <version>1.4.0-PRE</version>
+    <version>1.4.1-PRE</version>
 </dependency>
 
 <dependency>
     <groupId>com.github.l7ssha.javasteam</groupId>
     <artifactId>reflector</artifactId>
-    <version>1.4.0-PRE</version>
+    <version>1.4.1-PRE</version>
 </dependency>
 ```
 
@@ -93,8 +112,8 @@ dependencies {
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.4.0-PRE"
-libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.4.0-PRE"
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.4.1-PRE"
+libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.4.1-PRE"
 ```
 
 ## Roadmap
