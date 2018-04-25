@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.MarketplaceService;
 import pl.l7ssha.javasteam.SteamAPI;
+import pl.l7ssha.javasteam.marketplace.ingame.InGameItem;
+import pl.l7ssha.javasteam.marketplace.ingame.InGameItemTf2;
+import pl.l7ssha.javasteam.marketplace.ingame.InGameItems;
 import pl.l7ssha.javasteam.marketplace.itemprice.MarketplaceItemPrice;
 import pl.l7ssha.javasteam.marketplace.marketplacequery.MarketplaceListings;
 
@@ -51,5 +54,20 @@ public class MarketplaceTests {
         assertEquals(6, next.getStart());
         assertNotNull(next.getSearchResults().get(1).getName());
         assertNotNull(next.getSearchResults().get(1).getItemDetails().getIconUrl());
+    }
+
+    @Test
+    void getInGameItems() {
+        InGameItems items = marketplaceService.getCSGOItemsInGameItems();
+        InGameItems tf2Items = marketplaceService.getTf2InGameItems();
+
+        for(InGameItem item: tf2Items.getGameItems()) {
+            InGameItemTf2 it = (InGameItemTf2) item;
+
+            assertNotNull(it.getTags().get(0));
+        }
+
+        for(InGameItem item: items.getGameItems())
+            assertTrue(item.getClassId() > 0);
     }
 }
