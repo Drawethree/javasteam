@@ -59,25 +59,6 @@ repositories {
 
 dependencies {
     // Main API library
-    compile 'com.github.l7ssha.javasteam:api:1.4.0-PRE'
-
-    // Optional
-    compile 'com.github.l7ssha.javasteam:reflector:1.4.0-PRE'
-}
-```
-
-
-### Gradle
-
-```groovy
-repositories {
-    maven {
-        url 'https://jitpack.io'
-    }
-}
-
-dependencies {
-    // Main API library
     compile 'com.github.l7ssha.javasteam:api:1.4.1-PRE'
 
     // Optional
