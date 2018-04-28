@@ -2,6 +2,7 @@ package pl.l7ssha.javasteam.steamstats.userstats;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 
 // pl.l7ssha.javasteam.steamstats.userstats
@@ -9,7 +10,7 @@ import java.util.List;
 // Date created: 07 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-public class PlayerStats {
+public class PlayerStats implements Iterable<PlayerStat> {
     @SerializedName("steamID")
     private String steamId;
     private String gameName;
@@ -29,5 +30,10 @@ public class PlayerStats {
 
     public List<PlayerStat> getPlayerStats() {
         return playerStats;
+    }
+
+    @Override
+    public Iterator<PlayerStat> iterator() {
+        return playerStats.iterator();
     }
 }

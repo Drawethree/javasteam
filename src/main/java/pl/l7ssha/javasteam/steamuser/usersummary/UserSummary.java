@@ -6,11 +6,13 @@ package pl.l7ssha.javasteam.steamuser.usersummary;
 // Author: Szymon 'l7ssha' Uglis
 
 import pl.l7ssha.javasteam.steamuser.*;
+import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.SteamGame;
 import pl.l7ssha.javasteam.utils.annotation.Nullable;
 
 import java.util.Date;
 
-public class UserSummary implements Userable {
+public class UserSummary implements Userable, Gameable {
     private Long steamid;
     private ProfileVisibilityState profileVisibilityState;
     private PersonaState personaState;
@@ -124,5 +126,10 @@ public class UserSummary implements Userable {
     @Override
     public ISteamUser getSteamUser() {
        return new SteamUser(steamid);
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+        return new SteamGame(gameId);
     }
 }

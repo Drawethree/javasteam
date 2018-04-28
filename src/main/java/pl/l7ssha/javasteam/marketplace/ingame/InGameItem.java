@@ -8,7 +8,7 @@ package pl.l7ssha.javasteam.marketplace.ingame;
 import java.util.Date;
 import java.util.List;
 
-public class InGameItem implements GameItem {
+public class InGameItem {
     private int price;
     private String name;
     private Date date;

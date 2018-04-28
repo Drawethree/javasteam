@@ -2,6 +2,7 @@ package pl.l7ssha.javasteam.storefront.store;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 
 // pl.l7ssha.javasteam.storefront.models.store
@@ -9,7 +10,7 @@ import java.util.List;
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-public class PackageGroup {
+public class PackageGroup implements Iterable<PackageSubscription> {
     private String name;
     private String title;
     private String description;
@@ -54,5 +55,10 @@ public class PackageGroup {
 
     public List<PackageSubscription> getSubscriptions() {
         return subscriptions;
+    }
+
+    @Override
+    public Iterator<PackageSubscription> iterator() {
+        return subscriptions.iterator();
     }
 }

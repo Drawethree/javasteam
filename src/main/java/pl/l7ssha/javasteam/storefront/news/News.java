@@ -6,10 +6,13 @@ package pl.l7ssha.javasteam.storefront.news;
 // Author: Szymon 'l7ssha' Uglis
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.SteamGame;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class News {
+public class News implements Iterable<NewsItem>, Gameable {
     @SerializedName("appid")
     private long appId;
 
@@ -31,5 +34,15 @@ public class News {
 
     public List<NewsItem> getNews() {
         return news;
+    }
+
+    @Override
+    public Iterator<NewsItem> iterator() {
+        return news.iterator();
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+        return new SteamGame(appId);
     }
 }

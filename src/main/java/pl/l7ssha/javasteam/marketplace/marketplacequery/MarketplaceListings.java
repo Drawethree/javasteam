@@ -10,10 +10,11 @@ import pl.l7ssha.javasteam.Queryable;
 import pl.l7ssha.javasteam.utils.Links;
 import pl.l7ssha.javasteam.utils.ResponserUtils;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class MarketplaceListings implements Queryable<MarketplaceListings> {
+public class MarketplaceListings implements Queryable<MarketplaceListings>, Iterable<MarketplaceSearchResult> {
     private int start;
 
     @SerializedName("pagesize")
@@ -68,5 +69,10 @@ public class MarketplaceListings implements Queryable<MarketplaceListings> {
     @Override
     public CompletableFuture<MarketplaceListings> getNextAsync(int num) {
         return CompletableFuture.supplyAsync(() -> getNext(num));
+    }
+
+    @Override
+    public Iterator<MarketplaceSearchResult> iterator() {
+        return searchResults.iterator();
     }
 }

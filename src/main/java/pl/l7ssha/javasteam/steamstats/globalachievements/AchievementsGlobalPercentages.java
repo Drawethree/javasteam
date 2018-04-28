@@ -5,9 +5,10 @@ package pl.l7ssha.javasteam.steamstats.globalachievements;
 // Date created: 06 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
+import java.util.Iterator;
 import java.util.List;
 
-public class AchievementsGlobalPercentages {
+public class AchievementsGlobalPercentages implements Iterable<StatAchievement> {
     private List<StatAchievement> achievements;
 
     public AchievementsGlobalPercentages(List<StatAchievement> achievements) {
@@ -16,5 +17,10 @@ public class AchievementsGlobalPercentages {
 
     public List<StatAchievement> getAchievements() {
         return achievements;
+    }
+
+    @Override
+    public Iterator<StatAchievement> iterator() {
+        return achievements.iterator();
     }
 }

@@ -5,32 +5,28 @@ package pl.l7ssha.javasteam.steamuser;
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import pl.l7ssha.javasteam.steamuser.ISteamUser;
-import pl.l7ssha.javasteam.steamuser.Userable;
-import pl.l7ssha.javasteam.steamuser.SteamUser;
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
 public class UserBans implements Userable {
-    private Long SteamId;
-    private String CommunityBanned;
+    private Long steamId;
+    private String communityBanned;
     private Boolean VACBanned;
-    private Long NumberOfVACBans;
-    private Long DaysSinceLastBan;
-    private Long NumberOfGameBans;
-    private String EconomyBan;
+    private Long numberOfVACBans;
+    private Long daysSinceLastBan;
+    private Long numberOfGameBans;
+    private String economyBan;
 
     public UserBans() { }
 
     public Date DaysSinceLastBanAsDate() {
-        LocalDate banDay = LocalDate.now().minusDays(NumberOfGameBans);
+        LocalDate banDay = LocalDate.now().minusDays(numberOfGameBans);
         return Date.from(banDay.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
     }
 
     public String getCommunityBanned() {
-        return CommunityBanned;
+        return communityBanned;
     }
 
     public Boolean getVACBanned() {
@@ -38,23 +34,23 @@ public class UserBans implements Userable {
     }
 
     public Long getNumberOfVACBans() {
-        return NumberOfVACBans;
+        return numberOfVACBans;
     }
 
     public Long getDaysSinceLastBan() {
-        return DaysSinceLastBan;
+        return daysSinceLastBan;
     }
 
     public Long getNumberOfGameBans() {
-        return NumberOfGameBans;
+        return numberOfGameBans;
     }
 
     public String getEconomyBan() {
-        return EconomyBan;
+        return economyBan;
     }
 
     @Override
     public ISteamUser getSteamUser() {
-        return new SteamUser(SteamId);
+        return new SteamUser(steamId);
     }
 }

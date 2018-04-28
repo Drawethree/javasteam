@@ -1,5 +1,6 @@
 package pl.l7ssha.javasteam.steamstats.badges;
 
+import java.util.Iterator;
 import java.util.List;
 
 // pl.l7ssha.javasteam.steamstats.badges
@@ -7,7 +8,7 @@ import java.util.List;
 // Date created: 09 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-public class Badges {
+public class Badges implements Iterable<Badge> {
     private List<Badge> badges;
 
     private int playerXp;
@@ -41,5 +42,10 @@ public class Badges {
 
     public int getPlayerXpCurrent() {
         return playerXpCurrent;
+    }
+
+    @Override
+    public Iterator<Badge> iterator() {
+        return badges.iterator();
     }
 }

@@ -7,9 +7,10 @@ package pl.l7ssha.javasteam.storefront.featured;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class Spotlight extends ShopNode {
+public class Spotlight extends ShopNode implements Iterable<SpotlightItem> {
     @SerializedName("items")
     private List<SpotlightItem> spotlightItems;
 
@@ -17,5 +18,10 @@ public class Spotlight extends ShopNode {
 
     public List<SpotlightItem> getSpotlightItems() {
         return spotlightItems;
+    }
+
+    @Override
+    public Iterator<SpotlightItem> iterator() {
+        return spotlightItems.iterator();
     }
 }

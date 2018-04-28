@@ -9,9 +9,10 @@ import pl.l7ssha.javasteam.steamuser.ISteamUser;
 import pl.l7ssha.javasteam.steamuser.SteamUser;
 import pl.l7ssha.javasteam.steamuser.Userable;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class PlayerAchievements implements Userable {
+public class PlayerAchievements implements Userable, Iterable<PlayerAchievement> {
     private long steamID;
     private String gameName;
 
@@ -34,5 +35,10 @@ public class PlayerAchievements implements Userable {
     @Override
     public ISteamUser getSteamUser() {
         return new SteamUser(steamID);
+    }
+
+    @Override
+    public Iterator<PlayerAchievement> iterator() {
+        return achievements.iterator();
     }
 }

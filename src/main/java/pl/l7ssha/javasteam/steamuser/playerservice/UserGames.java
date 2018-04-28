@@ -7,11 +7,12 @@ package pl.l7ssha.javasteam.steamuser.playerservice;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 
 
 // I left [has_community_visible_stats], because I think i isn't that need.
-public class UserGames {
+public class UserGames implements Iterable<UserGame> {
     @SerializedName("game_count")
     private int gameCount;
 
@@ -25,5 +26,10 @@ public class UserGames {
 
     public List<UserGame> getGames() {
         return games;
+    }
+
+    @Override
+    public Iterator<UserGame> iterator() {
+        return games.iterator();
     }
 }
