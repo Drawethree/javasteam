@@ -3,12 +3,6 @@
 javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 It provides also marketplace tool for fetching and querying data from steam marketplace.
 
-#### Architecure
-
-Library for now has 2 elements: [API](https://github.com/l7ssha/javasteam/tree/master/api) and [reflector](https://github.com/l7ssha/javasteam/tree/master/reflector):
- * `API` is main module which contains SteamAPI wrapper
- * `reflector` is additional extension for library that wraps data classes and simplifies library consuming
-
 #### Pre-Release
 
 Library for now is in pre-release stage. Why? All implementations are not finished yet. There is lack of unit tests (some test you can find, howover few of them)
@@ -39,8 +33,7 @@ class Main {
 
 #### [Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
 
-[Javadoc API [TODO]](https://l7ssha.pl/javasteam/) <br />
-[Javadoc Reflector [TODO]](https://l7ssha.pl/reflector/)
+[Javadoc API [TODO]](https://l7ssha.pl/javasteam/)
 
 ## Download
 
