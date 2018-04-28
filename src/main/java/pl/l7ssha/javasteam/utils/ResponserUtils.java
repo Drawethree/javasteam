@@ -72,6 +72,11 @@ public class ResponserUtils {
         ResponserUtils.token = token;
     }
 
+    /**
+     * Starts request fot json data.
+     * @param url Url to request data from
+     * @return Json String
+     */
     private static String getResponseString(String url) {
         if(token.equals(""))
             throw new SteamApiNotInitializedException("Can't get response from server without token. Initialize SteamAPI fist");
@@ -84,6 +89,11 @@ public class ResponserUtils {
         return req.body();
     }
 
+    /**
+     * If needed appends key to link.
+     * @param url Uncompleted link
+     * @return Url String
+     */
     private static String getRequestUrl(String url) {
         if(url.endsWith("key="))
            return (url + token);
@@ -91,6 +101,11 @@ public class ResponserUtils {
         return url;
     }
 
+    /**
+     * Encode String to append to url
+     * @param str Unencoded String
+     * @return Encoded String
+     */
     public static String encodeString(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
@@ -100,6 +115,12 @@ public class ResponserUtils {
         }
     }
 
+    /**
+     * Gets response body from specified URL and converts to passed object.
+     * @param url Url to get data from
+     * @param type Type to convert to
+     * @return Object of type bounded to Object
+     */
     public static Object getResponse(String url, Type type) {
         return gson.fromJson(getResponseString(url), type);
     }

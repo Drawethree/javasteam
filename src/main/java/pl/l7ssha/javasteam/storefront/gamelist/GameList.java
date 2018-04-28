@@ -2,6 +2,7 @@ package pl.l7ssha.javasteam.storefront.gamelist;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -12,7 +13,7 @@ import static pl.l7ssha.javasteam.utils.ResponserUtils.getResponse;
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-public class GameList {
+public class GameList implements Iterable<GameListNode> {
     private List<GameListNode> apps;
 
     @SerializedName("have_more_results")
@@ -55,5 +56,10 @@ public class GameList {
 
             return tmp.setQuery(query);
         });
+    }
+
+    @Override
+    public Iterator<GameListNode> iterator() {
+        return apps.iterator();
     }
 }

@@ -6,3 +6,5 @@ out/
 *.iml
 **/token.txt
 javasteam.wiki/
+
+src/main/java/pl/l7ssha/javasteam/marketplace/ingame/ingameinfo/

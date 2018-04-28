@@ -1,5 +1,8 @@
 package pl.l7ssha.javasteam.steamstats.badges;
 
+import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.SteamGame;
+
 import java.util.Date;
 
 // pl.l7ssha.javasteam.steamstats.badges
@@ -8,7 +11,7 @@ import java.util.Date;
 // Author: Szymon 'l7ssha' Uglis
 
 // Implement ability to cast to SteamGame
-public class GameBadge extends Badge {
+public class GameBadge extends Badge implements Gameable {
     private long appId;
     private long communityItemId;
     private int borderColor;
@@ -30,5 +33,10 @@ public class GameBadge extends Badge {
 
     public int getBorderColor() {
         return borderColor;
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+        return new SteamGame(appId);
     }
 }

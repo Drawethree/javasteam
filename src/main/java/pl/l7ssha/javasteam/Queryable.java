@@ -7,6 +7,10 @@ package pl.l7ssha.javasteam;
 
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Provides basic abstraction to query next objects. Support async operations.
+ * @param <T> Generic type
+ */
 public interface Queryable<T> {
     T getNext();
     T getNext(int num);
