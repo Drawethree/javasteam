@@ -53,7 +53,6 @@ public abstract class AbstractSteamUser implements ISteamUser {
        return CompletableFuture.supplyAsync(() -> getAchievements(appId));
     }
 
-    // TO REWORK PROBABLY
     @Override
     public FriendList getFriendList() {
         return getGenericResponse(String.format(friendListUrl, steamId), FriendList.class);
