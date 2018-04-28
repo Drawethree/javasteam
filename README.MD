@@ -45,7 +45,7 @@ class Main {
 ## Download
 
 * [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/) [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
-* [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.3.2-PRE)
+* [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.5.0-PRE)
 * [Github Releases](https://github.com/l7ssha/javasteam/releases)
 
 ### Gradle
@@ -59,10 +59,7 @@ repositories {
 
 dependencies {
     // Main API library
-    compile 'com.github.l7ssha.javasteam:api:1.4.1-PRE'
-
-    // Optional
-    compile 'com.github.l7ssha.javasteam:reflector:1.4.1-PRE'
+    compile 'com.github.l7ssha:javasteam:1.5.0-PRE'
 }
 ```
 
@@ -78,14 +75,8 @@ dependencies {
 
 <dependency>
     <groupId>com.github.l7ssha.javasteam</groupId>
-    <artifactId>api</artifactId>
-    <version>1.4.1-PRE</version>
-</dependency>
-
-<dependency>
-    <groupId>com.github.l7ssha.javasteam</groupId>
-    <artifactId>reflector</artifactId>
-    <version>1.4.1-PRE</version>
+    <artifactId>javasteam</artifactId>
+	<version>1.5.0-PRE</version>
 </dependency>
 ```
 
@@ -93,8 +84,7 @@ dependencies {
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.4.1-PRE"
-libraryDependencies += "com.github.l7ssha.javasteam" % "reflector" % "1.4.1-PRE"
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.0-PRE"
 ```
 
 ## Roadmap
