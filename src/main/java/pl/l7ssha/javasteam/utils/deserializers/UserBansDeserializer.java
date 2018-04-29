@@ -14,8 +14,10 @@ public class UserBansDeserializer implements JsonDeserializer<UserBans> {
 
     @Override
     public UserBans deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        JsonElement base = json.getAsJsonObject().get("players").getAsJsonArray().get(0);
+        if(json.getAsJsonObject().get("players").getAsJsonArray().size() == 0)
+            return null;
 
-       return new Gson().fromJson(base, UserBans.class);
+        JsonElement base = json.getAsJsonObject().get("players").getAsJsonArray().get(0);
+        return new Gson().fromJson(base, UserBans.class);
     }
 }
