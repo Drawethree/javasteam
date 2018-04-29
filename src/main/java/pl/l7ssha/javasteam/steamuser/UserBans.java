@@ -5,17 +5,33 @@ package pl.l7ssha.javasteam.steamuser;
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
 public class UserBans implements Userable {
+
+    @SerializedName("SteamId")
     private Long steamId;
+
+    @SerializedName("CommunityBanned")
     private String communityBanned;
+
+    @SerializedName("VACBanned")
     private Boolean VACBanned;
+
+    @SerializedName("NumberOfVACBans")
     private Long numberOfVACBans;
+
+    @SerializedName("DaysSinceLastBan")
     private Long daysSinceLastBan;
+
+    @SerializedName("NumberOfGameBans")
     private Long numberOfGameBans;
+
+    @SerializedName("EconomyBan")
     private String economyBan;
 
     public UserBans() { }
