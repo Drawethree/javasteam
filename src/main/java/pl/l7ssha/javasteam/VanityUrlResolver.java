@@ -16,7 +16,7 @@ import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 public class VanityUrlResolver implements ISteamService {
     /**
      * Resolves literal nick of user or group name to steam 32-bit integer id.
-     * @param phrase Phrase to convert
+     * @param phrase Phrase to convert. It have to be account name, not steam nick which can be changed.
      * @param type Type of phrase to resolve
      * @return VanityUrl
      */
@@ -26,7 +26,7 @@ public class VanityUrlResolver implements ISteamService {
 
     /**
      * Asynchronously resolves literal nick of user or group name to steam 32-bit integer id.
-     * @param phrase Phrase to convert
+     * @param phrase Phrase to convert. It have to be account name, not steam nick which can be changed.
      * @param type Type of phrase to resolve
      * @return VanityUrl
      */
