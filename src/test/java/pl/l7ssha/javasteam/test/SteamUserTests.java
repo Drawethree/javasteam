@@ -89,7 +89,7 @@ public class SteamUserTests {
 
         assertEquals(l7ssha, l7sshaAgain);
 
-        assertNotNull(l7sshaAgain.getBans().getNumberOfGameBans());
+        assertNotNull(l7sshaAgain.getBans().getEconomyBan());
     }
 
     @Test
