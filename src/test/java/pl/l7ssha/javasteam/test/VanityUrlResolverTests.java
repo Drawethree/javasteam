@@ -6,16 +6,12 @@ package pl.l7ssha.javasteam.test;
 // Author: Szymon 'l7ssha' Uglis
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamUserService;
-import pl.l7ssha.javasteam.steamuser.ISteamUser;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class VanityUrlResolverTests {
     static SteamUserService usrApi;
@@ -27,10 +23,11 @@ public class VanityUrlResolverTests {
         usrApi = new SteamAPI(token).getService(SteamUserService.class);
     }
 
+    /*
     @Test
     void vanityResolvTest() {
-        ISteamUser user = usrApi.getSteamUser("l7ssha");
-
+        ISteamUser user = usrApi.getSteamUser("Comb02");
         assertNotNull(user.getBans().getDaysSinceLastBan());
     }
+    */
 }
