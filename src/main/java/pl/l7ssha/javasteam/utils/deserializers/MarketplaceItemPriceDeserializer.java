@@ -16,10 +16,16 @@ public class MarketplaceItemPriceDeserializer implements JsonDeserializer<Market
     public MarketplaceItemPrice deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject base = json.getAsJsonObject();
 
-        double lowest = Double.parseDouble(base.get("lowest_price").getAsString().substring(1));
+        double lowest = Double.parseDouble(lowestStr(base));
         int volume = base.get("volume").getAsInt();
         double median = Double.parseDouble(base.get("median_price").getAsString().substring(1));
 
         return new MarketplaceItemPrice(lowest, volume, median);
+    }
+
+    String lowestStr(JsonObject base) {
+        String baseStr = base.get("lowest_price").getAsString().substring(1);
+        baseStr = baseStr.replace(",", ".");
+        return baseStr.replace("$", "");
     }
 }
