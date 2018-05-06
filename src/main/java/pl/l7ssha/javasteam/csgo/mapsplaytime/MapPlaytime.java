@@ -7,13 +7,14 @@ package pl.l7ssha.javasteam.csgo.mapsplaytime;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Iterator;
 import java.util.List;
 
-public class MapPlaytime {
+public class MapPlaytime implements Iterable<Map> {
     @SerializedName("Keys")
-    List<String> keys;
+    private List<String> keys;
 
-    List<Map> playtimes;
+    private List<Map> playtimes;
 
     public MapPlaytime() { }
 
@@ -28,5 +29,10 @@ public class MapPlaytime {
 
     public List<Map> getPlaytimes() {
         return playtimes;
+    }
+
+    @Override
+    public Iterator<Map> iterator() {
+        return playtimes.iterator();
     }
 }
