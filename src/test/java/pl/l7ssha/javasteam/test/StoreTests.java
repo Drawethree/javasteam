@@ -38,6 +38,9 @@ public class StoreTests {
 
         assertNotNull(csgo);
         assertNotNull(csgo.getGenres().get(0).getDescription());
+        assertNotNull(csgo.getDetailedDescription());
+        assertTrue(csgo.getMetacritic().getScore() > 0);
+        assertNotNull(csgo.getLinuxRequirements().getMinimum());
     }
 
     @Test
@@ -58,7 +61,7 @@ public class StoreTests {
         CurrentPlayers currentPlayersDota2 = dota2.getCurrentPlayers();
 
         assertNotNull(currentPlayersDota2);
-        assertTrue(currentPlayersDota2.getCount() > 0);
+        assertTrue(currentPlayersDota2.getCount() > 200000);
     }
 
     @Test
@@ -133,7 +136,7 @@ public class StoreTests {
 
     @Test
     void checkGameVersionTest() {
-        IGameVersion dotaVer = storeFrontService.checkGameVersion("570", "7.10");
+        IGameVersion dotaVer = storeFrontService.checkGameVersion("570", "7.14");
 
         assertTrue(dotaVer.isUpToDate());
         assertNull(dotaVer.getMessage());
