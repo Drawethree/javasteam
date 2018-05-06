@@ -5,7 +5,6 @@ package pl.l7ssha.javasteam.test;
 // Date created: 31 Mar 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.l7ssha.javasteam.CsgoService;
@@ -18,6 +17,9 @@ import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CSGOUnitTests {
     static CsgoService api;
@@ -32,18 +34,19 @@ public class CSGOUnitTests {
     void csgoStatusTest() throws Exception {
         ServerStatus stat = api.getGameServerStatus();
 
-        Assertions.assertNotNull(stat.getApp().getTimestamp());
-        Assertions.assertNotNull(stat.getDatacenters().getChinaTianjin().getLoad());
-        Assertions.assertNotNull(stat.getMatchmaking().getSearching_players());
-        Assertions.assertNotNull(stat.getPerfectWorld().getPurchase().getLatency());
-        Assertions.assertNotNull(stat.getServices().getSessionsLogon());
+        assertTrue(stat.getApp().getTimestamp() > 0);
+        assertNotNull(stat.getDatacenters().getChinaTianjin().getLoad());
+        assertTrue(stat.getMatchmaking().getOnlinePlayers() > 0);
+        assertNotNull(stat.getPerfectWorld().getPurchase().getLatency());
+        assertNotNull(stat.getServices().getSessionsLogon());
+        assertNotNull(stat.getServices().getSteamCommunity());
     }
 
     @Test
     void mapPlaytimeTest() throws Exception {
         MapPlaytime playtime = api.getMapPlaytime(Gamemode.CASUAL, Interval.DAY);
 
-        Assertions.assertNotNull(playtime.getPlaytimes().get(0).getMapName());
-        Assertions.assertNotNull(playtime.getKeys().get(1));
+        assertNotNull(playtime.getPlaytimes().get(0).getMapName());
+        assertNotNull(playtime.getKeys().get(1));
     }
 }
