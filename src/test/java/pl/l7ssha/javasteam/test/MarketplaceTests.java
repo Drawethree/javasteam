@@ -47,6 +47,8 @@ public class MarketplaceTests {
         assertEquals(search.getStart(), 0);
         assertNotNull(search.getSearchResults().get(3).getName());
         assertNotNull(search.getSearchResults().get(2).getItemDetails().getIconUrl());
+        assertTrue(search.getSearchData().getPageSize() > 0);
+        assertTrue(search.getSearchData().getTotalCount() > 0);
 
         MarketplaceListings next = search.getNext();
 
@@ -54,6 +56,8 @@ public class MarketplaceTests {
         assertEquals(6, next.getStart());
         assertNotNull(next.getSearchResults().get(1).getName());
         assertNotNull(next.getSearchResults().get(1).getItemDetails().getIconUrl());
+        assertTrue(next.getSearchData().getPageSize() > 0);
+        assertTrue(next.getSearchData().getTotalCount() > 0);
     }
 
     @Test
