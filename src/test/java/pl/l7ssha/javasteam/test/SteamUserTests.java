@@ -76,6 +76,8 @@ public class SteamUserTests {
 
         assertNotNull(l7sshaSummary.getPersonaState());
         assertNotNull(l7sshaSummary.getProfileUrl());
+        assertNotNull(l7sshaSummary.getRealname());
+        assertNotNull(l7sshaSummary.getAvatarFull());
     }
 
     @Test
@@ -88,7 +90,9 @@ public class SteamUserTests {
         assertFalse(l7ssha instanceof NamedSteamUser);
 
         assertEquals(l7ssha, l7sshaAgain);
+        assertNotNull(l7ssha.getBans().getEconomyBan());
 
+        assertNotNull(l7sshaAgain.getFriendList().getFriends().get(3).getRelationship());
         assertNotNull(l7sshaAgain.getBans().getEconomyBan());
     }
 
@@ -105,6 +109,8 @@ public class SteamUserTests {
     void playerStatsTest() {
         PlayerStats stats = l7ssha.getStats("730");
 
+        assertNotNull(stats.getGameName());
+        assertNotNull(stats.getSteamId());
         assertNotNull(stats.getPlayerStats().get(1).getDescription());
     }
 
@@ -115,6 +121,7 @@ public class SteamUserTests {
 
         assertTrue(games.getTotalRecentGames() > 0);
         assertNotNull(games.getGames().get(1).getIconUrl());
+        assertTrue(games.getTotalRecentGames() > 0);
     }
 
     @Test
@@ -123,6 +130,7 @@ public class SteamUserTests {
 
         assertNotNull(games.getGames().get(10).getIconUrl());
         assertTrue(games.getGameCount() > 0);
+        assertNotNull(games.getGames().get(1).getLogoUrl());
     }
 
     @Test
