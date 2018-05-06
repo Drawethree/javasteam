@@ -5,14 +5,14 @@ package pl.l7ssha.javasteam.steamuser.usersummary;
 // Date created: 01 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import pl.l7ssha.javasteam.steamuser.*;
-import pl.l7ssha.javasteam.storefront.Gameable;
-import pl.l7ssha.javasteam.storefront.SteamGame;
+import pl.l7ssha.javasteam.steamuser.ISteamUser;
+import pl.l7ssha.javasteam.steamuser.SteamUser;
+import pl.l7ssha.javasteam.steamuser.Userable;
 import pl.l7ssha.javasteam.utils.annotation.Nullable;
 
 import java.util.Date;
 
-public class UserSummary implements Userable, Gameable {
+public class UserSummary implements Userable {
     private Long steamid;
     private ProfileVisibilityState profileVisibilityState;
     private PersonaState personaState;
@@ -126,10 +126,5 @@ public class UserSummary implements Userable, Gameable {
     @Override
     public ISteamUser getSteamUser() {
        return new SteamUser(steamid);
-    }
-
-    @Override
-    public SteamGame toSteamGame() {
-        return new SteamGame(gameId);
     }
 }
