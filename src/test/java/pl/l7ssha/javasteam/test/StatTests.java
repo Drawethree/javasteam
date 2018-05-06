@@ -34,6 +34,7 @@ public class StatTests {
         assertNotNull(csgoSchema.getGameVersion());
         assertNotNull(csgoSchema.getAchievements().get(1).getIconGray());
         assertNotNull(csgoSchema.getStats().get(10).getDisplayName());
+        assertNotNull(csgoSchema.getGameName());
     }
 
     @Test
@@ -41,7 +42,7 @@ public class StatTests {
         AchievementsGlobalPercentages percentages = statsService.getGlobalAchievementsPercentages("730");
 
         assertNotNull(percentages.getAchievements().get(10).getName());
-       // assertNull(percentages.getAchievements().get(5).getDescription());
+        //assertNotNull(percentages.getAchievements().get(5).getDescription());
     }
 
     @Test
