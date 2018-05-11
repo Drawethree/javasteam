@@ -3,6 +3,8 @@
 build/
 out/
 
+**/bin/
+
 *.iml
 **/token.txt
 javasteam.wiki/
