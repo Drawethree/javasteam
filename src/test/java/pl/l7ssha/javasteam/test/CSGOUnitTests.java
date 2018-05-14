@@ -11,6 +11,7 @@ import pl.l7ssha.javasteam.CsgoService;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;
+import pl.l7ssha.javasteam.csgo.mapsplaytime.Map;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 
@@ -40,6 +41,8 @@ public class CSGOUnitTests {
         assertNotNull(stat.getPerfectWorld().getPurchase().getLatency());
         assertNotNull(stat.getServices().getSessionsLogon());
         assertNotNull(stat.getServices().getSteamCommunity());
+        assertNotNull(stat.getDatacenters().getAustralia().getCapacity());
+        assertNotNull(stat.getDatacenters().getEUEast());
     }
 
     @Test
@@ -48,5 +51,8 @@ public class CSGOUnitTests {
 
         assertNotNull(playtime.getPlaytimes().get(0).getMapName());
         assertNotNull(playtime.getKeys().get(1));
+
+        for(Map map: playtime.getPlaytimes())
+            assertNotNull(map.getMapName());
     }
 }

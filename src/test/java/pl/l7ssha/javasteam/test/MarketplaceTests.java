@@ -69,6 +69,7 @@ public class MarketplaceTests {
             InGameItemTf2 it = (InGameItemTf2) item;
 
             assertNotNull(it.getTags().get(0));
+            assertTrue(it.getTags().size() > 0);
         }
 
         for(InGameItem item: items.getGameItems())
