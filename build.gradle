@@ -1,5 +1,5 @@
 group 'pl.l7ssha'
-version = '1.5.3-PRE'
+version = '1.5.4-PRE'
 
 buildscript {
     repositories {
