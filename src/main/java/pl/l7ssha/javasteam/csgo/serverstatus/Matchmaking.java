@@ -17,7 +17,7 @@ public class Matchmaking {
     private int onlinePlayers;
 
     @SerializedName("searching_players")
-    private int searching_players;
+    private int searchingPlayers;
 
     @SerializedName("search_seconds_avg")
     private int searchSecondsAvg;
@@ -36,8 +36,8 @@ public class Matchmaking {
         return onlinePlayers;
     }
 
-    public int getSearching_players() {
-        return searching_players;
+    public int getSearchingPlayers() {
+        return searchingPlayers;
     }
 
     public int getSearchSecondsAvg() {
