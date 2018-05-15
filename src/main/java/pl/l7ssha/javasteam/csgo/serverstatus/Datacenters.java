@@ -8,6 +8,7 @@ package pl.l7ssha.javasteam.csgo.serverstatus;
 import com.google.gson.annotations.SerializedName;
 
 public class Datacenters {
+    @SerializedName("Peru")
     private Centre peru;
 
     @SerializedName("EU West")
@@ -16,6 +17,7 @@ public class Datacenters {
     @SerializedName("EU East")
     private Centre euEast;
 
+    @SerializedName("Poland")
     private Centre poland;
 
     @SerializedName("India East")
@@ -24,7 +26,10 @@ public class Datacenters {
     @SerializedName("Hong Kong")
     private Centre hongKong;
 
+    @SerializedName("Spain")
     private Centre spain;
+
+    @SerializedName("Chile")
     private Centre chile;
 
     @SerializedName("US Southwest")
@@ -33,11 +38,13 @@ public class Datacenters {
     @SerializedName("US Southeast")
     private Centre usSouthEast;
 
+    @SerializedName("India")
     private Centre india;
 
     @SerializedName("EU North")
     private Centre euNorth;
 
+    @SerializedName("Emirates")
     private Centre emirates;
 
     @SerializedName("US Northwest")
@@ -46,6 +53,7 @@ public class Datacenters {
     @SerializedName("South Africa")
     private Centre southAfrica;
 
+    @SerializedName("Brazil")
     private Centre brazil;
 
     @SerializedName("US Northeast")
@@ -54,8 +62,13 @@ public class Datacenters {
     @SerializedName("US Northcentral")
     private Centre usNorthCentral;
 
+    @SerializedName("Japan")
     private Centre japan;
+
+    @SerializedName("Singapore")
     private Centre singapore;
+
+    @SerializedName("Australia")
     private Centre australia;
 
     @SerializedName("China Shanghai")
