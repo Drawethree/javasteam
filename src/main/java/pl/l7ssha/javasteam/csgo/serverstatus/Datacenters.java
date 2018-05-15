@@ -8,164 +8,160 @@ package pl.l7ssha.javasteam.csgo.serverstatus;
 import com.google.gson.annotations.SerializedName;
 
 public class Datacenters {
-    private Centre Peru;
+    private Centre peru;
 
     @SerializedName("EU West")
-    private Centre EUWest;
+    private Centre euWest;
 
     @SerializedName("EU East")
-    private Centre EUEast;
+    private Centre euEast;
 
-    private Centre Poland;
+    private Centre poland;
 
     @SerializedName("India East")
-    private Centre IndiaEast;
+    private Centre indiaEast;
 
     @SerializedName("Hong Kong")
-    private Centre HongKong;
+    private Centre hongKong;
 
-    private Centre Spain;
-    private Centre Chile;
+    private Centre spain;
+    private Centre chile;
 
     @SerializedName("US Southwest")
-    private Centre USSounthWest;
+    private Centre usSounthWest;
 
     @SerializedName("US Southeast")
-    private Centre USSouthEast;
+    private Centre usSouthEast;
 
-    private Centre India;
+    private Centre india;
 
     @SerializedName("EU North")
-    private Centre EUNorth;
+    private Centre euNorth;
 
-    private Centre Emirates;
+    private Centre emirates;
 
     @SerializedName("US Northwest")
-    private Centre USNorthWest;
+    private Centre usNorthWest;
 
     @SerializedName("South Africa")
-    private Centre SouthAfrica;
+    private Centre southAfrica;
 
-    private Centre Brazil;
+    private Centre brazil;
 
     @SerializedName("US Northeast")
-    private Centre USNorthEast;
+    private Centre usNorthEast;
 
     @SerializedName("US Northcentral")
-    private Centre USNorthCentral;
+    private Centre usNorthCentral;
 
-    private Centre Japan;
-    private Centre Singapore;
-    private Centre Australia;
+    private Centre japan;
+    private Centre singapore;
+    private Centre australia;
 
     @SerializedName("China Shanghai")
-    private Centre ChinaShanghai;
+    private Centre chinaShanghai;
 
     @SerializedName("China Tianjin")
-    private Centre ChinaTianjin;
+    private Centre chinaTianjin;
 
     @SerializedName("China Guangzhou")
-    private Centre ChinaGuangzhou;
+    private Centre chinaGuangzhou;
 
     public Datacenters() { }
 
     public Centre getPeru() {
-        return Peru;
+        return peru;
     }
 
-    public Centre getEu_west() {
-        return EUWest;
+    public Centre getEuWest() {
+        return euWest;
     }
 
-    public Centre getEUWest() {
-        return EUWest;
-    }
-
-    public Centre getEUEast() {
-        return EUEast;
+    public Centre getEuEast() {
+        return euEast;
     }
 
     public Centre getPoland() {
-        return Poland;
+        return poland;
     }
 
     public Centre getIndiaEast() {
-        return IndiaEast;
+        return indiaEast;
     }
 
     public Centre getHongKong() {
-        return HongKong;
+        return hongKong;
     }
 
     public Centre getSpain() {
-        return Spain;
+        return spain;
     }
 
     public Centre getChile() {
-        return Chile;
+        return chile;
     }
 
-    public Centre getUSSounthWest() {
-        return USSounthWest;
+    public Centre getUsSounthWest() {
+        return usSounthWest;
     }
 
-    public Centre getUSSouthEast() {
-        return USSouthEast;
+    public Centre getUsSouthEast() {
+        return usSouthEast;
     }
 
     public Centre getIndia() {
-        return India;
+        return india;
     }
 
-    public Centre getEUNorth() {
-        return EUNorth;
+    public Centre getEuNorth() {
+        return euNorth;
     }
 
     public Centre getEmirates() {
-        return Emirates;
+        return emirates;
     }
 
-    public Centre getUSNorthWest() {
-        return USNorthWest;
+    public Centre getUsNorthWest() {
+        return usNorthWest;
     }
 
     public Centre getSouthAfrica() {
-        return SouthAfrica;
+        return southAfrica;
     }
 
     public Centre getBrazil() {
-        return Brazil;
+        return brazil;
     }
 
-    public Centre getUSNorthEast() {
-        return USNorthEast;
+    public Centre getUsNorthEast() {
+        return usNorthEast;
     }
 
-    public Centre getUSNorthCentral() {
-        return USNorthCentral;
+    public Centre getUsNorthCentral() {
+        return usNorthCentral;
     }
 
     public Centre getJapan() {
-        return Japan;
+        return japan;
     }
 
     public Centre getSingapore() {
-        return Singapore;
+        return singapore;
     }
 
     public Centre getAustralia() {
-        return Australia;
+        return australia;
     }
 
     public Centre getChinaShanghai() {
-        return ChinaShanghai;
+        return chinaShanghai;
     }
 
     public Centre getChinaTianjin() {
-        return ChinaTianjin;
+        return chinaTianjin;
     }
 
     public Centre getChinaGuangzhou() {
-        return ChinaGuangzhou;
+        return chinaGuangzhou;
     }
 }
