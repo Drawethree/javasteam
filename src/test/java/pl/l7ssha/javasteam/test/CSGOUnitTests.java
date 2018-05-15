@@ -41,8 +41,8 @@ public class CSGOUnitTests {
         assertNotNull(stat.getPerfectWorld().getPurchase().getLatency());
         assertNotNull(stat.getServices().getSessionsLogon());
         assertNotNull(stat.getServices().getSteamCommunity());
-        assertNotNull(stat.getDatacenters().getAustralia().getCapacity());
-        assertNotNull(stat.getDatacenters().getEUEast());
+            assertNotNull(stat.getDatacenters().getAustralia().getCapacity());
+        assertNotNull(stat.getDatacenters().getEuEast());
     }
 
     @Test
