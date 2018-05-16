@@ -31,41 +31,79 @@ public class MarketplaceListings implements Queryable<MarketplaceListings>, Iter
 
     public MarketplaceListings() { }
 
+    /**
+     * Index of first element
+     * @return Integer
+     */
     public int getStart() {
         return start;
     }
 
+    /**
+     * Number of total items returned by request.
+     * @return Integer
+     */
     public int getPageSize() {
         return pageSize;
     }
 
+    /**
+     * Total amount of results
+     * @return Integer
+     */
     public int getTotalResultsCount() {
         return totalResultsCount;
     }
 
+    /**
+     * Specific info about request and query
+     * @return Object with informations about request and query
+     */
     public MarketplaceSearchData getSearchData() {
         return searchData;
     }
 
+    /**
+     * Collection with results
+     * @return List of searching results
+     */
     public List<MarketplaceSearchResult> getSearchResults() {
         return searchResults;
     }
 
+    /**
+     * Returns next n results, where n is page size defined in first request
+     * @return Object with next query results
+     */
     @Override
     public MarketplaceListings getNext() {
         return ResponserUtils.getGenericResponse(String.format(Links.searchMarketplaceUrl, searchData.getQuery(), (start + pageSize +1), pageSize), MarketplaceListings.class);
     }
 
+    /**
+     * Fetches next results.
+     * @param num Number of results in page - pagesize
+     * @return  Object with next query results
+     */
     @Override
     public MarketplaceListings getNext(int num) {
         return ResponserUtils.getGenericResponse(String.format(Links.searchMarketplaceUrl, searchData.getQuery(), (start + pageSize +1), num), MarketplaceListings.class);
     }
 
+    /**
+     * Returns next n results, where n is page size defined in first request
+     * @return Object with next query results
+     */
     @Override
     public CompletableFuture<MarketplaceListings> getNextAsync() {
         return CompletableFuture.supplyAsync(this::getNext);
     }
 
+    /**
+     * Fetches next results.
+     * @param num Number of results in page - pagesize
+     * @return  Object with next query results
+     */
     @Override
     public CompletableFuture<MarketplaceListings> getNextAsync(int num) {
         return CompletableFuture.supplyAsync(() -> getNext(num));

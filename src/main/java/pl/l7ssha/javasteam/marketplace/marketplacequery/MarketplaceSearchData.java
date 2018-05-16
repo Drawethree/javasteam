@@ -30,22 +30,41 @@ public class MarketplaceSearchData {
         return query;
     }
 
+    /**
+     * True if searching in items descriptions.
+     * @return Boolean
+     */
     public boolean isSearchDescription() {
         return searchDescription;
     }
 
+    /**
+     * Total amount of results
+     * @return Integer
+     */
     public int getTotalCount() {
         return totalCount;
     }
 
+    /**
+     * Size of single page of results
+     * @return
+     */
     public int getPageSize() {
         return pageSize;
     }
 
+    /**
+     * Internal steam variable. Undocumented
+     * @return String
+     */
     public String getPrefix() {
         return prefix;
     }
-
+    /**
+     * Internal steam variable. Undocumented
+     * @return String
+     */
     public String getClassPrefix() {
         return classPrefix;
     }

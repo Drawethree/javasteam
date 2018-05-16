@@ -16,14 +16,26 @@ public class MarketplaceItemPrice {
         this.medianPrice = medianPrice;
     }
 
+    /**
+     * Actual lowest price
+     * @return Price in dollars
+     */
     public double getLowestPrice() {
         return lowestPrice;
     }
 
+    /**
+     * Number of items in marketplace
+     * @return Number of items in marketplace
+     */
     public int getVolume() {
         return volume;
     }
 
+    /**
+     * Actual lowest price
+     * @return Price in dollars
+     */
     public double getMedianPrice() {
         return medianPrice;
     }

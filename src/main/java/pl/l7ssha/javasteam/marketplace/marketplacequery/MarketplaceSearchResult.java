@@ -45,39 +45,67 @@ public class MarketplaceSearchResult implements Gameable {
        return new NamedSteamGame(itemDetails.getAppId(), appName);
     }
 
+    /**
+     * Name of item in store
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Hashed name which can be used in searching for price
+     * @return String with hashed name
+     */
     public String getHashName() {
         return hashName;
     }
 
+    /**
+     * Number of listings of item.
+     * @return Integer
+     */
     public int getSellListings() {
         return sellListings;
     }
 
+    /**
+     * Price in cents of item of local currency
+     * @return Integer
+     */
     public int getSellPrice() {
         return sellPrice;
     }
 
+    /**
+     * Text representing price
+     * @return String with price
+     */
     public String getSellPriceText() {
         return sellPriceText;
     }
 
+    /**
+     * Url to item icon
+     * @return String with url
+     */
     public String getAppIcon() {
         return appIcon;
     }
 
+    /**
+     * Application name
+     * @return String with name
+     */
     public String getAppName() {
         return appName;
     }
 
+    /**
+     * Details about marketplace item
+     * @return Object with detailed info about marketplace item
+     */
     public MarketPlaceItemDetails getItemDetails() {
         return itemDetails;
-    }
-
-    public String getSalePriceText() {
-        return salePriceText;
     }
 }
