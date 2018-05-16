@@ -11,10 +11,18 @@ public class  Centre {
 
     public Centre() { }
 
+    /**
+     * Describes total amount of throughput server can handle
+     * @return String with capacity
+     */
     public String getCapacity() {
         return capacity;
     }
 
+    /**
+     * Actual load of server.
+     * @return String with value. Possible values: idle, low, medium, high
+     */
     public String getLoad() {
         return load;
     }

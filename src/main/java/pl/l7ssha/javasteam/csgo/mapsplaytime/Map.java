@@ -18,14 +18,26 @@ public class Map {
 
     public Map() { }
 
+    /**
+     * Undocumented by Steam
+     * @return
+     */
     public Long getIntervalStartTimeStamp() {
         return intervalStartTimeStamp;
     }
 
+    /**
+     * Name of map
+     * @return String containing name
+     */
     public String getMapName() {
         return mapName;
     }
 
+    /**
+     * Total playtime percentage.
+     * @return Percentage in double value
+     */
     public Double getRelativePercentage() {
         return RelativePercentage;
     }

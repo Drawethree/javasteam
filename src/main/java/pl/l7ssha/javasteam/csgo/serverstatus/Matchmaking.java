@@ -24,22 +24,42 @@ public class Matchmaking {
 
     public Matchmaking() { }
 
+    /**
+     * Status of scheduler service.
+     * @return String with status
+     */
     public String getScheduler() {
         return scheduler;
     }
 
+    /**
+     * Amount of actual online servers
+     * @return Integer value
+     */
     public int getOnlineServers() {
         return onlineServers;
     }
 
+    /**
+     * Total online players
+     * @return Amount of players as Integer
+     */
     public int getOnlinePlayers() {
         return onlinePlayers;
     }
 
+    /**
+     * Actual amount of players in matchmaking queue
+     * @return Amount of Searching Players as Integer
+     */
     public int getSearchingPlayers() {
         return searchingPlayers;
     }
 
+    /**
+     * Average time in second to find a match
+     * @return Time in seconds as Integer
+     */
     public int getSearchSecondsAvg() {
         return searchSecondsAvg;
     }
