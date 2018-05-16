@@ -17,14 +17,26 @@ public class SchemaStat {
 
     public SchemaStat() { }
 
+    /**
+     * Internal stat name
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Default stat value. 0 in most cases.
+     * @return Integer with value
+     */
     public int getDefaultValue() {
         return defaultValue;
     }
 
+    /**
+     * Stat name displayed to public
+     * @return String with name
+     */
     public String getDisplayName() {
         return displayName;
     }

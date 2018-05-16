@@ -21,18 +21,34 @@ public class GameSchema {
         this.stats = stats;
     }
 
+    /**
+     * Name of game
+     * @return String with name
+     */
     public String getGameName() {
         return gameName;
     }
 
+    /**
+     * Version of game
+     * @return String with game version
+     */
     public String getGameVersion() {
         return gameVersion;
     }
 
+    /**
+     * Retrieves game achievements with description
+     * @return List of achievements
+     */
     public List<SchemaAchievement> getAchievements() {
         return achievements;
     }
 
+    /**
+     * Retrieves game stats with description
+     * @return List of stats
+     */
     public List<SchemaStat> getStats() {
         return stats;
     }
