@@ -3,6 +3,15 @@
 javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 It provides also marketplace tool for fetching and querying data from steam marketplace.
 
+#### Features
+
+ * Check csgo server status
+ * Fetch detailed steam store data
+ * Search in marketplace
+ * Get data abount achievements and game stats
+ * Get steam users data
+ * (Soon) Dota 2 data
+
 #### Pre-Release
 
 Library for now is in pre-release stage. Why? All implementations are not finished yet. There is lack of unit tests (some test you can find, howover few of them)
@@ -52,7 +61,7 @@ repositories {
 
 dependencies {
     // Main API library
-    compile 'com.github.l7ssha:javasteam:1.5.3-PRE'
+    compile 'com.github.l7ssha:javasteam:1.5.4-PRE'
 }
 ```
 
@@ -69,7 +78,7 @@ dependencies {
 <dependency>
     <groupId>com.github.l7ssha.javasteam</groupId>
     <artifactId>javasteam</artifactId>
-	<version>1.5.3-PRE</version>
+	<version>1.5.4-PRE</version>
 </dependency>
 ```
 
@@ -77,12 +86,13 @@ dependencies {
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.3-PRE"
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.4-PRE"
 ```
 
 ## Roadmap
 
-### [TODO]()
+1. Document all data classes properties
+2. Implement Dota 2 endpoints
 
 ## Endpoints
 
