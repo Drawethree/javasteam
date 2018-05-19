@@ -40,7 +40,7 @@ class Main {
 
 ## Documentation
 
-#### [Wiki(https://github.com/l7ssha/javasteam/wiki)
+#### [Wiki](https://github.com/l7ssha/javasteam/wiki)
 
 [Javadoc API](https://l7ssha.pl/javasteam/)
 
