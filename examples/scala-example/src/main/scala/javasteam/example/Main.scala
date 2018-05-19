@@ -10,7 +10,7 @@ import pl.l7ssha.javasteam.CsgoService
 
 object Main extends App {
   // Initializing javasteam
-  SteamAPI.initialize("A38B4740725EFC276E960A5748DDD41B")
+  SteamAPI.initialize("")
 
   // Get CSGO Service instance
   val csgoService = new CsgoService()
