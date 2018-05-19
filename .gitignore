@@ -15,6 +15,10 @@ project/plugins/project/
 
 bin/
 
+README.html
+*~
+*#
+
 **/*.iml
 **/token.txt
 javasteam.wiki/

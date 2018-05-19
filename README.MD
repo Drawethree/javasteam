@@ -5,9 +5,9 @@ It provides also marketplace tool for fetching and querying data from steam mark
 
 #### Features
 
- * Check csgo server status
+ * Check csgo server status ([Example](https://github.com/l7ssha/javasteam/tree/master/examples/scala-example))
  * Fetch detailed steam store data
- * Search in marketplace
+ * Search in marketplace ([Example](https://github.com/l7ssha/javasteam/tree/master/examples/marketplace-example))
  * Get data abount achievements and game stats
  * Get steam users data
  * (Soon) Dota 2 data
@@ -40,14 +40,14 @@ class Main {
 
 ## Documentation
 
-#### [Wiki [TODO]](https://github.com/l7ssha/javasteam/wiki)
+#### [Wiki(https://github.com/l7ssha/javasteam/wiki)
 
-[Javadoc API [TODO]](https://l7ssha.pl/javasteam/)
+[Javadoc API](https://l7ssha.pl/javasteam/)
 
 ## Download
 
 * [Jitpack](https://jitpack.io/#l7ssha/javasteam/https://jitpack.io/#l7ssha/javasteam/) [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
-* [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.5.3-PRE)
+* [Latest Release](https://github.com/l7ssha/javasteam/releases/tag/1.5.5-PRE)
 * [Github Releases](https://github.com/l7ssha/javasteam/releases)
 
 ### Gradle
@@ -61,7 +61,7 @@ repositories {
 
 dependencies {
     // Main API library
-    compile 'com.github.l7ssha:javasteam:1.5.4-PRE'
+    compile 'com.github.l7ssha:javasteam:1.5.5-PRE'
 }
 ```
 
@@ -78,7 +78,7 @@ dependencies {
 <dependency>
     <groupId>com.github.l7ssha.javasteam</groupId>
     <artifactId>javasteam</artifactId>
-	<version>1.5.4-PRE</version>
+	<version>1.5.5-PRE</version>
 </dependency>
 ```
 
@@ -86,13 +86,14 @@ dependencies {
 ```scala
 resolvers += "jitpack" at "https://jitpack.io"
 
-libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.4-PRE"
+libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.5-PRE"
 ```
 
 ## Roadmap
 
 1. Document all data classes properties
 2. Implement Dota 2 endpoints
+3. Extend wiki
 
 ## Endpoints
 
