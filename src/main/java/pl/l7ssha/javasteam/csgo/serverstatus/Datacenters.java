@@ -87,7 +87,7 @@ public class Datacenters {
 
     /**
      * Returns All Datacenters as Map with qualified names same as in endpoint
-     * @return Map<String, Centre>
+     * @return Map with String key and Centre data
      */
     public Map<String, Centre> getCentersAsMap() {
         return new HashMap<String, Centre>() {{
