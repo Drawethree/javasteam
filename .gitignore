@@ -1,14 +1,13 @@
 .gradle/
 .idea/
-build/
+build/*
 out/
 
-**/bin/
+bin/
 
-*.iml
+**/*.iml
 **/token.txt
 javasteam.wiki/
 
 src/main/java/pl/l7ssha/javasteam/marketplace/ingame/iteminfo/
 /.metadata/
-
