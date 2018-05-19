@@ -13,6 +13,7 @@ import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Map;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
+import pl.l7ssha.javasteam.csgo.serverstatus.Centre;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 
 import java.io.IOException;
@@ -54,5 +55,10 @@ public class CSGOUnitTests {
 
         for(Map map: playtime.getPlaytimes())
             assertNotNull(map.getMapName());
+    }
+
+    @Test
+    void dataCentersMapTest() {
+        Map<String, Centre> maps = api.getGameServerStatus().getDatacenters().getCentersAsMap();
     }
 }
