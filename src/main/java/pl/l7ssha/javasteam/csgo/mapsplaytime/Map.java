@@ -20,7 +20,7 @@ public class Map {
 
     /**
      * Undocumented by Steam
-     * @return
+     * @return Integer
      */
     public Long getIntervalStartTimeStamp() {
         return intervalStartTimeStamp;

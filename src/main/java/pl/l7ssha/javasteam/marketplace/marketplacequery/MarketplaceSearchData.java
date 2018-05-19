@@ -48,7 +48,7 @@ public class MarketplaceSearchData {
 
     /**
      * Size of single page of results
-     * @return
+     * @return Integer
      */
     public int getPageSize() {
         return pageSize;
