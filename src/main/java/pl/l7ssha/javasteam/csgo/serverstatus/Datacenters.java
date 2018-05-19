@@ -7,6 +7,9 @@ package pl.l7ssha.javasteam.csgo.serverstatus;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Datacenters {
     @SerializedName("Peru")
     private Centre peru;
@@ -81,6 +84,35 @@ public class Datacenters {
     private Centre chinaGuangzhou;
 
     public Datacenters() { }
+
+    public Map<String, Centre> getCentersAsMap() {
+        return new HashMap<String, Centre>() {{
+           put("Peru", peru);
+           put("EU West", euWest);
+           put("EU East", euEast);
+           put("Poland", poland);
+           put("India East", indiaEast);
+           put("Hong Kong", hongKong);
+           put("Spain", spain);
+           put("Chile", chile);
+           put("US Southwest", usSounthWest);
+           put("US Southeast", usSouthEast);
+           put("India", india);
+           put("EU North", euNorth);
+           put("Emirates", emirates);
+           put("US Northwest", usNorthWest);
+           put("South Africa", southAfrica);
+           put("Brazil", brazil);
+           put("US Northeast", usNorthEast);
+           put("US NorthCentral", usNorthCentral);
+           put("Japan", japan);
+           put("Singapore", singapore);
+           put("Australia", australia);
+           put("China Shanghai", chinaShanghai);
+           put("China Tianjin", chinaTianjin);
+           put("China Guangzhou", chinaGuangzhou);
+        }};
+    }
 
     public Centre getPeru() {
         return peru;
