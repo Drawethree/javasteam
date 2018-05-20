@@ -11,7 +11,6 @@ import pl.l7ssha.javasteam.CsgoService;
 import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Gamemode;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.Interval;
-import pl.l7ssha.javasteam.csgo.mapsplaytime.Map;
 import pl.l7ssha.javasteam.csgo.mapsplaytime.MapPlaytime;
 import pl.l7ssha.javasteam.csgo.serverstatus.Centre;
 import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
@@ -19,9 +18,11 @@ import pl.l7ssha.javasteam.csgo.serverstatus.ServerStatus;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class CSGOUnitTests {
     static CsgoService api;
@@ -53,12 +54,17 @@ public class CSGOUnitTests {
         assertNotNull(playtime.getPlaytimes().get(0).getMapName());
         assertNotNull(playtime.getKeys().get(1));
 
-        for(Map map: playtime.getPlaytimes())
+        for(pl.l7ssha.javasteam.csgo.mapsplaytime.Map map: playtime.getPlaytimes())
             assertNotNull(map.getMapName());
     }
 
     @Test
     void dataCentersMapTest() {
-        Map<String, Centre> maps = api.getGameServerStatus().getDatacenters().getCentersAsMap();
+        Map<String, Centre> centers = api.getGameServerStatus().getDatacenters().getCentersAsMap();
+
+        centers.forEach((k, v) -> {
+            assertNotNull(v.getCapacity());
+            assertNotNull(v.getLoad());
+        });
     }
 }
