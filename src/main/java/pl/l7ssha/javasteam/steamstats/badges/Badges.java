@@ -24,22 +24,42 @@ public class Badges implements Iterable<Badge> {
         this.playerXpCurrent = playerXpCurrent;
     }
 
+    /**
+     * Player's badges
+     * @return List of badges
+     */
     public List<Badge> getBadges() {
         return badges;
     }
 
+    /**
+     * Xp amount of players steam profile.
+     * @return Xp as number
+     */
     public int getPlayerXp() {
         return playerXp;
     }
 
+    /**
+     * Level of player's account.
+     * @return Level number
+     */
     public int getPlayerLevel() {
         return playerLevel;
     }
 
+    /**
+     * Xp needed to earn next level of player's profile
+     * @return Xp amount as number
+     */
     public int getPlayerXpToNextLEvel() {
         return playerXpToNextLEvel;
     }
 
+    /**
+     * Current number of xp
+     * @return Xp as number
+     */
     public int getPlayerXpCurrent() {
         return playerXpCurrent;
     }

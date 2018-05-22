@@ -22,18 +22,34 @@ public abstract class Badge {
         this.scarcity = scarcity;
     }
 
+    /**
+     * Id of badge
+     * @return Id as number
+     */
     public int getBadgeId() {
         return badgeId;
     }
 
+    /**
+     * Level of badge
+     * @return Badge level as number
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Date when badge was completed,
+     * @return Date
+     */
     public Date getCompletionTime() {
         return completionTime;
     }
 
+    /**
+     * Get actual xp amount
+     * @return Xp as number
+     */
     public int getXp() {
         return xp;
     }
