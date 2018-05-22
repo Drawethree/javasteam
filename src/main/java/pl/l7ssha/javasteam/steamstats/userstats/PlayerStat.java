@@ -15,19 +15,30 @@ public class PlayerStat {
 
     public PlayerStat() { }
 
-    public PlayerStat setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
-        return this;
     }
 
+    /**
+     * Internal name of stat
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * value of stat
+     * @return Integer
+     */
     public int getValue() {
         return value;
     }
 
+    /**
+     * Description of achievement. Can be null if proper methods wasn't called.
+     * @return String with description
+     */
     @Nullable
     public String getDescription() {
         return description;

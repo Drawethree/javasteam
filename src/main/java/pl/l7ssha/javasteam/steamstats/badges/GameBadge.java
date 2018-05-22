@@ -23,14 +23,26 @@ public class GameBadge extends Badge implements Gameable {
         this.borderColor = borderColor;
     }
 
+    /**
+     * Steam application id
+     * @return Id as long
+     */
     public long getAppId() {
         return appId;
     }
 
+    /**
+     * Id of item involved in badge
+     * @return Id of item as number
+     */
     public long getCommunityItemId() {
         return communityItemId;
     }
 
+    /**
+     * Border color
+     * @return Color as Integer
+     */
     public int getBorderColor() {
         return borderColor;
     }

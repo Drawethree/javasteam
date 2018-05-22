@@ -5,7 +5,6 @@ package pl.l7ssha.javasteam.steamuser;
 // Date created: 03 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
@@ -17,7 +16,6 @@ import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.*;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
-import static pl.l7ssha.javasteam.utils.Utils.completePlayerStats;
 
 public abstract class AbstractSteamUser implements ISteamUser {
     protected Long steamId;
@@ -32,10 +30,7 @@ public abstract class AbstractSteamUser implements ISteamUser {
 
     @Override
     public PlayerStats getStats(String appId) {
-        GameSchema schema = getGenericResponse(String.format(appSchemaUrl, appId, "ENG"), GameSchema.class);
-        PlayerStats playerStats = getGenericResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
-
-        return completePlayerStats(playerStats, schema);
+        return getGenericResponse(String.format(playerStatsUrl, steamId, appId), PlayerStats.class);
     }
 
     @Override

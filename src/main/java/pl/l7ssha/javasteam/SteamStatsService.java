@@ -7,14 +7,12 @@ package pl.l7ssha.javasteam;
 
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
-import pl.l7ssha.javasteam.utils.annotation.Blocking;
 
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
-import static pl.l7ssha.javasteam.utils.Utils.completeAchievementGlobal;
 
 public class SteamStatsService implements ISteamService{
     /**
@@ -37,30 +35,6 @@ public class SteamStatsService implements ISteamService{
         return CompletableFuture.supplyAsync(() -> getSchema(id, lang));
     }
 
-    //LONG METHOD NAMES HELL // PROBABLY TO CHANGE
-    /**
-     * Returns global achievements percentages with descriptions in English.
-     * @param id App (game) ID
-     * @return AchievementsGlobalPercentages
-     */
-    @Blocking
-    public AchievementsGlobalPercentages getGlobalAchievementsPercentagesWithDescription(String id) {
-        GameSchema schema = getGenericResponse(String.format(appSchemaUrl, id, "ENG"), GameSchema.class);
-
-        AchievementsGlobalPercentages percentages = getGenericResponse(String.format(globalAchievementsUrl, id), AchievementsGlobalPercentages.class);
-
-        return completeAchievementGlobal(percentages, schema);
-    }
-
-    /**
-     * Asynchronously returns global achievements percentages with descriptions in English.
-     * @param id App (game) ID
-     * @return CompletableFuture
-     */
-    public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesWithDescriptionAsync(String id) {
-        return CompletableFuture.supplyAsync(() -> getGlobalAchievementsPercentagesWithDescription(id));
-    }
-
     /**
      * Returns bare-bones global achievements percentages
      * @param id App (game) ID
@@ -78,4 +52,6 @@ public class SteamStatsService implements ISteamService{
     public CompletableFuture<AchievementsGlobalPercentages> getGlobalAchievementsPercentagesAsync(String id) {
         return CompletableFuture.supplyAsync(() -> getGlobalAchievementsPercentages(id));
     }
+
+
 }
