@@ -13,6 +13,7 @@ import pl.l7ssha.javasteam.SteamUserService;
 import pl.l7ssha.javasteam.steamstats.badges.Badges;
 import pl.l7ssha.javasteam.steamstats.badges.GameBadge;
 import pl.l7ssha.javasteam.steamstats.userachievements.PlayerAchievements;
+import pl.l7ssha.javasteam.steamstats.userstats.PlayerStat;
 import pl.l7ssha.javasteam.steamstats.userstats.PlayerStats;
 import pl.l7ssha.javasteam.steamuser.*;
 import pl.l7ssha.javasteam.steamuser.groups.GroupInfo;
@@ -23,6 +24,7 @@ import pl.l7ssha.javasteam.steamuser.usersummary.UserSummary;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,7 +113,10 @@ public class SteamUserTests {
 
         assertNotNull(stats.getGameName());
         assertNotNull(stats.getSteamId());
-        assertNotNull(stats.getPlayerStats().get(1).getDescription());
+        assertNull(stats.getPlayerStats().get(1).getDescription());
+
+        List<PlayerStat> playerStatsWithDescription = stats.getPlayerStatsWithDescription(730L);
+        assertNotNull(playerStatsWithDescription.get(0).getDescription());
     }
 
 

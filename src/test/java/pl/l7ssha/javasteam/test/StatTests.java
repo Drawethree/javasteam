@@ -6,10 +6,12 @@ import pl.l7ssha.javasteam.SteamAPI;
 import pl.l7ssha.javasteam.SteamStatsService;
 import pl.l7ssha.javasteam.schema.GameSchema;
 import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
+import pl.l7ssha.javasteam.steamstats.globalachievements.StatAchievement;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -42,14 +44,14 @@ public class StatTests {
         AchievementsGlobalPercentages percentages = statsService.getGlobalAchievementsPercentages("730");
 
         assertNotNull(percentages.getAchievements().get(10).getName());
-        //assertNotNull(percentages.getAchievements().get(5).getDescription());
+        //assertNull(percentages.getAchievements().get(5).getDescription());
     }
 
     @Test
     void globalAchievementsWithDescription() {
-        AchievementsGlobalPercentages percentages = statsService.getGlobalAchievementsPercentagesWithDescription("730");
+        List<StatAchievement> achievementsWithDescription = statsService.getGlobalAchievementsPercentages("730").getAchievementsWithDescription(730L);
 
-        assertNotNull(percentages.getAchievements().get(10).getName());
-        //assertNotNull(percentages.getAchievements().get(5).getDescription());
+        assertNotNull(achievementsWithDescription.get(10).getName());
+        assertNotNull(achievementsWithDescription.get(5).getDescription());
     }
 }
