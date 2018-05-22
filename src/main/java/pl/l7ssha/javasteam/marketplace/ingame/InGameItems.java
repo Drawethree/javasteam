@@ -14,6 +14,10 @@ public class InGameItems {
         this.gameItems = gameItems;
     }
 
+    /**
+     * It fetches items which appears to be in-game items. (To confirm)
+     * @return List of Items
+     */
     public List<InGameItem> getGameItems() {
         return gameItems;
     }

@@ -16,10 +16,18 @@ public class InGameItemClass {
 
     public InGameItemClass() { }
 
+    /**
+     * Undocumented
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Undocumented
+     * @return
+     */
     public int getValue() {
         return value;
     }

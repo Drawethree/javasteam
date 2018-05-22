@@ -23,22 +23,42 @@ public class InGameItem {
         this.classId = classId;
     }
 
+    /**
+     * Price in USD cents.
+     * @return Integer with price.
+     */
     public int getPrice() {
         return price;
     }
 
+    /**
+     * Item name
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Item add date
+     * @return Date
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * Undocumented
+     * @return List of objects. In most cases there is only one item
+     */
     public List<InGameItemClass> getClasses() {
         return classes;
     }
 
+    /**
+     * Internal classId
+     * @return Long
+     */
     public long getClassId() {
         return classId;
     }
