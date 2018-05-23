@@ -18,10 +18,18 @@ public class RecentGames implements Iterable<UserGame> {
 
     public RecentGames() { }
 
+    /**
+     * Total number of recent played games
+     * @return Number of recent games
+     */
     public int getTotalRecentGames() {
         return totalRecentGames;
     }
 
+    /**
+     * List of recent games
+     * @return List of recent games
+     */
     public List<UserGame> getGames() {
         return games;
     }

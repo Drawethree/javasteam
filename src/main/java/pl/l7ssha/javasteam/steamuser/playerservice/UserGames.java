@@ -20,10 +20,18 @@ public class UserGames implements Iterable<UserGame> {
 
     public UserGames() { }
 
+    /**
+     * Number of recently played games
+     * @return Number of recently played games
+     */
     public int getGameCount() {
         return gameCount;
     }
 
+    /**
+     * Recently played games
+     * @return List of recently played games
+     */
     public List<UserGame> getGames() {
         return games;
     }

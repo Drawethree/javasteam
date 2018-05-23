@@ -27,18 +27,34 @@ public class UserGame implements Gameable {
 
     public UserGame() { }
 
+    /**
+     * Time of total playtime in 2 weeks in minutes
+     * @return Time in minutes
+     */
     public int getPlaytimeIn2Weeks() {
         return playtimeIn2Weeks;
     }
 
+    /**
+     * Total time in game in minutes
+     * @return Time in minutes
+     */
     public int getPlaytimeForever() {
         return playtimeForever;
     }
 
+    /**
+     * Url to game icon
+     * @return Url as String
+     */
     public String getIconUrl() {
         return String.format("http://media.steampowered.com/steamcommunity/public/images/apps/%s/%s.jpg", appId, iconUrl);
     }
 
+    /**
+     * Url to game logo
+     * @return Url as String
+     */
     public String getLogoUrl() {
         return String.format("http://media.steampowered.com/steamcommunity/public/images/apps/%s/%s.jpg", appId, logoUrl);
     }
