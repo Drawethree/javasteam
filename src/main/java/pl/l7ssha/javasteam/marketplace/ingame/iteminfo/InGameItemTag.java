@@ -20,14 +20,26 @@ public class InGameItemTag {
         this.categoryName = categoryName;
     }
 
+    /**
+     * Internal name of tag.
+     * @return String with tag name.
+     */
     public String getInternalName() {
         return internalName;
     }
 
+    /**
+     * Public name of tag
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Category of tag
+     * @return String with category name
+     */
     public String getCategory() {
         return category;
     }

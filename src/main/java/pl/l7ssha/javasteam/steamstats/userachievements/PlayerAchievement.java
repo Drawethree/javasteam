@@ -22,22 +22,42 @@ public class PlayerAchievement {
         this.description = desciption;
     }
 
+    /**
+     * Internal name of achievement
+     * @return String with name
+     */
     public String getApiName() {
         return apiName;
     }
 
+    /**
+     * True if achievement completed.
+     * @return Boolean
+     */
     public boolean isAchieved() {
         return achieved;
     }
 
+    /**
+     * Date when achievement was unlocked
+     * @return Date object
+     */
     public Date getUnlockTime() {
         return unlockTime;
     }
 
+    /**
+     * Public name of achievement
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Description of achievement (Secondary text in which is written how to obtain achievement)
+     * @return Description String
+     */
     public String getDescription() {
         return description;
     }

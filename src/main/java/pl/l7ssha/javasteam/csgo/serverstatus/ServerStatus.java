@@ -18,22 +18,42 @@ public class ServerStatus {
 
     public ServerStatus() { }
 
+    /**
+     * Undocumented. Not sure of it's request data or last update data. [TO FIX]
+     * @return Object with data about (request or latest update)
+     */
     public RequestInfo getApp() {
         return app;
     }
 
+    /**
+     * Informations about status of steam services related to CSGO
+     * @return Object with status of steam services
+     */
     public Services getServices() {
         return services;
     }
 
+    /**
+     * Actual data with csgo server status.
+     * @return
+     */
     public Datacenters getDatacenters() {
         return datacenters;
     }
 
+    /**
+     * Informations about matchmaking service and scheduler. Also contains amount of searching players at the moment.
+     * @return Object with matchmaking service status and stats
+     */
     public Matchmaking getMatchmaking() {
         return matchmaking;
     }
 
+    /**
+     * Undocumented. Contains status of logon and purchase services.
+     * @return Object with steam services status
+     */
     public PerfectWorld getPerfectWorld() {
         return perfectWorld;
     }
