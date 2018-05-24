@@ -15,6 +15,10 @@ public class FriendList implements Iterable<FriendListNode> {
         this.friends = friends;
     }
 
+    /**
+     * Friend's list of user
+     * @return List of friends
+     */
     public List<FriendListNode> getFriends() {
         return friends;
     }

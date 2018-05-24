@@ -23,10 +23,18 @@ public class FriendListNode implements Userable {
         return new SteamUser(steamId);
     }
 
+    /**
+     * User steamId
+     * @return 64bit id
+     */
     public Long getSteamId() {
         return steamId;
     }
 
+    /**
+     * Relationship of friend to user
+     * @return Relationship string
+     */
     public String getRelationship() {
         return relationship;
     }

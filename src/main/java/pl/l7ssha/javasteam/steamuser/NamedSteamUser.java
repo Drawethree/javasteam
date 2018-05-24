@@ -20,10 +20,18 @@ public class NamedSteamUser extends AbstractSteamUser {
        this.nick = nick;
     }
 
+    /**
+     * User's steamid
+     * @return Id of user
+     */
     public Long getSteamId() {
         return steamId;
     }
 
+    /**
+     * User's nick
+     * @return Nick as String
+     */
     public String getNick() {
         return nick;
     }
