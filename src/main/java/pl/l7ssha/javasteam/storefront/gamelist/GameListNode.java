@@ -20,10 +20,18 @@ public class GameListNode extends NamedSteamGame {
         this.priceChangeNumber = priceChanageNumber;
     }
 
+    /**
+     * Undocumented
+     * @return Date
+     */
     public Date getLastModified() {
         return lastModified;
     }
 
+    /**
+     * Number of price changes
+     * @return Int
+     */
     public int getPriceChangeNumber() {
         return priceChangeNumber;
     }

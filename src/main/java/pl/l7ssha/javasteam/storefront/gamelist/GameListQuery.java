@@ -19,13 +19,23 @@ public class GameListQuery {
 
     private int max = 10_000;
 
-    private int appid = 0;
+    private long appid = 0;
 
+    /**
+     * Time whan game was modified last time
+     * @param value Time as unix timestamp
+     * @return This
+     */
     public GameListQuery setModifiedSince(long value) {
         this.if_modified_since = value;
         return this;
     }
 
+    /**
+     * Checks if app has description in specified language.
+     * @param lang Language as eg. ENG, PL. Full names not tested
+     * @return This
+     */
     public GameListQuery setHaveDescInLanguage(String lang) {
         this.have_description = lang;
         return this;
@@ -56,12 +66,22 @@ public class GameListQuery {
         return this;
     }
 
+    /**
+     * Max number of apps included in response
+     * @param max Default 10k
+     * @return This
+     */
     public GameListQuery setMaxResults(int max) {
         this.max = max;
         return this;
     }
 
-    public GameListQuery setAppid(int appid) {
+    /**
+     * Set if want start searching from specified game
+     * @param appid Game id
+     * @return This
+     */
+    public GameListQuery setAppid(long appid) {
         this.appid = appid;
         return this;
     }
