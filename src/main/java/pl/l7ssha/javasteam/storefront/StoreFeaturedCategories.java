@@ -23,11 +23,7 @@ public class StoreFeaturedCategories {
 
     @Nullable
     @SerializedName("2")
-    private Spotlight third;
-
-    @Nullable
-    @SerializedName("3")
-    private DailyDeal dailyDeal;
+    private DailyDeal third;
 
     @SerializedName("specials")
     private Special specials;
@@ -45,20 +41,19 @@ public class StoreFeaturedCategories {
 
     public StoreFeaturedCategories() { }
 
+    @Nullable
     public Spotlight getFirst() {
         return first;
     }
 
+    @Nullable
     public Spotlight getSecond() {
         return second;
     }
 
-    public Spotlight getThird() {
+    @Nullable
+    public DailyDeal getThird() {
         return third;
-    }
-
-    public DailyDeal getDailyDeal() {
-        return dailyDeal;
     }
 
     public Special getSpecials() {
