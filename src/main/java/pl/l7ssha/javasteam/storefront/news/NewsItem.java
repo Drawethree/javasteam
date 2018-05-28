@@ -32,30 +32,58 @@ public class NewsItem {
         this.date = date;
     }
 
+    /**
+     * Date of publish
+     * @return Date of publish
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * News id
+     * @return News id as long
+     */
     public long getGid() {
         return gid;
     }
 
+    /**
+     * News title
+     * @return String with title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Url to full article
+     * @return
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * Indicates if link points to external page
+     * @return
+     */
     public boolean isExternalUrl() {
         return isExternalUrl;
     }
 
+    /**
+     * Author nick/name
+     * @return String with author nick/name
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Full contents of article
+     * @return
+     */
     public String getContents() {
         return contents;
     }

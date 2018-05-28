@@ -24,14 +24,26 @@ public class News implements Iterable<NewsItem>, Gameable {
 
     public News() { }
 
+    /**
+     * Game id
+     * @return Game id as long
+     */
     public long getAppId() {
         return appId;
     }
 
+    /**
+     * Number of available news
+     * @return Integer
+     */
     public int getTotalNews() {
         return totalNews;
     }
 
+    /**
+     * List of news
+     * @return List of news
+     */
     public List<NewsItem> getNews() {
         return news;
     }
