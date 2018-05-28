@@ -16,6 +16,10 @@ public class DailyDeal extends ShopNode implements Iterable<DailyDealItem> {
 
     public DailyDeal() { }
 
+    /**
+     * List of apps advertised as 'Daily deal'
+     * @return List of deals
+     */
     public List<DailyDealItem> getDailyDealItems() {
         return dailyDealItems;
     }

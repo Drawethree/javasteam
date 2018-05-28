@@ -18,18 +18,34 @@ public class SpotlightItem {
 
     public SpotlightItem() { }
 
+    /**
+     * Name of spotlight
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Spotlight front image
+     * @return Url as String
+     */
     public String getHeaderImage() {
         return headerImage;
     }
 
+    /**
+     * Short description of promo
+     * @return Description as String
+     */
     public String getBody() {
         return body;
     }
 
+    /**
+     * Url to sale page
+     * @return url as String
+     */
     public String getUrl() {
         return url;
     }

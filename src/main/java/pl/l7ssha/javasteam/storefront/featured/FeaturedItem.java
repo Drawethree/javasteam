@@ -26,10 +26,18 @@ public class FeaturedItem extends DailyDealItem {
 
     public FeaturedItem() { }
 
+    /**
+     * Large image of promo
+     * @return Url as String
+     */
     public String getLargeImage() {
         return largeImage;
     }
 
+    /**
+     * Small image of promo
+     * @return Url as String
+     */
     public String getSmallImage() {
         return smallImage;
     }

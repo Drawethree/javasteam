@@ -16,6 +16,10 @@ public class Spotlight extends ShopNode implements Iterable<SpotlightItem> {
 
     public Spotlight() { }
 
+    /**
+     * List of spotlights
+     * @return List of spotlights
+     */
     public List<SpotlightItem> getSpotlightItems() {
         return spotlightItems;
     }

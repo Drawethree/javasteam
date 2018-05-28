@@ -6,8 +6,10 @@ package pl.l7ssha.javasteam.storefront.featured;
 // Author: Szymon 'l7ssha' Uglis
 
 import com.google.gson.annotations.SerializedName;
+import pl.l7ssha.javasteam.storefront.Gameable;
+import pl.l7ssha.javasteam.storefront.SteamGame;
 
-public class DailyDealItem {
+public class DailyDealItem implements Gameable {
     private int id;
     private int type;
     private String name;
@@ -32,43 +34,88 @@ public class DailyDealItem {
 
     public DailyDealItem() { }
 
+    /**
+     * Undocumented. Probably game id
+     * @return Id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Undocumented
+     * @return Type as int
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * Name of deal/game
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * True if discounted
+     * @return Boolean
+     */
     public boolean isDiscounted() {
         return discounted;
     }
 
+    /**
+     * Discount percent
+     * @return Percent as double
+     */
     public double getDiscountPercent() {
         return discountPercent;
     }
 
+    /**
+     * Original app price in euros/dollars
+     * @return Price as double
+     */
     public double getOriginalPrice() {
         return originalPrice / 100;
     }
 
+    /**
+     * Price after discounts of app
+     * @return Price as double
+     */
     public double getFinalPrice() {
         return finalPrice / 100;
     }
 
+    /**
+     * Currency of price
+     * @return
+     */
     public String getCurrency() {
         return currency;
     }
 
+    /**
+     * Promo image
+     * @return
+     */
     public String getHeaderImage() {
         return headerImage;
     }
 
+    /**
+     * Purchase package id if available
+     * @return
+     */
     public String getPurchasePackage() {
         return purchasePackage;
+    }
+
+    @Override
+    public SteamGame toSteamGame() {
+        return new SteamGame(id);
     }
 }

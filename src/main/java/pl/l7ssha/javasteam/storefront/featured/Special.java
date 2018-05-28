@@ -17,6 +17,11 @@ public class Special extends ShopNode implements Iterable<FeaturedItem> {
     public Special() { }
 
     // Expiration date to fill
+
+    /**
+     * List of featured apps in store
+     * @return List of featured apps
+     */
     public List<FeaturedItem> getFeaturedItems() {
         return featuredItems;
     }
