@@ -11,10 +11,18 @@ public class SupportInfo {
 
     public SupportInfo() { }
 
+    /**
+     * Support Url
+     * @return Url as String
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * Support email
+     * @return Email as String
+     */
     public String getEmail() {
         return email;
     }

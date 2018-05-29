@@ -21,18 +21,34 @@ public class PriceOverview {
 
     public PriceOverview() { }
 
+    /**
+     * Currency code
+     * @return Currency code in 'xxx' format: PLN, USD
+     */
     public String getCurrency() {
         return currency;
     }
 
+    /**
+     * Initial price of app
+     * @return Price
+     */
     public double getInitialPrice() {
         return initialPrice / 100;
     }
 
+    /**
+     * Price after discounts
+     * @return Price
+     */
     public double getFinalPrice() {
         return finalPrice / 100;
     }
 
+    /**
+     * Percent of discount
+     * @return Percent
+     */
     public double getDiscountPercent() {
         return discountPercent;
     }

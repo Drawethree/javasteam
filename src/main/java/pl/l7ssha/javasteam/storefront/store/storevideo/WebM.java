@@ -16,10 +16,18 @@ public class WebM {
 
     public WebM() { }
 
+    /**
+     * URL to video in 480p
+     * @return Url as String
+     */
     public String get_480() {
         return _480;
     }
 
+    /**
+     * Url to video in max resolution
+     * @return Url as String
+     */
     public String getMax() {
         return max;
     }

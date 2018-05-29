@@ -18,14 +18,26 @@ public class StoreScreenshot {
 
     public StoreScreenshot() { }
 
+    /**
+     * Id of screenshot
+     * @return Id as Integer
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Url to thumbnail
+     * @return Url as String
+     */
     public String getThumbnalPath() {
         return thumbnalPath;
     }
 
+    /**
+     * Url to full resolution photo
+     * @return Url as String
+     */
     public String getFullPath() {
         return fullPath;
     }

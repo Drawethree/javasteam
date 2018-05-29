@@ -11,10 +11,18 @@ public class StoreCategory {
 
     public StoreCategory() { }
 
+    /**
+     * Id of category
+     * @return Integer id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Category description
+     * @return
+     */
     public String getDescription() {
         return description;
     }

@@ -11,10 +11,18 @@ public class Metacritic {
 
     public Metacritic() { }
 
+    /**
+     * Metacritic score
+     * @return Metacritic score
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Url to article at metacritic
+     * @return Url as String
+     */
     public String getUrl() {
         return url;
     }

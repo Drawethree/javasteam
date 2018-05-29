@@ -21,6 +21,10 @@ public class ReleaseDate {
         return comingSoon;
     }
 
+    /**
+     * Release date of app
+     * @return Date as String
+     */
     public String getDate() {
         return date;
     }

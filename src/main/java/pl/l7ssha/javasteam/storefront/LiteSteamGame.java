@@ -29,26 +29,50 @@ public class LiteSteamGame extends NamedSteamGame {
 
     public LiteSteamGame() { }
 
+    /**
+     * Type of store application
+     * @return GameType
+     */
     public GameType getType() {
         return type;
     }
 
+    /**
+     * List of developers
+     * @return List of String
+     */
     public List<String> getDevelopers() {
         return developers;
     }
 
+    /**
+     * List of publishers
+     * @return List of String
+     */
     public List<String> getPublishers() {
         return publishers;
     }
 
+    /**
+     * Price overview
+     * @return PriceOverview
+     */
     public PriceOverview getPriceOverview() {
         return priceOverview;
     }
 
+    /**
+     * Compatibility of game
+     * @return Platforms
+     */
     public Platforms getPlatforms() {
         return platforms;
     }
 
+    /**
+     * App release date
+     * @return Release date
+     */
     public ReleaseDate getReleaseDate() {
         return releaseDate;
     }

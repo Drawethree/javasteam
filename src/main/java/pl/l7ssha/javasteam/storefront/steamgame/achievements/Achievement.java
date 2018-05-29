@@ -11,10 +11,18 @@ public class Achievement {
 
     public Achievement() { }
 
+    /**
+     * Name of achievement
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Undocumented
+     * @return String
+     */
     public String getPath() {
         return path;
     }

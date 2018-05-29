@@ -17,6 +17,10 @@ public class CurrentPlayers {
 
     public CurrentPlayers() { }
 
+    /**
+     * Number of players in game
+     * @return Number of player in game
+     */
     public int getCount() {
         return count;
     }
