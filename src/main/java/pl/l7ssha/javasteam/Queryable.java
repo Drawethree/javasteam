@@ -9,12 +9,14 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * Provides basic abstraction to query next objects. Support async operations.
- * @param <T> Generic type
+ * 
+ * @param <T>
+ *            Generic type
  */
 public interface Queryable<T> {
-    T getNext();
-    T getNext(int num);
+	T getNext();
+	T getNext(int num);
 
-    CompletableFuture<T> getNextAsync();
-    CompletableFuture<T> getNextAsync(int num);
+	CompletableFuture<T> getNextAsync();
+	CompletableFuture<T> getNextAsync(int num);
 }
