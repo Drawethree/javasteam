@@ -6,14 +6,24 @@ package pl.l7ssha.javasteam.vanity;
 // Author: Szymon 'l7ssha' Uglis
 
 public class VanityUrl {
-    private Long steamid;
-    private int success;
+  private Long steamid;
+  private int success;
 
-    public Long getSteamId() {
-        return steamid;
-    }
+  /**
+   * Steam Id of specified vanity Url
+   *
+   * @return Id as long
+   */
+  public Long getSteamId() {
+    return steamid;
+  }
 
-    public int getSuccess() {
-        return success;
-    }
+  /**
+   * Integer containing action code
+   *
+   * @return Action success code
+   */
+  public int getSuccess() {
+    return success;
+  }
 }
