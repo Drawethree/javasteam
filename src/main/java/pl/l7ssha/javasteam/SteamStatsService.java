@@ -5,16 +5,17 @@ package pl.l7ssha.javasteam;
 // Date created: 06 Apr 2018
 // Author: Szymon 'l7ssha' Uglis
 
-import pl.l7ssha.javasteam.schema.GameSchema;
-import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
-
 import java.util.concurrent.CompletableFuture;
 
 import static pl.l7ssha.javasteam.utils.Links.appSchemaUrl;
 import static pl.l7ssha.javasteam.utils.Links.globalAchievementsUrl;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
+import pl.l7ssha.javasteam.schema.GameSchema;
+import pl.l7ssha.javasteam.steamstats.globalachievements.AchievementsGlobalPercentages;
+
 public class SteamStatsService implements ISteamService{
+
     /**
      * Returns schema for specified game and lang. Schema provide description for achievements and stats.
      * @param id Id of app

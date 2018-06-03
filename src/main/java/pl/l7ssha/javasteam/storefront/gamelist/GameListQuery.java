@@ -88,7 +88,9 @@ public class GameListQuery {
 
     @Override
     public String toString() {
-        return String.format(Links.storeSearching, if_modified_since, have_description, boolToInt(include_games), boolToInt(include_dlc), boolToInt(include_hardware), boolToInt(include_software), boolToInt(include_videos), appid, max);
+        return String.format(Links.storeSearching, if_modified_since, have_description, boolToInt(include_games),
+                boolToInt(include_dlc), boolToInt(include_hardware), boolToInt(include_software),
+                boolToInt(include_videos), appid, max);
     }
 
     private int boolToInt(boolean b) {
