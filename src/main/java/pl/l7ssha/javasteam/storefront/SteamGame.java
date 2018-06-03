@@ -16,45 +16,45 @@ import static pl.l7ssha.javasteam.utils.Links.newsForApp;
 import static pl.l7ssha.javasteam.utils.ResponserUtils.getGenericResponse;
 
 public class SteamGame {
-    @SerializedName("steam_appid")
-    protected long appId;
+	@SerializedName("steam_appid")
+	protected long appId;
 
-    protected SteamGame() { }
+	protected SteamGame() {
+	}
+	public SteamGame(long appId) {
+		this.appId = appId;
+	}
 
-    public SteamGame(long appId) {
-        this.appId = appId;
-    }
+	public long getAppId() {
+		return appId;
+	}
 
-    public long getAppId() {
-        return appId;
-    }
+	public News getNews(int count) {
+		return getGenericResponse(String.format(newsForApp, appId, count), News.class);
+	}
 
-    public News getNews(int count) {
-        return getGenericResponse(String.format(newsForApp, appId, count), News.class);
-    }
+	public CompletableFuture<News> getNewsAsync(String id, int count) {
+		return CompletableFuture.supplyAsync(() -> getNews(count));
+	}
 
-    public CompletableFuture<News> getNewsAsync(String id, int count) {
-        return CompletableFuture.supplyAsync(() -> getNews(count));
-    }
+	public CurrentPlayers getCurrentPlayers() {
+		return getGenericResponse(String.format(currentPlayersUrl, appId), CurrentPlayers.class);
+	}
 
-    public CurrentPlayers getCurrentPlayers() {
-        return getGenericResponse(String.format(currentPlayersUrl, appId), CurrentPlayers.class);
-    }
+	public CompletableFuture<CurrentPlayers> getCurrentPlayersAsync() {
+		return CompletableFuture.supplyAsync(this::getCurrentPlayers);
+	}
 
-    public CompletableFuture<CurrentPlayers> getCurrentPlayersAsync() {
-        return CompletableFuture.supplyAsync(this::getCurrentPlayers);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof SteamGame)
+			return this.getAppId() == ((SteamGame) o).getAppId();
 
-    @Override
-    public boolean equals(Object o) {
-        if(o instanceof SteamGame)
-            return this.getAppId() == ((SteamGame)o).getAppId();
+		return false;
+	}
 
-        return false;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s", this.appId);
-    }
+	@Override
+	public String toString() {
+		return String.format("%s", this.appId);
+	}
 }
