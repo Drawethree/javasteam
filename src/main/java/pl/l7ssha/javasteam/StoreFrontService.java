@@ -18,9 +18,7 @@ import pl.l7ssha.javasteam.storefront.news.News;
 public class StoreFrontService implements ISteamService {
 	/**
 	 * Returns full set of data about app.
-	 *
-	 * @param id
-	 *            Id of app
+	 * @param id Id of app
 	 * @return RichSteamGame
 	 */
 	public RichSteamGame getFullInfoOfApp(String id) {
@@ -29,9 +27,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously returns full set of data about app.
-	 *
-	 * @param id
-	 *            Id of app
+	 * @param id Id of app
 	 * @return CompletableFuture
 	 */
 	public CompletableFuture<RichSteamGame> getFullInfoOfAppAsync(String id) {
@@ -40,9 +36,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Returns basic info about game
-	 *
-	 * @param id
-	 *            Id of app
+	 * @param id Id of app
 	 * @return LiteSteamGame
 	 */
 	public LiteSteamGame getBaseInfoOfApp(String id) {
@@ -51,9 +45,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously returns basic info about game
-	 *
-	 * @param id
-	 *            Id of app
+	 * @param id Id of app
 	 * @return CompletableFuture
 	 */
 	public CompletableFuture<LiteSteamGame> getBaseInfoOfAppAsync(String id) {
@@ -62,7 +54,6 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Fetches current featured games in steam store
-	 *
 	 * @return StoreFeatured
 	 */
 	public StoreFeatured getStoreFeatured() {
@@ -80,7 +71,6 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Fetches current featured games in steam store.
-	 *
 	 * @return StoreFeaturedCategories
 	 */
 	public StoreFeaturedCategories getStoreFeaturedCategories() {
@@ -89,7 +79,6 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously fetches current featured games in steam store.
-	 *
 	 * @return StoreFeaturedCategories
 	 */
 	public CompletableFuture<StoreFeaturedCategories> getStoreFeaturedCategoriesAsync() {
@@ -98,9 +87,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Gets info about bundle(package)
-	 *
-	 * @param id
-	 *            Bundle ID
+	 * @param id Bundle ID
 	 * @return StorePackage
 	 */
 	public StorePackage getStorePackageInfo(String id) {
@@ -120,9 +107,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Searches store for apps with query.
-	 *
-	 * @param query
-	 *            Query object
+	 * @param query Query object
 	 * @return GameList
 	 */
 	public GameList searchStore(GameListQuery query) {
@@ -133,9 +118,7 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously searches store for games with query.
-	 *
-	 * @param query
-	 *            Query object
+	 * @param query Query object
 	 * @return GameList
 	 */
 	public CompletableFuture<GameList> searchStoreAsync(GameListQuery query) {
@@ -144,11 +127,8 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Gets news for app.
-	 *
-	 * @param id
-	 *            Id of app
-	 * @param count
-	 *            Count of results to return
+	 * @param id d of app
+	 * @param count Count of results to return
 	 * @return News
 	 */
 	public News getNewsForApp(String id, int count) {
@@ -157,11 +137,8 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously gets news for app.
-	 *
-	 * @param id
-	 *            Id of app
-	 * @param count
-	 *            Count of results to return
+	 * @param id Id of app
+	 * @param count Count of results to return
 	 * @return News
 	 */
 	public CompletableFuture<News> getNewsForAppAsync(String id, int count) {
@@ -170,11 +147,8 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Checks given game version is newest one.
-	 *
-	 * @param id
-	 *            If of app
-	 * @param version
-	 *            Version string
+	 * @param id If of app
+	 * @param version Version string
 	 * @return IGameVersion
 	 */
 	public IGameVersion checkGameVersion(String id, String version) {
@@ -183,11 +157,8 @@ public class StoreFrontService implements ISteamService {
 
 	/**
 	 * Asynchronously checks given game version is newest one.
-	 *
-	 * @param id
-	 *            If of app
-	 * @param version
-	 *            Version string
+	 * @param id If of app
+	 * @param version Version string
 	 * @return IGameVersion
 	 */
 	public CompletableFuture<IGameVersion> checkGameVersionAsync(String id, String version) {
