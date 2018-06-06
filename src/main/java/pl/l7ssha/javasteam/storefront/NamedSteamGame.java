@@ -15,6 +15,10 @@ public class NamedSteamGame extends SteamGame {
         this.name = name;
     }
 
+    /**
+     * Gets name of app/game
+     * @return String with name
+     */
     public String getName() {
         return name;
     }

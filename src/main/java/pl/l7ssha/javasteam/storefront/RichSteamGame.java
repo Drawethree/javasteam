@@ -72,50 +72,98 @@ public class RichSteamGame extends LiteSteamGame {
 
     public RichSteamGame() { }
 
+    /**
+     * Required age to play game (PEGI)
+     * @return Int
+     */
     public int getRequiredAge() {
         return RequiredAge;
     }
 
+    /**
+     * True if game is free
+     * @return Boolean
+     */
     public boolean isFree() {
         return isFree;
     }
 
+    /**
+     * Controller support data
+     * @return Controller support data
+     */
     public ControllerSupport getControllerSupport() {
         return controllerSupport;
     }
 
+    /**
+     * Detailed descripton section on store
+     * @return Description as HTML String
+     */
     public String getDetailedDescription() {
         return detailedDescription;
     }
 
+    /**
+     * About game section in store
+     * @return String with game description
+     */
     public String getAboutTheGame() {
         return aboutTheGame;
     }
 
+    /**
+     * Short Game Description
+     * @return Short game description as String
+     */
     public String getShortDescription() {
         return shortDescription;
     }
 
+    /**
+     * Supported languages list
+     * @return String with list of supported languages
+     */
     public String getSupportedLanguages() {
         return supportedLanguages;
     }
 
+    /**
+     * Url of main app pictrue
+     * @return Url as String
+     */
     public String getHeaderImage() {
         return headerImage;
     }
 
+    /**
+     * Game main website url
+     * @return Url as String
+     */
     public String getWebsite() {
         return website;
     }
 
+    /**
+     * Requirments of game for PC (aka Windows)
+     * @return Requirments data
+     */
     public Requirements getPcRequirements() {
         return pcRequirements;
     }
-
+    
+    /**
+     * Requirments of game for Mac
+     * @return Requirments data
+     */
     public Requirements getMacRequirements() {
         return macRequirements;
     }
-
+    
+    /**
+     * Requirments of game for Linux
+     * @return Requirments data
+     */
     public Requirements getLinuxRequirements() {
         return linuxRequirements;
     }
@@ -128,38 +176,70 @@ public class RichSteamGame extends LiteSteamGame {
         return packageGroups;
     }
 
+    /**
+     * Metacritic game score
+     * @return Metacritic score data
+     */
     public Metacritic getMetacritic() {
         return metacritic;
     }
 
+    /**
+     * Categories assgned to game
+     * @return List of Categories 
+     */
     public List<StoreCategory> getCategories() {
         return categories;
     }
 
+    /**
+     * Genres assigned to game
+     * @return List of genres
+     */
     public List<StoreGenre> getGenres() {
         return genres;
     }
 
+    /**
+     * Game's Spotlight screenshots 
+     * @return List of screenshots
+     */
     public List<StoreScreenshot> getScreenshots() {
         return screenshots;
     }
 
+    /**
+     * Game's spotlight movies
+     * @return List of videos
+     */
     public List<StoreVideo> getMovies() {
         return movies;
     }
 
+    /**
+     * Recommendations for game
+     * @return Recommendations
+     */
     public Recommendations getRecommendations() {
         return recommendations;
     }
 
+    /**
+     * Game's Achievements list
+     * @return Achievement's list
+     */
     public Achievements getAchievements() {
         return achievements;
     }
 
+    /**
+     * Game support info
+     * @return Support info object
+     */
     public SupportInfo getSupportInfo() {
         return supportInfo;
     }
-
+    
     public String getBackground() {
         return background;
     }
