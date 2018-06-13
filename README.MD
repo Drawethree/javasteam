@@ -10,13 +10,17 @@ It provides also marketplace tool for fetching and querying data from steam mark
  * Search in marketplace ([Example](https://github.com/l7ssha/javasteam/tree/master/examples/marketplace-example))
  * Get data abount achievements and game stats
  * Get steam users data
- * (Soon) Dota 2 data
+ * ~~(Soon) Dota 2 data~~
 
 #### Pre-Release
 
 Library for now is in pre-release stage. Why? All implementations are not finished yet. There is lack of unit tests (some test you can find, howover few of them)
 
 But library is working and usable!
+
+#### Asynchronous
+
+All methods have it's own asynchronous counterpart. Library handles async by Java 8 `CompletableFuture<>`.
 
 ## Quick peek
 
@@ -42,7 +46,7 @@ class Main {
 
 #### [Wiki](https://github.com/l7ssha/javasteam/wiki)
 
-[Javadoc API](https://l7ssha.pl/javasteam/)
+[Javadoc](https://l7ssha.pl/javasteam/)
 
 ## Download
 
@@ -91,7 +95,7 @@ libraryDependencies += "com.github.l7ssha" % "javasteam" % "1.5.5-PRE"
 
 ## Roadmap
 
-1. Document all data classes properties
+1. Document all data classes properties (nearly done)
 2. Implement Dota 2 endpoints
 3. Extend wiki
 
