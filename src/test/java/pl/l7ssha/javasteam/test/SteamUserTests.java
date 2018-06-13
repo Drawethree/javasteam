@@ -55,7 +55,7 @@ public class SteamUserTests {
     void friendGetNextFriendTest() {
         FriendList friendOfl7ssha = l7ssha.getFriendList();
         ISteamUser someUser = friendOfl7ssha.getFriends().get(13).getSteamUser();
-        FriendList  someUserFriends = someUser.getFriendList();
+        FriendList someUserFriends = someUser.getFriendList();
 
         assertNotNull(someUser);
         assertNotNull(someUserFriends.getFriends().get(10).getFriendSince());
@@ -119,13 +119,12 @@ public class SteamUserTests {
         assertNotNull(playerStatsWithDescription.get(0).getDescription());
     }
 
-
     @Test
     void recentGamesTest() {
         RecentGames games = l7ssha.getRecentGames();
 
         assertTrue(games.getTotalRecentGames() > 0);
-        assertNotNull(games.getGames().get(1).getIconUrl());
+        assertNotNull(games.getGames().get(0).getIconUrl());
         assertTrue(games.getTotalRecentGames() > 0);
     }
 

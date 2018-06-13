@@ -14,11 +14,11 @@ public class InGameItemClass {
         this.value = value;
     }
 
-    public InGameItemClass() { }
+    public InGameItemClass() {}
 
     /**
      * Undocumented
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -26,7 +26,7 @@ public class InGameItemClass {
 
     /**
      * Undocumented
-     * @return
+     * @return String
      */
     public int getValue() {
         return value;

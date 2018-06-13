@@ -6,6 +6,7 @@ package pl.l7ssha.javasteam.storefront.news;
 // Author: Szymon 'l7ssha' Uglis
 
 import java.util.Date;
+import pl.l7ssha.javasteam.utils.annotation.Html;
 
 public class NewsItem {
     private long gid;
@@ -58,7 +59,7 @@ public class NewsItem {
 
     /**
      * Url to full article
-     * @return
+     * @return Url as String
      */
     public String getUrl() {
         return url;
@@ -66,7 +67,7 @@ public class NewsItem {
 
     /**
      * Indicates if link points to external page
-     * @return
+     * @return Boolean
      */
     public boolean isExternalUrl() {
         return isExternalUrl;
@@ -82,8 +83,9 @@ public class NewsItem {
 
     /**
      * Full contents of article
-     * @return
+     * @return Contents of article. It can be HTML string
      */
+    @Html
     public String getContents() {
         return contents;
     }

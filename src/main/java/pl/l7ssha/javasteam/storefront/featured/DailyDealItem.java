@@ -32,7 +32,7 @@ public class DailyDealItem implements Gameable {
     @SerializedName("purchase_package")
     private String purchasePackage;
 
-    public DailyDealItem() { }
+    public DailyDealItem() {}
 
     /**
      * Undocumented. Probably game id
@@ -52,7 +52,7 @@ public class DailyDealItem implements Gameable {
 
     /**
      * Name of deal/game
-     * @return
+     * @return String with name
      */
     public String getName() {
         return name;
@@ -92,23 +92,23 @@ public class DailyDealItem implements Gameable {
 
     /**
      * Currency of price
-     * @return
+     * @return String with currency code (eg. PLN, USD)
      */
     public String getCurrency() {
         return currency;
     }
 
     /**
-     * Promo image
-     * @return
+     * Promo image url
+     * @return Url as String
      */
     public String getHeaderImage() {
         return headerImage;
     }
 
     /**
-     * Purchase package id if available
-     * @return
+     * Undocumented
+     * @return String
      */
     public String getPurchasePackage() {
         return purchasePackage;

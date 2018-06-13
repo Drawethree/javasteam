@@ -46,7 +46,7 @@ public class GroupDetails {
     @XmlElement(name = "membersOnline")
     private int membersOnline;
 
-    public GroupDetails() { }
+    public GroupDetails() {}
 
     /**
      * Public name of group
@@ -66,7 +66,7 @@ public class GroupDetails {
 
     /**
      * UNDOCUMENTED (Name of group but uppercase (?))
-     * @return
+     * @return String
      */
     public String getHeadline() {
         return headline;

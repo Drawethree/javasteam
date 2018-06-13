@@ -57,7 +57,7 @@ public class UserSummary implements Userable {
         this.gameId = gameId;
     }
 
-    public UserSummary() { }
+    public UserSummary() {}
 
     /**
      * Id of steam user
@@ -93,7 +93,7 @@ public class UserSummary implements Userable {
 
     /**
      * User's public nick
-     * @return
+     * @return String with nick
      */
     public String getNick() {
         return nick;
@@ -173,7 +173,7 @@ public class UserSummary implements Userable {
 
     /**
      * Undocumented
-     * @return
+     * @return Int
      */
     public int getPersonaStateFlags() {
         return personaStateFlags;
@@ -189,6 +189,6 @@ public class UserSummary implements Userable {
 
     @Override
     public ISteamUser getSteamUser() {
-       return new SteamUser(steamid);
+        return new SteamUser(steamid);
     }
 }

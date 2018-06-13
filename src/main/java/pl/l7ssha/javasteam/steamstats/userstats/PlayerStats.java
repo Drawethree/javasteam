@@ -23,7 +23,7 @@ public class PlayerStats implements Iterable<PlayerStat> {
     @SerializedName("stats")
     private List<PlayerStat> playerStats;
 
-    public PlayerStats() { }
+    public PlayerStats() {}
 
     /**
      * SteamId of user that data is requested
@@ -35,7 +35,7 @@ public class PlayerStats implements Iterable<PlayerStat> {
 
     /**
      * Name of game which is data requested
-     * @return
+     * @return String width game name
      */
     public String getGameName() {
         return gameName;
@@ -43,7 +43,7 @@ public class PlayerStats implements Iterable<PlayerStat> {
 
     /**
      * Players statistics data without descriptions.
-     * @return
+     * @return List of player's statistics
      */
     public List<PlayerStat> getPlayerStats() {
         return playerStats;
@@ -58,11 +58,11 @@ public class PlayerStats implements Iterable<PlayerStat> {
         GameSchema schema = getGenericResponse(String.format(appSchemaUrl, gameId, "ENG"), GameSchema.class);
         List<SchemaStat> schemaAchievements = schema.getStats();
 
-        for(PlayerStat s: playerStats) {
+        for (PlayerStat s : playerStats) {
             String desc = "";
 
-            for(SchemaStat schemanode: schemaAchievements)
-                if(s.getName().equals(schemanode.getName()))
+            for (SchemaStat schemanode : schemaAchievements)
+                if (s.getName().equals(schemanode.getName()))
                     desc = schemanode.getDisplayName();
 
             s.setDescription(desc);

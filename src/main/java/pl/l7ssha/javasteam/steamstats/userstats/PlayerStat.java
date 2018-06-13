@@ -13,7 +13,7 @@ public class PlayerStat {
 
     private String description;
 
-    public PlayerStat() { }
+    public PlayerStat() {}
 
     void setDescription(String description) {
         this.description = description;
@@ -21,7 +21,7 @@ public class PlayerStat {
 
     /**
      * Internal name of stat
-     * @return
+     * @return String with name
      */
     public String getName() {
         return name;

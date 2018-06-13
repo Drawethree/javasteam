@@ -9,7 +9,7 @@ public class StoreCategory {
     private int id;
     private String description;
 
-    public StoreCategory() { }
+    public StoreCategory() {}
 
     /**
      * Id of category
@@ -21,7 +21,7 @@ public class StoreCategory {
 
     /**
      * Category description
-     * @return
+     * @return String
      */
     public String getDescription() {
         return description;

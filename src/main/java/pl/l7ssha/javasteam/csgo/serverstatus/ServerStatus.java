@@ -16,7 +16,7 @@ public class ServerStatus {
     @SerializedName("perfectworld")
     private PerfectWorld perfectWorld;
 
-    public ServerStatus() { }
+    public ServerStatus() {}
 
     /**
      * Undocumented. Not sure of it's request data or last update data. [TO FIX]
@@ -36,7 +36,7 @@ public class ServerStatus {
 
     /**
      * Actual data with csgo server status.
-     * @return
+     * @return List of csgo data centers with data attached to it
      */
     public Datacenters getDatacenters() {
         return datacenters;

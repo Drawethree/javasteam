@@ -24,6 +24,8 @@ public class StorePackage {
     List<NamedSteamGame> apps;
     private PriceOverview price;
     private Platforms platforms;
+
+    // This is broken for now. Have to fix.
     // private ControllerSupport controllerSupport;
 
     @SerializedName("release_date")
@@ -79,9 +81,7 @@ public class StorePackage {
         return platforms;
     }
 
-    /*
-     * public ControllerSupport getControllerSupport() { return controllerSupport; }
-     */
+    /* public ControllerSupport getControllerSupport() { return controllerSupport; } */
 
     /**
      * Release date
