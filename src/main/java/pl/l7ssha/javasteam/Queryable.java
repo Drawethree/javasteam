@@ -13,7 +13,10 @@ import java.util.concurrent.CompletableFuture;
  */
 public interface Queryable<T> {
     T getNext();
+
     T getNext(int num);
+
     CompletableFuture<T> getNextAsync();
+
     CompletableFuture<T> getNextAsync(int num);
 }

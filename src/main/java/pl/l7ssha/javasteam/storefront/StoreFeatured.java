@@ -27,28 +27,52 @@ public class StoreFeatured {
     private String layout;
     private String status;
 
-    public StoreFeatured() { }
+    public StoreFeatured() {}
 
+    /**
+     * Capsules are big images at main store page
+     * @return List of featured apps
+     */
     public List<FeaturedItem> getLargeCapsules() {
         return LargeCapsules;
     }
 
+    /**
+     * Featured apps for Windows platoform
+     * @return List of featured app
+     */
     public List<FeaturedItem> getFeaturedWin() {
         return featuredWin;
     }
 
+    /**
+     * Featured apps for Mac platform
+     * @return List of featured apps
+     */
     public List<FeaturedItem> getFeaturedMac() {
         return featuredMac;
     }
 
+    /**
+     * Featured apps for Linux platform
+     * @return List of featured apps
+     */
     public List<FeaturedItem> getFeaturedLinux() {
         return featuredLinux;
     }
 
+    /**
+     * Undocumented
+     * @return String
+     */
     public String getLayout() {
         return layout;
     }
 
+    /**
+     * Undocumented
+     * @return String
+     */
     public String getStatus() {
         return status;
     }

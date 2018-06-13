@@ -24,42 +24,69 @@ public class StorePackage {
     List<NamedSteamGame> apps;
     private PriceOverview price;
     private Platforms platforms;
-    //private ControllerSupport controllerSupport;
+    // private ControllerSupport controllerSupport;
 
     @SerializedName("release_date")
     private ReleaseDate releaseDate;
 
-    public StorePackage() { }
+    public StorePackage() {}
 
+    /**
+     * Name of pakcage name
+     * @return String with name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Url to main image
+     * @return Url as String
+     */
     public String getPageImage() {
         return pageImage;
     }
 
+    /**
+     * Url to small package logo
+     * @return Url as String
+     */
     public String getLogoSmall() {
         return logoSmall;
     }
 
+    /**
+     * List of apps(games) in package
+     * @return List of SteamGame
+     */
     public List<NamedSteamGame> getApps() {
         return apps;
     }
 
+    /**
+     * Price of package/bundle
+     * @return Price overview
+     */
     public PriceOverview getPrice() {
         return price;
     }
 
+    /**
+     * Data about platform availbility
+     * @return Platform availbility data
+     */
     public Platforms getPlatforms() {
         return platforms;
     }
 
     /*
-    public ControllerSupport getControllerSupport() {
-        return controllerSupport;
-    }
-    */
+     * public ControllerSupport getControllerSupport() { return controllerSupport; }
+     */
+
+    /**
+     * Release date
+     * @return Release date
+     */
     public ReleaseDate getReleaseDate() {
         return releaseDate;
     }
