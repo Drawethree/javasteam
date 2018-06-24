@@ -18,7 +18,7 @@ public class VanityUrlResolverTests {
 
     @BeforeAll
     static void getToken() throws IOException {
-        String token = Files.readAllLines(Paths.get("token.txt")).get(0);
+        String token = System.getenv("STEAM_TOKEN");
 
         usrApi = new SteamAPI(token).getService(SteamUserService.class);
     }

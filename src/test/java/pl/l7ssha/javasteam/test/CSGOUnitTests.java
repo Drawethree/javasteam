@@ -29,7 +29,7 @@ public class CSGOUnitTests {
 
     @BeforeAll
     static void getToken() throws IOException {
-        String token = Files.readAllLines(Paths.get("token.txt")).get(0);
+        String token = System.getenv("STEAM_TOKEN");
         api = new SteamAPI(token).getService(CsgoService.class);
     }
 
