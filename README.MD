@@ -1,4 +1,4 @@
-# javaSteam [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam)
+# javaSteam [![](https://jitpack.io/v/l7ssha/javasteam.svg)](https://jitpack.io/#l7ssha/javasteam) [![Build Status](https://travis-ci.org/l7ssha/javasteam.svg?branch=master)](https://travis-ci.org/l7ssha/javasteam)
 
 javaSteam is full-featured SteamAPI wrapper fo JVM. For now it cover about 70-80% of public steamAPI endpoint, and provides easy access to it.
 It provides also marketplace tool for fetching and querying data from steam marketplace.
