@@ -27,3 +27,7 @@ src/main/java/pl/l7ssha/javasteam/marketplace/ingame/iteminfo/
 /.metadata/
 .meghanada/
 /meghanadaFormatter.xml
+
+.classpath
+.project
+.settings/
